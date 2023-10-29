@@ -16,7 +16,7 @@ timezone: Asia/Singapore
 
 title: Benedict Chen # the main title
 
-tagline: SWE, Climber, Coffee-Lover<br/>Sharing my learnings, advice and thoughts on software/tech # it will display as the sub-title
+tagline: Either busy coding or climbing.<br/>Using this space to share my learnings, thoughts and advice.  # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   Benedict Chen's personal blog built using the minimal, responsive and feature-rich Jekyll theme
