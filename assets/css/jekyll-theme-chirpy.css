@@ -5,8 +5,8 @@ h3,
 h2,
 h1 {
     color: var(--heading-color);
-    font-weight: 400;
-    font-family: Lato, "Microsoft Yahei", sans-serif
+    font-weight: 500;
+    font-family: "Lato", "Microsoft Yahei", sans-serif
 }
 
 main h5,
@@ -75,7 +75,7 @@ h2 .anchor {
 .post-meta a:not([class]):hover,
 #access-lastmod a:hover,
 footer a:hover {
-    color: rgb(109, 170, 218);
+    color: rgb(108, 170, 217);
     text-decoration: none
 }
 
@@ -1312,7 +1312,7 @@ html {
         --label-color: #585858;
         --blockquote-border-color: #eeeeee;
         --blockquote-text-color: #757575;
-        --link-color: rgb(0, 149, 255);
+        --link-color: rgb(76, 156, 216);
         /* --link-underline-color: #0c8bcf; */
         --button-bg: #ffffff;
         --btn-border-color: #e9ecef;
@@ -1342,7 +1342,7 @@ html {
         --post-list-text-color: dimgray;
         --btn-patinator-text-color: #555555;
         --btn-paginator-hover-color: var(--sidebar-bg);
-        --toc-highlight: rgb(10, 83, 135);
+        --link-color: rgb(76, 156, 216);
         --btn-share-hover-color: var(--link-color);
         --card-bg: white;
         --card-hovor-bg: #e2e2e2;
@@ -1396,7 +1396,7 @@ html {
         --label-color: #a7a7a7;
         --blockquote-border-color: rgb(66, 66, 66);
         --blockquote-text-color: #868686;
-        --link-color: rgb(109, 170, 218);
+        --link-color: rgb(76, 156, 216);
         /* --link-underline-color: rgb(82, 108, 150); */
         --button-bg: #1e1e1e;
         --btn-border-color: #2e2f31;
@@ -1410,12 +1410,12 @@ html {
         --shimmer-bg: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(58, 55, 55, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
         --site-title-color: rgba(255, 255, 255, 0.800);
         --site-subtitle-color: rgba(255, 255, 255, 0.600);
-        --sidebar-bg: rgb(3, 29, 46);
+        --sidebar-bg: rgba(0, 26, 43, 0.796);
         /* --sidebar-border-color: rgba(255, 255, 255, 0.784); */
         --sidebar-muted-color: rgba(255, 255, 255, 0.600);
         --sidebar-active-color: rgb(255, 255, 255);
-        --sidebar-hover-bg: rgb(5, 41, 65);
-        --sidebar-btn-bg: rgb(5, 41, 65);
+        --sidebar-hover-bg: rgb(2, 46, 76);
+        --sidebar-btn-bg: rgb(2, 46, 76);
         --sidebar-btn-color: rgba(255, 255, 255, 0.600);
         --avatar-border-color: rgba(255, 255, 255, 0.600);
         --topbar-bg: rgb(27, 27, 30, 0.64);
@@ -2311,8 +2311,8 @@ mjx-container {
 }
 
 #sidebar .site-title {
-    font-family: inherit;
-    font-weight: 900;
+    font-family: 'Source Sans Pro';
+    font-weight: 700;
     font-size: 1.75rem;
     line-height: 1.2;
     letter-spacing: .25px;
