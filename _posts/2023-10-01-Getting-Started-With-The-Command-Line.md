@@ -131,7 +131,7 @@ The below cheatsheet is a compilation of commands that I either frequently used 
 | Command                        | Usage                                           |
 | kill PID                       | Kill processes using PID                        |
 | ps -ax                         | Show all running processes                      |
-| ps -ax | grep <name/pid/regex> | Search process using name/PID/regex             |
+| ps -ax \| grep <name/pid/regex> | Search process using name/PID/regex             |
 | top                            | Display live process statistics                 |
 | top -o rsize                   | Display processes with the highest memory usage |
 | nohup `file` > `logFile` &                  | Run process in the background (&) and pipes the standard output to log file |
