@@ -4,7 +4,7 @@ icon: fas fa-info-circle
 order: 1
 ---
 
-Hey there! My name is Benedict (Ben), and I am a software engineer based in Singapore.
+Hey there! My name is Benedict, and I am a software engineer based in Singapore.
 
 In my day-to-day, I design and develop observability components to support real-time logging and monitoring in Visa. In my downtime, I like to document and reflect on the lessons, thoughts and issues faced at work. 
 
