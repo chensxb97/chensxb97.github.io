@@ -10,9 +10,9 @@ This post advocates ditching the mouse and utilising keyboard shortcuts to speed
 *Please refer to this [post](/posts/Speed-Up-Using-Shortcuts-Windows) if you are a Windows user.*
 
 ## Why avoid the mouse?
-As a software engineer, *efficiency* is of the essence, especially when one is dealing with many tasks in his bucket or meeting tight deadlines. For any typing setup, majority of the time is spent moving between the keyboard and mouse. Fortunately for us, we can save this precious time by mastering keyboard shortcuts that can perform the same functions/tasks. Not only do you become more productive, you also get to look really cool (somewhat) and experience what is like to look like an experienced hacker (sortof).
+As a software engineer, *efficiency* is of the essence, especially when one is dealing with many tasks in his bucket or meeting tight deadlines. For any typing setup, majority of the time is spent moving between the keyboard and mouse. Fortunately for us, we can save this precious time by mastering keyboard shortcuts that can perform the same functions/tasks. Not only do you become more productive, you also get to look really cool (somewhat) and experience what it's like to feel like an experienced hacker (sortof).
 
-It will require some practice to master keyboard shortcuts and integrating them into your workflow. Rest assured, once you overcome this steep learning curve, you will witness your productivity drastically increase overtime. Below is a compilation of shortcuts that I have learnt and frequently use on Web browsers, Terminals and VSCode.
+It will require some practice to master and apply them properly. But rest assured, once you overcome this steep learning curve, you will witness your productivity drastically increase overtime. Below is a compilation of shortcuts that I have learnt and frequently use on Web browsers, Terminals and VSCode.
 
 ## Keyboard shortcuts
 
