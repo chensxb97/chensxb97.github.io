@@ -9,7 +9,7 @@ h2,
 h1 {
     color: var(--heading-color);
     font-weight: 500;
-    font-family: "Lato", "Microsoft Yahei", sans-serif
+    font-family: "Mona Sans", "Microsoft Yahei", sans-serif
 }
 
 main h5,
@@ -1326,7 +1326,7 @@ html {
         --checkbox-checked-color: #0c8bcf;
         --img-bg: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(239, 239, 239) 100%);
         --shimmer-bg: linear-gradient(90deg, rgba(250, 250, 250, 0) 0%, rgba(232, 230, 230, 1) 50%, rgba(250, 250, 250, 0) 100%);
-        --site-title-color: rgba(255, 255, 255, 0.700);
+        --site-title-color: rgba(255, 255, 255, 0.800);
         --site-subtitle-color: rgba(255, 255, 255, 0.700);
         --sidebar-bg: rgb(2, 60, 96);
         /* --sidebar-border-color: rgba(255, 255, 255, 0.784); */
@@ -1410,7 +1410,7 @@ html {
         --checkbox-checked-color: var(--link-color);
         --img-bg: radial-gradient(circle, rgb(22, 22, 24) 0%, rgb(32, 32, 32) 100%);
         --shimmer-bg: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(58, 55, 55, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
-        --site-title-color: rgba(255, 255, 255, 0.600);
+        --site-title-color: rgba(255, 255, 255, 0.700);
         --site-subtitle-color: rgba(255, 255, 255, 0.600);
         --sidebar-bg: rgb(0, 26, 43);
         /* rgb(1, 29, 48); */
@@ -2314,7 +2314,7 @@ mjx-container {
 }
 
 #sidebar .site-title {
-    font-family: 'Source Sans Pro';
+    font-family: inherit;
     font-weight: 700;
     font-size: 1.75rem;
     line-height: 1.2;
@@ -2713,7 +2713,7 @@ search i {
 }
 
 #notification .toast-body {
-    font-family: Lato, sans-serif;
+    font-family: 'Hubot Sans', sans-serif;
     line-height: 1.25rem
 }
 
@@ -3070,7 +3070,7 @@ search i {
 
 .pagination {
     color: var(--text-color);
-    font-family: Lato, sans-serif;
+    font-family: 'Hubot Sans', sans-serif;
     justify-content: space-evenly
 }
 
@@ -3448,7 +3448,7 @@ h1+.post-meta em a {
 .tag span {
     margin-left: .6em;
     font-size: .7em;
-    font-family: Oswald, sans-serif
+    font-family: 'Mona Sans', sans-serif
 }
 
 #archives {
@@ -3536,7 +3536,7 @@ h1+.post-meta em a {
 
 #archives .date.day {
     font-size: 85%;
-    font-family: Lato, sans-serif
+    font-family: 'Hubot Sans', sans-serif
 }
 
 #archives a {
