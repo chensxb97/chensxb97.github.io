@@ -109,7 +109,7 @@ It will require some practice to master and apply them properly. But rest assure
 
 ## Conclusion
 
-Ever since I started using them, it was excruciating to realise the amount of time wasted performing repetitive work (Eg. Editing the same variable names repeatedly; Highlighting a block of text; Deleting characters one by one using Backspace).
+Ever since I started learning and using these shortcuts, it was excruciating to realise the amount of time wasted performing repetitive work (Eg. Editing the same variable names repeatedly; Highlighting a block of text; Deleting characters one by one using Backspace).
 To anyone who is using a computer, ditch the mouse and give these shortcuts a shot. Afterwards, you can reward yourself with a nice coffee break :)
 
 ## Sources
