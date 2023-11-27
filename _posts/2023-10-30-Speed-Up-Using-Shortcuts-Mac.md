@@ -122,7 +122,7 @@ It will require some practice to master and apply them properly. But rest assure
 ## Conclusion
 
 If I had the chance to advise my old self when he owned his very first laptop, it will be to demonstrate to him the speed and power of the above shortcuts. Ever since I started using them, it was excruciating to realise the amount of time wasted performing repetitive work (Eg. Editing the same variable names repeatedly; Highlighting a block of text; Deleting characters one by one using Backspace).
-To anyone who is using a computer, ditch the mouse, give these shortcuts a shot, and you would have saved enough time for a nice coffee break :)
+To anyone who is using a computer, ditch the mouse, give these shortcuts a shot, and you can now reward yourself with a nice coffee break :)
 
 ## Sources
 1. [Keyboard shortcuts for a Developer](https://itnext.io/keyboard-shortcuts-for-a-developer-e6d1203774f6)
