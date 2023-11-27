@@ -19,7 +19,7 @@ Below are some basic terminology in git.
 | ----------------- | ---------------------------------------------------------------------------------------------------- |
 | git               | `git` is typed in the command line to run git commands                                           |
 | repo              | Short-form for repository                                                                             |
-| local             | A repository one's development machine                                                               |
+| local             | A copy of the repository in one's development machine                                              |
 | remote/origin     | The central repository hosted in the cloud/server                                                    |
 | clone             | Create a copy of the repository, in your local machine                                              |
 | fork              | Create a copy of the original repository in<br> your Github account (Used in Github)                 |
