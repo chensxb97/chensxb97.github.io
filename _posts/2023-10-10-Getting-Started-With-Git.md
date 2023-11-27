@@ -49,9 +49,9 @@ For most cases, users will use **git** to manage changes between repositories on
 
 | Configuration                                       |                                                                                 |
 | --------------------------------------------------- | -------------------------------------------------------------------------------- |
-| git config --global user.name `name`            | Set the name you want attached to your commits                      |
-| git config --global user.email `email_address` | Set the email you want attached to your commits                     |
-| git config --global color.ui auto                   | Set automatic command line coloring for easy reviewing of Git output            |
+| git config \-\-global user.name `name`            | Set the name you want attached to your commits                      |
+| git config \-\-global user.email `email_address` | Set the email you want attached to your commits                     |
+| git config \-\-global color.ui auto                   | Set automatic command line coloring for easy reviewing of Git output            |
 | GIT_SSL_NO_VERIFY=`boolean`                     | Environment variable for running git commands on server without SSL certificates |
 
 | Initialisation/Setup |                                                        |
@@ -65,13 +65,13 @@ For most cases, users will use **git** to manage changes between repositories on
 | git add `file`                      | Add a file to the stage before your next commit                                                   |
 | git rm `file`                       | Delete the file from project and stage the removal for commit                                            |
 | git diff                                | Difference between what is changed but not staged                                                         |
-| git diff --staged                       | Difference between what is staged but not yet commited                                                    |
+| git diff \-\-staged                       | Difference between what is staged but not yet commited                                                    |
 | git commit -m `descriptive_message` | Commit your staged content as a new commit snapshot                                                      |
 | git push                                | Apply your local branch commits to the remote repository branch                                         |
 | git pull                                | Fetch and merge any commits from the tracking remote branch                                               |
 | git reset `file`                    | Unstage a file while retaining the changes in working directory                                           |
-| git reset --soft `commit`           | Rewrite working tree from specified commit<br>Re-apply changes made to the staging area for that commit |
-| git reset --hard `commit`           | Rewrite working tree from specified commit<br>Clears the staging area                                       |
+| git reset \-\-soft `commit`           | Rewrite working tree from specified commit<br>Re-apply changes made to the staging area for that commit |
+| git reset \-\-hard `commit`           | Rewrite working tree from specified commit<br>Clears the staging area                                       |
 | git push origin -f `branch` | Force push branch to set the remote HEAD at the current commit                                 |
 | git show `commit`                   | Show one or more objects (blobs, trees, tags and commits)                                                |
 | git blame `filename`                | Show history of commits made on the specific file                                                        |

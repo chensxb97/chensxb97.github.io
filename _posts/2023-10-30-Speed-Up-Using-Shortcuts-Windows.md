@@ -98,11 +98,11 @@ It will require some practice to master and apply them properly. But rest assure
 | `history`                         | Show history of commands               |
 | Up/Down                             | Cycle history of commands              |
 
-## Other ways to `shortcut` your workflow
+## Other ways to <b>shortcut</b> your workflow
 1. Learn to [touch-type](https://www.typinglounge.com/typing-techniques), which incorporates all your fingers to access the keys on your keyboard optimally. With sufficient practice, you will be able to master typing without glancing on the keys, saving time as a result.
 2. Use Tabs for autocompletion in the Terminal, especially when your folder/file names are long/foreign.
 3. When inputing text in multiple input boxes, use Tabs instead of moving the mouse to proceed to the next input.
-4. Use aliases to execute long commands using fast short keywords
+4. Use aliases to execute long or complex commands
 <br/>Eg. alias "nrs"="npm run start" (Executes "npm run start" with "nrs")
 <br/>Eg. alias "gps"="git push" (Executes "git push" with "gps")
 
@@ -111,7 +111,7 @@ It will require some practice to master and apply them properly. But rest assure
 ## Conclusion
 
 If I had the chance to advise my old self when he owned his very first laptop, it will be to demonstrate to him the speed and power of the above shortcuts. Ever since I started using them, it was excruciating to realise the amount of time wasted performing repetitive work (Eg. Editing the same variable names repeatedly; Highlighting a block of text; Deleting characters one by one using Backspace).
-To anyone who is using a computer, ditch the mouse, give these shortcuts a shot, and you can proceed to reward yourself with an extra coffee break :)
+To anyone who is using a computer, ditch the mouse, give these shortcuts a shot, and you would have saved enough time for a nice coffee break :)
 
 ## Sources
 1. [Keyboard shortcuts for a Developer](https://itnext.io/keyboard-shortcuts-for-a-developer-e6d1203774f6)
