@@ -99,7 +99,7 @@ For most cases, users will use **git** to manage changes between repositories on
 
 ## Conclusion
 
-The above list collates the many commands that I pick up or refer to in my day-to-day. This list is especially useful if you need remedies to common problematic scenarios (Eg. Accidentally pushing commits to master/dev branches: git reset; Trying to trace past commits for a specific file: git blame). Despite being around for almost 20 years, git still serves as a primary version control tool for many developers today. With most projects requiring multiple hands on deck and remote work being the new normal, it is hard for one to start or contribute to a project properly without it.
+The above list collates the many commands that I usually use in my day-to-day. This list is especially useful if you need remedies to common problematic scenarios (Eg. Accidentally pushing commits to master/dev branches: git reset; Trying to trace past commits for a specific file: git blame). Despite being around for almost 20 years, git still serves as a primary version control tool for many developers today. With most projects requiring multiple hands on deck and remote work being the new normal, it is hard for one to work on a project properly without it.
 
 ## Sources
 1. [Git vs. GitHub: What’s the Difference?](https://devmountain.com/blog/git-vs-github-whats-the-difference/)

@@ -102,14 +102,14 @@ It will require some practice to master and apply them properly. But rest assure
 1. Learn to [touch-type](https://www.typinglounge.com/typing-techniques), which incorporates all your fingers to access the keys on your keyboard optimally. With sufficient practice, you will be able to master typing without glancing on the keys, saving time as a result.
 2. Use Tabs for autocompletion in the Terminal, especially when your folder/file names are long/foreign.
 3. When inputing text in multiple input boxes, use Tabs instead of moving the mouse to proceed to the next input.
-4. Use aliases to execute long or complex commands
+4. Use aliases to execute long/complex commands
 <br/>Eg. alias `nrs`=`npm run start` (Executes `npm run start` with `nrs`)
 <br/>Eg. alias `gps`=`git push` (Executes `git push` with `gps`)
-5. `Broadcast input` to multiple Terminal tabs in the same session if the same executions need to be done on multiple replica servers (You will need to install [Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/) for this)
+5. Broadcast input to multiple Terminal tabs in the same session if the same executions need to be done on multiple replica servers (You will need to install [Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/) for this)
 
 ## Conclusion
 
-If I had the chance to advise my old self when he owned his very first laptop, it will be to demonstrate to him the speed and power of the above shortcuts. Ever since I started using them, it was excruciating to realise the amount of time wasted performing repetitive work (Eg. Editing the same variable names repeatedly; Highlighting a block of text; Deleting characters one by one using Backspace).
+If I had the chance to rewind time, it will be to master the above shortcuts. Ever since I started using them, it was excruciating to realise the amount of time wasted performing repetitive work (Eg. Editing the same variable names repeatedly; Highlighting a block of text; Deleting characters one by one using Backspace).
 To anyone who is using a computer, ditch the mouse, give these shortcuts a shot, and you can now reward yourself with a nice coffee break :)
 
 ## Sources

@@ -138,7 +138,7 @@ The below cheatsheet is a compilation of commands that I either frequently used 
 | nohup `file` > `logFile` 2>&1 &                  | Run process in the background (&) and pipes both standard output and error (2>&1) to log file |
 
 ## Conclusion
-The command line is the bread and butter application for any system or software engineer. Not only will it automate and speed up your day-to-day development work, it serves as a starting point for you to run, inspect and monitor the applications and filesystems of the host or servers directly. For many who are initially starting out, this application looks and feels like a "black box". But rest assured, with sufficient exposure and practise, you will eventually master it and enjoy the many benefits this application brings to your everyday workflow.
+The command line is the bread and butter application for all computer systems. Not only will it automate and speed up your day-to-day development work, it serves as a starting point for you to run, inspect and monitor the applications and filesystems of servers directly. For many who are initially starting out, this application looks and feels like a "black box". But rest assured, with sufficient exposure and practise, you will eventually master it and enjoy the many benefits this application brings to your everyday workflow.
 
 ## Sources
 1. [11 Terminal Commands You Should Know](https://builtin.com/software-engineering-perspectives/terminal-commands)
