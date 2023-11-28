@@ -19,7 +19,7 @@ Below are some basic terminology in git.
 | ----------------- | ---------------------------------------------------------------------------------------------------- |
 | git               | `git` is typed in the command line to run git commands                                           |
 | repo              | Short-form for repository                                                                             |
-| local             | A copy of the repository in one's development machine                                              |
+| local             | A copy of the repository in one\'s development machine                                              |
 | remote/origin     | The central repository hosted in the cloud/server                                                    |
 | clone             | Create a copy of the repository, in your local machine                                              |
 | fork              | Create a copy of the original repository in<br> your Github account (Used in Github)                 |
@@ -82,13 +82,13 @@ For most cases, users will use **git** to manage changes between repositories on
 | git branch `branch`                                                     | Create a new branch at the current commit                                                                                                               |
 | git fetch origin `branch`                                               | Fetch remote repository branch and create a local one                                                                                                                      |
 | git checkout `branch`                                                   | Switch to target branch                                                                                                                                |
-| git merge `branch`                                                      | Merge the specified branch’s history into the current one                                                                                               |
+| git merge `branch`                                                      | Merge the specified branch\'s history into the current one                                                                                               |
 | git rebase `branch`                                                     | Apply any commits of current branch ahead of specified one                                                                                             |
 | git branch -m `oldname` `newname`                                   | Rename branch from oldname to newname                                                                                                                   |
 | git push origin --delete `oldname`<br>or<br>git push origin :`oldname` | Delete old branch in remote                                                                                                                             |
 | git push origin -u `newname`                                            | Push new local branch and<br>set the remote branch (newname) to track the current local branch                                                        |
 | git diff `branchB`...`branchA`                                      | Show the difference of what is in branchA that is not in branchB                                                                                              |
-| git log                                                                     | Show all commits in the current branch’s history                                                                                                        |
+| git log                                                                     | Show all commits in the current branch\'s history                                                                                                        |
 
 | Stash Management |                                              |
 | ---------------- | -------------------------------------------- |
@@ -102,7 +102,7 @@ For most cases, users will use **git** to manage changes between repositories on
 The above list collates the many commands that I usually use in my day-to-day. This list is especially useful if you need remedies to common problematic scenarios (Eg. Accidentally pushing commits to master/dev branches: git reset; Trying to trace past commits for a specific file: git blame). Despite being around for almost 20 years, git still serves as a primary version control tool for many developers today. With most projects requiring multiple hands on deck and remote work being the new normal, it is hard for one to work on a project properly without it.
 
 ## Sources
-1. [Git vs. GitHub: What’s the Difference?](https://devmountain.com/blog/git-vs-github-whats-the-difference/)
+1. [Git vs. GitHub: What\’s the Difference?](https://devmountain.com/blog/git-vs-github-whats-the-difference/)
 2. [Git Cheat Sheet Education PDF](https://education.github.com/git-cheat-sheet-education.pdf)
 3. [Git Commands List for Beginners - Learn the Essential Git Commands in 30 Minutes](https://intellipaat.com/blog/tutorial/devops-tutorial/git-commands/)
 4. [Stackoverflow - Renaming a branch in Github](https://stackoverflow.com/questions/9524933/renaming-a-branch-in-github)
