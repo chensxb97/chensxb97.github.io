@@ -102,7 +102,7 @@ For most cases, users will use **git** to manage changes between repositories on
 The above list collates the many commands that I usually use in my day-to-day. This list is especially useful if you need remedies to common problematic scenarios (Eg. Accidentally pushing commits to master/dev branches: git reset; Trying to trace past commits for a specific file: git blame). Despite being around for almost 20 years, git still serves as a primary version control tool for many developers today. With most projects requiring multiple hands on deck and remote work being the new normal, it is hard for one to work on a project properly without it.
 
 ## Sources
-1. [Git vs. GitHub: What\’s the Difference?](https://devmountain.com/blog/git-vs-github-whats-the-difference/)
+1. [Git vs. GitHub: What's the Difference?](https://devmountain.com/blog/git-vs-github-whats-the-difference/)
 2. [Git Cheat Sheet Education PDF](https://education.github.com/git-cheat-sheet-education.pdf)
 3. [Git Commands List for Beginners - Learn the Essential Git Commands in 30 Minutes](https://intellipaat.com/blog/tutorial/devops-tutorial/git-commands/)
 4. [Stackoverflow - Renaming a branch in Github](https://stackoverflow.com/questions/9524933/renaming-a-branch-in-github)
