@@ -5,9 +5,9 @@ categories: [Tutorials, Tips-and-Tricks, Cheatsheets]
 tags: [keyboard shortcuts, vscode, command line, command prompt, powershell]
 ---
 
-This post advocates ditching the mouse and utilising keyboard shortcuts to speed up your day-to-day workflow.
-
 *Please refer to this [post](/posts/Speed-Up-Using-Shortcuts-Mac) if you are a Mac user.*
+
+In this post, I will be sharing why and how I ditched the mouse and started utilising keyboard shortcuts.
 
 ## Why avoid the mouse?
 As a software engineer, *efficiency* is of the essence, especially when one is dealing with many tasks in his bucket or meeting tight deadlines. For any typing setup, majority of the time is spent moving between the keyboard and mouse. Fortunately for us, we can save this precious time by mastering keyboard shortcuts that can perform the same functions/tasks. Not only do you become more productive, you also get to look really cool (somewhat) and experience what it is like to feel like an experienced hacker (sortof).
