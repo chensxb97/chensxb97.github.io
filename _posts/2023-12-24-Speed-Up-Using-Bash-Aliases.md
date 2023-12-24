@@ -15,7 +15,7 @@ From the above issues, we can observe that having to memorise and write long com
 
 ## Creating Your First Alias
 
-**Step 1: Open your preferred shell configuration file**
+### Step 1: Open your preferred shell configuration file
 
 For Bash users, this can be one of the following:
 - `.bash_profile`, accessed at `~/.bash_profile`
@@ -50,7 +50,7 @@ fi
 $ vi ~/.bashrc
 ```
 
-**Step 2: Defining your alias**
+### Step 2: Defining your alias
 
 Let's say you have a nodejs application that you wish to run in test mode, with a specific set of environment variables. 
 
@@ -85,13 +85,13 @@ export prod() {
 alias 'npm run start'='nrs'
 ```
 
-**Step 3: Save and Reload your Shell Configuration**
+### Step 3: Save and Reload your Shell Configuration
 
 ```bash
 $ source ~/.bashrc
 ```
 
-**Step 4: Test and verify your newly created aliases in a new Terminal**
+### Step 4: Test and verify your newly created aliases in a new Terminal
 
 Initialise your development environment with `test()`.
 
