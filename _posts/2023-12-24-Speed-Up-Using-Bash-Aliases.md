@@ -93,7 +93,8 @@ $ source ~/.bashrc
 
 **Step 4: Test and verify your newly created aliases in a new Terminal**
 
-- Initialise your development environment with `test()`.
+Initialise your development environment with `test()`.
+
 ```bash
 # Initialise test configuration
 $ test()
@@ -109,7 +110,8 @@ TEST
 $ echo $WORKERS
 5
 ```
-- Proceed to run your application using the new alias.
+
+Proceed to run your application using the new alias.
 ```bash
 # Short and sweet
 $ nrs
