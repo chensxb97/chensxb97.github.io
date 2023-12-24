@@ -5,8 +5,6 @@ categories: [Tutorials, Cheatsheets]
 tags: [command line, terminal, command prompt, powershell, bash]
 ---
 
-This post serves as an quick introduction/crash course on using the command line.
-
 ## What is Command Line?
 
 <b>A user interface where one can enter text prompts to execute commands or automate tasks.</b>

@@ -5,8 +5,6 @@ categories: [Tutorials, Cheatsheets]
 tags: [version control, git]
 ---
 
-This post serves as a quick introduction/crash course on using git.
-
 ## What is Git?
 
 <b>An open-source version control system for tracking modifications in source code and files.</b>
