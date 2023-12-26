@@ -1,6 +1,6 @@
 ---
 title: Speed Up Using Bash Aliases
-date: 2023-12-24 15:00:00 +0800
+date: 2023-12-24 16:00:00 +0800
 categories: [Tutorials, Tips-and-Tricks, Cheatsheets]
 tags: [keyboard shortcuts, vscode, command line, terminal, command prompt, powershell]
 ---
