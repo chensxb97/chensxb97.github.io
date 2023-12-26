@@ -65,19 +65,19 @@ You can save yourself the hassle of repeatedly running a long/cumbersome command
 # .bashrc
 
 # Functions for initialising different sets of environment variables
-export test() {
-    PORT=8000
-    SERVER='TEST_SERVER'
-    NODE_ENV='TEST'
-    WORKERS=5
+function test() {
+    export PORT=8000
+    export SERVER='TEST_SERVER'
+    export NODE_ENV='TEST'
+    export WORKERS=5
     echo 'Initialised Test Environment'
 }
 
-export prod() {
-    PORT=3000
-    SERVER='PROD_SERVER'
-    NODE_ENV='PROD'
-    WORKERS=5
+function prod() {
+    export PORT=3000
+    export SERVER='PROD_SERVER'
+    export NODE_ENV='PROD'
+    export WORKERS=5
     echo 'Initialised Production Environment'
 }
 
