@@ -103,10 +103,13 @@ Initialised Test Environment
 # Verify environment variables
 $ echo $PORT
 8000
+
 $ echo $SERVER
 TEST_SERVER
+
 $ echo $NODE_ENV
 TEST
+
 $ echo $WORKERS
 5
 ```
