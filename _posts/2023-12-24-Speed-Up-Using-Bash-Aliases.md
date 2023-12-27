@@ -177,4 +177,4 @@ alias nrl='npm run lint'
 ```
 
 ## Conclusion
-I hope this tutorial managed to give you sufficient insight on how to write aliases and apply them to real-world scenarios. Aliases make working on the command line so much easier as there is less time spent and fatigue from writing repetitive and long commands. Once you start crafting and leveraging on them, you will be amazed at how much of a game-changer aliases are to your command-line experience. Happy coding! 🧙💻✨
+I hope this tutorial managed to give you sufficient insight on how to write aliases and apply them to real-world scenarios. Aliases make working on the command line so much easier as there is less time spent and fatigue from writing repetitive and long commands. Once you start leveraging them, you will be impressed by how much of a game-changer aliases are to your command-line experience. Happy coding! 🧙💻✨
