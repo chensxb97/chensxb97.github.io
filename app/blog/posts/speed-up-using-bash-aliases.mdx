@@ -1,0 +1,179 @@
+---
+title: 'Speed Up Using Bash Aliases'
+publishedAt: '2023-12-24'
+summary: 'Learn to take advantage of quick and easy bash shortcuts to speed up your terminal experience.'
+---
+
+*To get yourself acquainted with the command line, you may want to refer to this [post](/posts/Getting-Started-With-The-Command-Line) first*.
+
+After using the command line for some time, you may have the following questions in mind.
+- Some of these commands are incredibly long and tedious. How do I shorten them?
+- I keep getting errors when I type in the command line. How do I reduce them?
+
+From the above issues, we can observe that having to memorise and write long commands is a chore and often error-prone. It will be convenient to collate a personalised set of quick-access shortcuts that can perform highly complex tasks. This is where aliases come in handy. For the rest of this article, I will be guiding you on how to create and use Bash aliases.
+
+## Creating Your First Alias
+
+### Step 1: Open your preferred shell configuration file
+
+For Bash users, this can be one of the following:
+- `.bash_profile`, accessed at `~/.bash_profile`
+- `.bashrc`, accessed at `~/.bashrc` (Preferred)
+
+Differences between the two files:
+- *`.bash_profile` is executed for login shells. It is typically used to set environment variables and execute commands that should be run once when you log in.*
+- *`.bashrc` is executed for interactive non-login shells. It is often used for setting aliases and functions that should be available in every new Terminal session. This file is usually sourced by `.bash_profile`.*
+
+For ZSH users, 
+- `.zshrc`, accessed at `~/.zshrc`.
+
+To ensure that your aliases are available in both login and non-login shell sessions, you can set up your `.bash_profile` to source the commands in your `.bashrc`.
+
+```bash
+# Open your .bash_profile to source your .bashrc
+$ vi ~/.bash_profile
+```
+
+```bash
+# .bash_profile
+
+# Source .bashrc if it exists
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
+
+# Other .bash_profile configurations
+```
+```bash
+# Open your .bashrc to start adding aliases
+$ vi ~/.bashrc
+```
+
+### Step 2: Defining your alias
+
+Let's say you have a nodejs application that you wish to run in test mode, with a specific set of environment variables. 
+
+```bash
+# long and tedious command that runs your nodejs application in test mode
+$ PORT=8000 SERVER='TEST_SERVER' NODE_ENV='TEST' WORKERS=5 npm run start
+```
+
+You can save yourself the hassle of repeatedly running a long/cumbersome command by creating a function and alias combo in your `.bashrc`.
+
+```bash
+# .bashrc
+
+# Functions for initialising different sets of environment variables
+function test() {
+    export PORT=8000
+    export SERVER='TEST_SERVER'
+    export NODE_ENV='TEST'
+    export WORKERS=5
+    echo 'Initialised Test Environment'
+}
+
+function prod() {
+    export PORT=3000
+    export SERVER='PROD_SERVER'
+    export NODE_ENV='PROD'
+    export WORKERS=5
+    echo 'Initialised Production Environment'
+}
+
+# Shortened command to run nodejs application
+alias 'npm run start'='nrs'
+```
+
+### Step 3: Save and Reload your Shell Configuration
+
+```bash
+$ source ~/.bashrc
+```
+
+### Step 4: Test and verify your newly created aliases in a new Terminal
+
+Initialise your development environment with the `test` function.
+
+```bash
+# Initialise test configuration
+$ test
+Initialised Test Environment
+
+# Verify environment variables
+$ echo $PORT
+8000
+
+$ echo $SERVER
+TEST_SERVER
+
+$ echo $NODE_ENV
+TEST
+
+$ echo $WORKERS
+5
+```
+
+Proceed to run your application using the new alias.
+```bash
+# Short and sweet
+$ nrs
+```
+
+Congratulations! You have created a combination of functions and alias for running your nodejs application in different environments.
+
+## Some aliases that I frequently use
+
+```bash
+# .bashrc
+
+# Filesystem
+alias ll='ls -lha' # List directory contents in detail
+alias cls='clear' # Clear Terminal
+alias c='code .' # VSCode
+alias e='exit' # Exit Terminal
+alias h='history' # History of commands used
+alias home='cd ~' # Home directory
+alias work='cd ~/work' # Work directory
+alias vibrc='vi ~/.bashrc' # Open .bashrc file
+alias sourcebrc='source ~/.bashrc' # Save .bashrc file
+
+# Archive and Compression
+alias untar='tar -zxvf'       # Extract tar.gz files
+alias unzip='unzip -q'        # Quietly unzip files
+
+# Process Management
+alias psa='ps aux'            # Display all processes
+alias psg='ps aux | grep'     # Search for a process
+
+# Git
+alias gcl='git clone'
+alias gbr='git branch'
+alias gfo='git fetch origin'
+alias gco='git checkout origin'
+alias gst='git status'
+alias gci='git commit -m'
+alias gps='git push'
+alias gpsf='git push -f origin' # Force push
+alias gpl='git pull'
+alias gsh='git stash'
+alias gsp='git stash pop'
+alias grhh='git reset --hard HEAD~1'
+alias grsh='git reset --soft HEAD~1'
+
+# Go
+# Assumes Makefile defines the following actions:
+# 1) build 2) run 3) run-test
+alias mb='make build'
+alias mr='make run'
+alias mrt='make run-test'
+
+# Javascript
+# Assumes package.json defines the following actions:
+# 1) start 2) test 3) lint
+alias nrs='npm run start'
+alias nrt='npm run test'
+alias nrl='npm run lint'
+```
+
+## Conclusion
+I hope this tutorial managed to give you sufficient insight on how to write aliases and apply them to real-world scenarios. Aliases make working on the command line so much easier as there is less time spent and fatigue from writing repetitive and long commands. Once you start leveraging them, you will be impressed by how much of a game-changer aliases are to your command-line experience. Happy coding! 🧙💻✨
