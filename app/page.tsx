@@ -4,19 +4,16 @@ export default function Page() {
   return (
     <section>
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        Hi there, I'm Benedict.
+        hi there, I'm Benedict 👨‍💻
       </h1>
       <p className="mb-4">
-        I'm a software engineer based in Singapore.
+        A software engineer, rock-climber and coffee-lover.
       </p>
       <p className="mb-4">
-        In my day-to-day, I design and develop observability components to support real-time logging and monitoring in Visa Inc.
+        I currently work as a full-stack developer in Visa Inc's Observability team, where I design and develop new features and applications to support infrastructure monitoring and logging.
       </p>
-      <p className="mb-4">
-        In my downtime, I like to document and reflect on the lessons, thoughts and issues faced at work.
-      </p>
-      <p className="mb-4">
-        The best way to connect with me is through Linkedin. Feel free to also explore my projects here.
+      <p>
+        When I am not writing code, you’ll often catch me climbing, experimenting new coffee recipes or planning my next vacation.
       </p>
     </section >
   )
