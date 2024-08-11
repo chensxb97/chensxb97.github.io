@@ -1,5 +1,3 @@
-import { BlogPosts } from 'app/components/posts'
-
 export default function Page() {
   return (
     <section>
@@ -12,7 +10,7 @@ export default function Page() {
       <p className="mb-4">
         I currently work as a full-stack developer in Visa Inc's Observability team, where I design and develop new features and applications to support infrastructure monitoring and logging.
       </p>
-      <p>
+      <p className="mb-4">
         When I am not writing code, you’ll often catch me climbing, experimenting new coffee recipes or planning my next vacation.
       </p>
     </section >

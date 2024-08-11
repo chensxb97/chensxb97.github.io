@@ -77,9 +77,9 @@ export function formatDate(date: string, includeRelative = false) {
   }
 
   let fullDate = targetDate.toLocaleString('en-us', {
-    month: 'long',
-    day: 'numeric',
     year: 'numeric',
+    month: 'short',
+    day: 'numeric',
   })
 
   if (!includeRelative) {
