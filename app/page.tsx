@@ -4,18 +4,20 @@ export default function Page() {
   return (
     <section>
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        My Portfolio
+        Hi there, I'm Benedict.
       </h1>
       <p className="mb-4">
-        {`I'm a Vim enthusiast and tab advocate, finding unmatched efficiency in
-        Vim's keystroke commands and tabs' flexibility for personal viewing
-        preferences. This extends to my support for static typing, where its
-        early error detection ensures cleaner code, and my preference for dark
-        mode, which eases long coding sessions by reducing eye strain.`}
+        I'm a software engineer based in Singapore.
       </p>
-      <div className="my-8">
-        <BlogPosts />
-      </div>
-    </section>
+      <p className="mb-4">
+        In my day-to-day, I design and develop observability components to support real-time logging and monitoring in Visa Inc.
+      </p>
+      <p className="mb-4">
+        In my downtime, I like to document and reflect on the lessons, thoughts and issues faced at work.
+      </p>
+      <p className="mb-4">
+        The best way to connect with me is through Linkedin. Feel free to also explore my projects here.
+      </p>
+    </section >
   )
 }
