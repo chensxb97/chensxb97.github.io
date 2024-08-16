@@ -74,8 +74,8 @@ export default function Blog({ params }) {
               : `/og?title=${encodeURIComponent(post.metadata.title)}`,
             url: `${baseUrl}/blog/${post.slug}`,
             author: {
-              '@type': 'Person',
-              name: 'My Portfolio',
+              '@type': 'Benedict Chen',
+              name: 'Benedict Chen\'s Portfolio',
             },
           }),
         }}
