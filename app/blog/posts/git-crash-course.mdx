@@ -1,0 +1,109 @@
+---
+title: Git Crash Course
+publishedAt: '2023-09-20'
+summary: 'A crash course on git for version control'
+---
+
+## What is Git?
+
+<b>An open-source version control system for tracking modifications in source code and files.</b>
+
+As a software developer, git has been part and parcel of my daily development workflow, allowing me to coordinate my code changes with other developers with ease, without worrying that one may overwrite or break the codebase.
+
+Below are some basic terminology in git.
+
+## Git Terms                                                                                             
+```
+git               Typed in the command line to run git commands                                           
+repo              Shortform for repository                                                                             
+local             A copy of the repository in a development machine                                              
+remote/origin     The central repository hosted in the cloud/server                                                    
+clone             Create a copy of the repository, in your local machine                                              
+fork              Create a copy of the original repository in our Github account (Used in Github)                 
+.gitignore        Specify which filenames to be excluded from tracking                                               
+commit            A snapshot in the timeline of a git repository, identified by a descriptive message and an SHA id 
+stage             List of files and code changes that are ready to be committed                                        
+push              Apply commits from local to remote                                                                 
+pull              Apply latest commits from remote to local                                                          
+stash             Temporary changes made to a working repository                                                       
+HEAD              Reference to the most recent commit in the current branch                                            
+reset             Undo changes made by rolling back to previous commits                                                
+branch            An independent line of development A lightweight movable pointer to a specific commit             
+master            Usually denotes the main branch                                                                              
+merge             Combine the changes of two or more branches into a single branch                                    
+rebase            Reapply the changes made on a single branch on top of changes made from another branch          
+Pull request      An event created by a contributor to discuss and merge new code changes to the main branch.          
+```
+
+## Github != Git
+	
+<b>Git is a version control software tool that is used in the command line.</b>
+
+<b>Github is a web hosting service for managing git repositories in the cloud.</b>
+
+For most cases, users will use **git** to manage changes between repositories on their local machine and the remote ones in **Github**. **Github** is a web-hosting service that provides cloud-based storage and GUI for storing and managing the centralized repositories.
+
+## Glossary of Git Commands
+
+### Configuration                                                                                                                       
+```
+git config --global user.name `name`           Set the name you want attached to your commits                      
+git config --global user.email `email_address` Set the email you want attached to your commits                     
+git config --global color.ui auto              Set automatic command line coloring for easy reviewing of Git output            
+export GIT_SSL_NO_VERIFY=`boolean`             Environment variable for running git commands on server without SSL certificates 
+```
+### Initialisation/Setup    
+```                                                    
+git init         Initialize an existing directory as a Git repository  
+git clone `url`  Clone a repository using a remote url                 
+```
+
+### Change Management
+```                                                                                                                                 
+git status                          Show modified files in working directory, staged for your next commit                                    
+git add `file`                      Add a file to the stage before your next commit                                                   
+git rm `file`                       Delete the file from project and stage the removal for commit                                            
+git diff                            Difference between what is changed but not staged                                                         
+git diff \-\-staged                 Difference between what is staged but not yet commited                                                    
+git commit -m `descriptive_message` Commit your staged content as a new commit snapshot                                                      
+git push                            Apply your local branch commits to the remote repository branch                                         
+git pull                            Fetch and merge any commits from the tracking remote branch                                               
+git reset `file`                    Unstage a file while retaining the changes in working directory                                           
+git reset \-\-soft `commit`         Rewrite working tree from specified commit Re-apply changes made to the staging area for that commit 
+git reset \-\-hard `commit`         Rewrite working tree from specified commit Clears the staging area                                       
+git push origin -f `branch`         Force push branch to set the remote HEAD at the current commit                                 
+git show `commit`                   Show one or more objects (blobs, trees, tags and commits)                                                
+git blame `filename`                Show history of commits made on the specific file                                                        
+```
+
+### Branch Management         
+```                                                                                                                                                                                                           
+git branch                         List all your local branches. A \* will appear next to the currently active branch. Adding a -a flag lists all possible branches (local + remote) 
+git branch `branch`                Create a new branch at the current commit                                                                                                               
+git fetch origin `branch`          Fetch remote repository branch and create a local one                                                                                                                      
+git checkout `branch`              Switch to target branch                                                                                                                                
+git merge `branch`                 Merge the specified branch\'s history into the current one                                                                                               
+git rebase `branch`                Apply any commits of current branch ahead of specified one                                                                                             
+git branch -m `oldname` `newname`  Rename branch from oldname to newname                                                                                                                   
+git push origin --delete `oldname` or git push origin :`oldname` Delete old branch in remote                                                                                                                             
+git push origin -u `newname`       Push new local branch and set the remote branch (newname) to track the current local branch                                                        
+git diff `branchB`...`branchA`     Show the difference of what is in branchA that is not in branchB                                                                                              
+git log                            Show all commits in the current branch\'s history                                                                                                        
+```
+### Stash Management                                              
+```
+git stash        Save modified and staged changes            
+git stash list   List stack-order of stashed file changes    
+git stash pop    Write working from top of stash stack       
+git stash drop   Discard the changes from top of stash stack 
+```
+## Conclusion
+
+The above list collates the many commands that I usually use in my day-to-day. This list is especially useful if you need remedies to common problematic scenarios (Eg. Accidentally pushing commits to master/dev branches: git reset; Trying to trace past commits for a specific file: git blame). Despite being around for almost 20 years, git still serves as a primary version control tool for many developers today. With most projects requiring multiple hands on deck and remote work being the new normal, it is hard for one to work on a project properly without it.
+
+## Sources
+1. [Git vs. GitHub: What's the Difference?](https://devmountain.com/blog/git-vs-github-whats-the-difference/)
+2. [Git Cheat Sheet Education PDF](https://education.github.com/git-cheat-sheet-education.pdf)
+3. [Git Commands List for Beginners - Learn the Essential Git Commands in 30 Minutes](https://intellipaat.com/blog/tutorial/devops-tutorial/git-commands/)
+4. [Stackoverflow - Renaming a branch in Github](https://stackoverflow.com/questions/9524933/renaming-a-branch-in-github)
+5. [Git vs GitHub: Difference Between Git and GitHub](https://www.simplilearn.com/tutorials/git-tutorial/git-vs-github)
