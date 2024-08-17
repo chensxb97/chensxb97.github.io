@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     icon: '/icon.png',
   },
   title: {
-    default: 'Home | Benedict Chen',
+    default: 'Benedict Chen',
     template: '%s | Benedict Chen',
   },
   description: 'Benedict Chen\'s Portfolio.',
