@@ -71,7 +71,7 @@ export default function Page() {
           <p className="text-l tracking-tighter">Intern, May 2020 - July 2020</p>
           <ul className='indented-list'>
             <li>
-              Performed object-detection on pedestrian and vehicle real-time surveillance footage using OpenCV
+              Researched on OpenCV's object-detection algorithms for pedestrian and vehicle real-time surveillance footage
             </li>
             <li>
               Co-developed a chatbot using Cisco's Webex Teams' API and ngrok that educates users on Covid-19 related insights.
@@ -97,10 +97,9 @@ export default function Page() {
       <div className="mb-4">
         <h1 className="text-xl font-semibold tracking-tighter">Other things about me</h1>
         <ul className='indented-list mb-4'>
-          <li>Used to intern as a secondary school teacher.</li>
-          <li>Used to compete in powerlifting several years ago.</li>
-          <li>Discovered rock-climbing in university and have been doing this for close to 6 years.
-            It's probably because it's an avenue where I get to both keep fit and extend my problem-solving skills outside of work.</li>
+          <li>I used to intern as a secondary school teacher. I still enjoy coaching or giving technical sharings.</li>
+          <li>I used to compete in powerlifting but have stopped doing it due to its monotony.</li>
+          <li>I discovered rock-climbing in university and have been doing this for close to 6 years, probably because I get to 1) Keep fit and 2) Extend my problem-solving skills outside of work.</li>
         </ul>
       </div >
     </section >
