@@ -35,7 +35,7 @@ export default function Page() {
           href="/blog"
           style={{ color: '#FFC0CB' }}
         >
-          writings
+          blog posts
         </Link>.
       </p >
     </section >
