@@ -15,7 +15,7 @@ export default function Page() {
       <div className="mb-4">
         <h1 className="text-xl font-semibold tracking-tighter">Education</h1>
         <ul className='indented-list'>
-          <li>Got my B.S in Engineering Science (Mechanical Engineering) and M.S in Science (Technology Management) from Nanyang Technological Unversity (NTU).</li>
+          <li>Got my B.S in Engineering Science (Mechanical Engineering) and M.S in Science (Technology Management) from Nanyang Technological Unversity (NTU) in December 2022.</li>
           <li>Graduated with a First Class Honors, GPA 4.76/5.</li>
           <li>
             For my <a rel="noopener noreferrer" href="https://github.com/chensxb97/ferryServiceVRP" target="_blank" style={{ color: '#91e8ff' }}>Final Year Project</a>, I researched and designed a routing and scheduling algorithm in the context of ferry service operations, implemented in Python.
