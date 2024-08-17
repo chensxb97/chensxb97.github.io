@@ -24,16 +24,16 @@ export default function Page() {
           LinkedIn
         </a>.
         <br />
-        Otherwise, feel free to also explore my  <Link
+        Otherwise, feel free to explore my  <Link
           key="/work"
           href="/work"
-          style={{ color: '#FFC0CB' }}
+          style={{ color: '#91e8ff' }}
         >
           work
         </Link> and <Link
           key="/blog"
           href="/blog"
-          style={{ color: '#FFC0CB' }}
+          style={{ color: '#91e8ff' }}
         >
           blog posts
         </Link>.
