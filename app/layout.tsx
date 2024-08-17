@@ -10,8 +10,11 @@ import { baseUrl } from './sitemap'
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
+  icons: {
+    icon: '/icon.png',
+  },
   title: {
-    default: 'Benedict Chen',
+    default: 'Home | Benedict Chen',
     template: '%s | Benedict Chen',
   },
   description: 'Benedict Chen\'s Portfolio.',

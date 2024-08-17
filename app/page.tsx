@@ -13,7 +13,9 @@ export default function Page() {
         Today, I work as a full-stack developer at <a rel="noopener noreferrer" target='_blank' href='https://www.visa.com.sg/' style={{ color: '#91e8ff' }}>
           Visa Inc</a>.
         As part of the Observability team, I design and implement new solutions to support infrastructure monitoring and logging.
-        I mostly work using React, Golang and Python.
+      </p>
+      <p className="mb-4">
+        I mostly use React, Golang and Python for my work and side projects.
       </p>
       <p className="mb-4">
         The best way to reach out to me is through <a
@@ -23,8 +25,7 @@ export default function Page() {
           style={{ color: '#91e8ff' }}>
           LinkedIn
         </a>.
-        <br />
-        Otherwise, feel free to explore my  <Link
+        Additionally, feel free to explore my  <Link
           key="/work"
           href="/work"
           style={{ color: '#91e8ff' }}

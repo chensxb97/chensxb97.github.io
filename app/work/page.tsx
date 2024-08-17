@@ -1,3 +1,8 @@
+export const metadata = {
+  title: 'Work',
+  description: 'My Work Page',
+}
+
 export default function Page() {
   return (
     <section>
