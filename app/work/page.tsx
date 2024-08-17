@@ -7,7 +7,7 @@ export default function Page() {
       <div className="mb-4">
         <h1 className="text-xl font-semibold tracking-tighter">Summary</h1>
         <ul className='indented-list'>
-          <li>Currently work as a software engineer at <a rel="noopener noreferrer" target='_blank' href='https://www.visa.com.sg/' style={{ color: '#91e8ff' }}>Visa Inc</a> since February 2023.</li>
+          <li>Currently working as a software engineer at <a rel="noopener noreferrer" target='_blank' href='https://www.visa.com.sg/' style={{ color: '#91e8ff' }}>Visa Inc</a> since February 2023.</li>
           <li>Am specialized in React, Golang, and Python, with majority of my experience in designing user interfaces and backend observability solutions.</li>
           <li>Am actively seeking opportunities to apply my expertise in observability, distributed systems, and new areas of backend development.</li>
         </ul>
