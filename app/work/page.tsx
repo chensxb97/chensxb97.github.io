@@ -43,11 +43,11 @@ export default function Page() {
           <p className="text-l tracking-tighter">Software Engineer, February 2023 - Present</p>
           <p className="text-l tracking-tighter">Intern, May 2022 - July 2022</p>
           <ul className='indented-list'>
-            <li>Developed a self-service onboarding service for Developer Teams for monitoring thousands of endpoints using Blackbox Exporter.</li>
-            <li>Supported the development and deployment of a configuration management tool used across 60,000 servers, for managing Node Exporter configurations and certificates using Git APIs.</li>
-            <li>Prototyped a Log Enrolment form powered with Generative AI in Hackathon, projected to save up to 30% in Splunk licensing costs.</li>
-            <li>Implemented a self-service form for integrating AAA failover in hundreds of Bosun and Prometheus Alerts.</li>
-            <li>Designed a Prometheus Configuration Management system for automating the changes in shared configurations across all Prometheus services deployed in baremetal and K8 clusters.</li>
+            <li>Developed a self-service onboarding service for developer teams for monitoring thousands of endpoints using Blackbox Exporter.</li>
+            <li>Supported the development of a configuration management tool for managing exporter configurations using Git APIs, deployed across thousands of servers,</li>
+            <li>Prototyped a log enrolment form powered with Generative AI in Hackathon to reduce log ingestion, projected to save up to 30% in licensing cost.</li>
+            <li>Implemented a self-service form for integrating AAA failover in hundreds of alerts.</li>
+            <li>Designed a Prometheus Configuration Management system for automating the changes in shared configurations across all Prometheus services deployed in both baremetal and K8 clusters, with a potential to reduce manual overhead by at least 90%.</li>
           </ul>
         </div>
         <div className="mb-2">
