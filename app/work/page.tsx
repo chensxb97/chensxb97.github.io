@@ -44,8 +44,8 @@ export default function Page() {
         <div className="mb-4">
           <div className="mb-2">
             <h2 className="text-l font-medium dark:text-neutral-200">Visa Inc</h2>
-            <p className="text-l dark:text-neutral-300">Software Engineer, February 2023 - Present</p>
-            <p className="text-l dark:text-neutral-300">Intern, May 2022 - July 2022</p>
+            <p className="text-sm dark:text-neutral-300">Software Engineer, February 2023 - Present</p>
+            <p className="text-sm dark:text-neutral-300">Intern, May 2022 - July 2022</p>
           </div>
           <ul className='text-l dark:text-neutral-300 indented-list ml-4'>
             <li>Developed a self-service onboarding service for developer teams for monitoring thousands of endpoints using Blackbox Exporter.</li>
@@ -58,7 +58,7 @@ export default function Page() {
         <div className="mb-4">
           <div className="mb-2">
             <h2 className="text-l font-medium dark:text-neutral-200">HTX</h2>
-            <p className="text-l dark:text-neutral-300">Intern, December 2021 - February 2022</p>
+            <p className="text-sm dark:text-neutral-300">Intern, December 2021 - February 2022</p>
           </div>
           <ul className='text-l dark:text-neutral-300 indented-list ml-4'>
             <li>
@@ -72,7 +72,7 @@ export default function Page() {
         <div className="mb-4">
           <div className="mb-2">
             <h2 className="text-l font-medium dark:text-neutral-200">Shopee</h2>
-            <p className="text-l dark:text-neutral-300">Intern, December 2020 - April 2021</p>
+            <p className="text-sm dark:text-neutral-300">Intern, December 2020 - April 2021</p>
           </div>
           <ul className='text-l dark:text-neutral-300 indented-list ml-4'>
             <li>
@@ -83,7 +83,7 @@ export default function Page() {
         <div className="mb-4">
           <div className="mb-2">
             <h2 className="text-l font-medium dark:text-neutral-200">Cisco</h2>
-            <p className="text-l dark:text-neutral-300">Intern, May 2020 - July 2020</p>
+            <p className="text-sm dark:text-neutral-300">Intern, May 2020 - July 2020</p>
           </div>
           <ul className='indented-list ml-4 text-l dark:text-neutral-300'>
             <li>
