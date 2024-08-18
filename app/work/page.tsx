@@ -24,7 +24,7 @@ export default function Page() {
           <li>Got my B.S in Engineering Science (Mechanical Engineering) and M.S in Science (Technology Management) from Nanyang Technological Unversity (NTU) in 2022.</li>
           <li>Graduated with a First Class Honors, GPA 4.76/5.</li>
           <li>
-            For my <a rel="noopener noreferrer" href="https://github.com/chensxb97/ferryServiceVRP" target="_blank" style={{ color: '#91e8ff' }}>Final Year Project</a>, I researched and designed a routing and scheduling algorithm in the context of ferry service operations, implemented in Python.
+            For my <a rel="noopener noreferrer" href="https://github.com/chensxb97/ferryServiceVRP" target="_blank" style={{ color: '#91e8ff' }}>Final Year Project</a>, I researched and designed a routing and scheduling algorithm to tackle the Vehicle Routing Problem (VRP) in the context of ferry service operations.
           </li>
         </ul>
       </div>
@@ -106,10 +106,10 @@ export default function Page() {
           <li>Passport photo making, a Python app that uses opencv and rembg libraries for generating ICA-compliant passport photos</li>
         </ul >
         <i className="text-l dark:text-neutral-300">
-          For more details, please check these out on <a rel="noopener noreferrer" target='_blank' href='https://github.com/chensxb97/' style={{ color: '#91e8ff' }}>
+          For more details, please check them out on <a rel="noopener noreferrer" target='_blank' href='https://github.com/chensxb97/' style={{ color: '#91e8ff' }}>
             Github
-          </a>
-        </i>.
+          </a>.
+        </i>
       </div>
       <hr className="my-6 border-neutral-100 dark:border-neutral-800" />
       <div className="mb-4">
@@ -117,7 +117,7 @@ export default function Page() {
         <ul className='indented-list ml-4 mb-4 text-l dark:text-neutral-300'>
           <li>I used to intern as a secondary school teacher. Today, I still enjoy coaching or giving technical sharings.</li>
           <li>I used to compete in powerlifting but have stopped doing it due to its monotony.</li>
-          <li>I discovered rock-climbing in university and have been doing this for close to 6 years, probably because I get to 1) Keep fit and 2) Extend my problem-solving skills outside of work.</li>
+          <li>I discovered rock-climbing in university and have been enjoying this sport since 2018.</li>
         </ul>
       </div >
     </section >
