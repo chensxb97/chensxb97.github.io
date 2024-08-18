@@ -8,21 +8,24 @@ summary: 'Learn to take advantage of quick and easy bash shortcuts to speed up y
 
 After using the command line for some time, you may have the following questions in mind.
 - Some of these commands are incredibly long and tedious. How do I shorten them?
+
 - I keep getting errors when I type in the command line. How do I reduce them?
 
 From the above issues, we can observe that having to memorise and write long commands is a chore and often error-prone. It will be convenient to collate a personalised set of quick-access shortcuts that can perform highly complex tasks. This is where aliases come in handy. For the rest of this article, I will be guiding you on how to create and use Bash aliases.
 
-## Creating Your First Alias
+### Creating Your First Alias
 
-### Step 1: Open your preferred shell configuration file
+#### Step 1: Open your preferred shell configuration file
 
 For Bash users, this can be one of the following:
 - `.bash_profile`, accessed at `~/.bash_profile`
+
 - `.bashrc`, accessed at `~/.bashrc` (Preferred)
 
 Differences between the two files:
-- *`.bash_profile` is executed for login shells. It is typically used to set environment variables and execute commands that should be run once when you log in.*
-- *`.bashrc` is executed for interactive non-login shells. It is often used for setting aliases and functions that should be available in every new Terminal session. This file is usually sourced by `.bash_profile`.*
+- `.bash_profile` is executed for login shells. It is typically used to set environment variables and execute commands that should be run once when you log in.
+
+- `.bashrc` is executed for interactive non-login shells. It is often used for setting aliases and functions that should be available in every new Terminal session. This file is usually sourced by `.bash_profile`.
 
 For ZSH users, 
 - `.zshrc`, accessed at `~/.zshrc`.
@@ -49,7 +52,7 @@ fi
 $ vi ~/.bashrc
 ```
 
-### Step 2: Defining your alias
+#### Step 2: Defining your alias
 
 Let's say you have a nodejs application that you wish to run in test mode, with a specific set of environment variables. 
 
@@ -84,13 +87,13 @@ function prod() {
 alias 'npm run start'='nrs'
 ```
 
-### Step 3: Save and Reload your Shell Configuration
+#### Step 3: Save and Reload your Shell Configuration
 
 ```bash
 $ source ~/.bashrc
 ```
 
-### Step 4: Test and verify your newly created aliases in a new Terminal
+#### Step 4: Test and verify your newly created aliases in a new Terminal
 
 Initialise your development environment with the `test` function.
 
@@ -121,7 +124,7 @@ $ nrs
 
 Congratulations! You have created a combination of functions and alias for running your nodejs application in different environments.
 
-## Some aliases that I frequently use
+### Some aliases that I frequently use
 
 ```bash
 # .bashrc
@@ -175,5 +178,5 @@ alias nrt='npm run test'
 alias nrl='npm run lint'
 ```
 
-## Conclusion
+### Conclusion
 I hope this tutorial managed to give you sufficient insight on how to write aliases and apply them to real-world scenarios. Aliases make working on the command line so much easier as there is less time spent and fatigue from writing repetitive and long commands. Once you start leveraging them, you will be impressed by how much of a game-changer aliases are to your command-line experience. Happy coding! 🧙💻✨

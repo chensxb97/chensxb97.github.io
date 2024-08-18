@@ -4,48 +4,55 @@ publishedAt: '2023-08-01'
 summary: 'A quick start guide on using the command line, terminal or command prompt'
 ---
 
-## What is Command Line?
+### What is Command Line?
 
-<b>A user interface where one can enter text prompts to execute commands or automate tasks.</b>
+***A user interface where one can enter text prompts to execute commands or automate tasks.***
 
-The terms: <b>Command Line, Bash, Shell, Terminal, Command Prompt</b>, are used interchangeably but they all generally mean the same thing. Below are some quick descriptions for each term.
+The terms: **Command Line, Bash, Shell, Terminal, Command Prompt**, are used interchangeably but they all generally mean the same thing. Below are some quick descriptions for each term.
 
-- <b>Command Line Interface (CLI)</b> is a user interface where users type in commands and view outputs printed on the screen.
+- **Command Line Interface (CLI)** is a user interface where users type in commands and view outputs printed on the screen.
 
-- <b>Bash</b> is a shell and command language in Linux.
+- **Bash** is a shell and command language in Linux.
 
-- <b>Shell</b> is a software that interprets and executes the various commands that we type in the CLI.
+- **Shell** is a software that interprets and executes the various commands that we type in the CLI.
 
-- <b>Terminal</b>, is a CLI application in Mac OS.
+- **Terminal**, is a CLI application in Mac OS.
 
-- <b>Command Prompt</b>, is a CLI application in Windows OS.
+- **Command Prompt**, is a CLI application in Windows OS.
 
-## Benefits of using the Command Line
+### Benefits of using the Command Line
 
 While many users are accustomed to using a graphical user interface (GUI), the command line offers the following benefits:
-
 - Direct interaction with the computer, with no overhead processing from the GUI, allowing faster and more efficient execution of tasks.
+
 - Automation of commands and tasks by running scripts.
+
 - Makes you feel like a hacker (sort of)
 
-## What can we use it for?
+### What can we use it for?
 
 In my day-to-day, I use the command line to:
 - Inspect details of my localhost/servers/applications/processes
+
 - Navigate and manipulate files and folders (Filesystem Management)
+
 - Access servers over networks
+
 - Run applications
+
 - Debug logs
+
 - Write and run scripts to automate tasks/applications
+
 - Version Control (Git)
 
 *Note: The above list is not exhaustive, use cases will differ between individuals*
 
-##  Cheatsheet
+###  Cheatsheet
 
 The below cheatsheet is a compilation of commands that I either frequently used or found useful along the way when I approach the command line.
 
-### General Usage                                              
+#### General Usage                                              
 ```            
  date                  Print current date and time          
  exit                  Close current session                
@@ -58,7 +65,7 @@ The below cheatsheet is a compilation of commands that I either frequently used 
  whoami                Prints current user                  
 ```
 
-### Filesystem management
+#### Filesystem management
 ```                                                                                                                                                                                                          
 cat `filename`                      Read and print content from file (Fast for reading small contents). Use "less `filename`" for viewing large contents page by page. For Windows, use "`filename`"                                                     
 cd                                  Change directory to home                                                                                    
@@ -107,7 +114,7 @@ tar flags                           c : Creates Archive, x : Extract the archive
 touch `filename`                    Create a file                                                                            
 vi `filename`                       Create/Edit a file in VIM
 ```                                
-### Server and Network Management
+#### Server and Network Management
 ```
 curl -o `path to file` Download file                    
 nc -v `serverName`     Initiate a telnet connection to server                                                                                     
@@ -117,13 +124,13 @@ scp `dest1` `dest2`    Remote copy filepath from dest 1 to dest 2 where dest1 an
 ssh `serverName`       Initiate SSH connection to server
 ```
 
-### Disk Management
+#### Disk Management
 ```
 df -h    Check free disk space           
 du       List subdirectory memory usage  
 du -s    Check storage for specific file 
 ```
-### Process Management
+#### Process Management
 ```                                 
 kill -9 `PID`                   Kill processes using PID                        
 ps -ax                          Show all running processes                      
@@ -133,14 +140,20 @@ top -o rsize                    Display processes with the highest memory usage
 nohup `file` > `logFile` &      Run process in the background (&) and pipes the standard output to log file 
 nohup `file` > `logFile` 2>&1 & Run process in the background (&) and pipes both standard output and error (2>&1) to log file 
 ```
-## Conclusion
+### Conclusion
 The command line is the bread and butter application for all computer systems. Not only will it automate and speed up your day-to-day development work, it serves as a starting point for you to run, inspect and monitor the applications and filesystems of servers directly. For many who are initially starting out, this application looks and feels like a "black box". But rest assured, with sufficient exposure and practise, you will eventually master it and enjoy the many benefits this application brings to your everyday workflow.
 
-## Sources
+### Sources
 1. [11 Terminal Commands You Should Know](https://builtin.com/software-engineering-perspectives/terminal-commands)
+
 2. [bradtraversy/terminal-commands](https://gist.github.com/bradtraversy/cc180de0edee05075a6139e42d5f28ce)
-5. [Most useful Terminal commands for macOS (2023 Updated)](https://www.igeeksblog.com/macos-terminal-commands/)
-3. [Windows vs. Mac: 70+ Common and Helpful Keyboard Shortcuts](https://www.makeuseof.com/windows-vs-mac-shortcuts/)
-6. [The Difference Between “>” and “>>” in Linux](https://linuxhint.com/difference-arrow-double-arrow-bash/)
-1. [An A-Z Index of the Linux command line: bash + utilities.](https://ss64.com/bash/)
+
+3. [Most useful Terminal commands for macOS (2023 Updated)](https://www.igeeksblog.com/macos-terminal-commands/)
+
+4. [Windows vs. Mac: 70+ Common and Helpful Keyboard Shortcuts](https://www.makeuseof.com/windows-vs-mac-shortcuts/)
+
+5. [The Difference Between “>” and “>>” in Linux](https://linuxhint.com/difference-arrow-double-arrow-bash/)
+
+6. [An A-Z Index of the Linux command line: bash + utilities.](https://ss64.com/bash/)
+
 7. [Stackoverflow - What does "2>&1" mean?](https://stackoverflow.com/questions/818255/what-does-21-mean)

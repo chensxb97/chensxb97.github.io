@@ -1,18 +1,17 @@
 ---
-title: Git Crash Course
+title: A Crash Course on Git
 publishedAt: '2023-09-20'
 summary: 'A crash course on git for version control'
 ---
+### What is Git?
 
-## What is Git?
-
-<b>An open-source version control system for tracking modifications in source code and files.</b>
+*An open-source version control system for tracking modifications in source code and files.*
 
 As a software developer, git has been part and parcel of my daily development workflow, allowing me to coordinate my code changes with other developers with ease, without worrying that one may overwrite or break the codebase.
 
 Below are some basic terminology in git.
 
-## Git Terms                                                                                             
+### Git Terms                                                                                             
 ```
 git               Typed in the command line to run git commands                                           
 repo              Shortform for repository                                                                             
@@ -37,28 +36,28 @@ Pull request      An event created by a contributor to discuss and merge new cod
 
 ## Github != Git
 	
-<b>Git is a version control software tool that is used in the command line.</b>
+*Git is a version control software tool that is used in the command line.*
 
-<b>Github is a web hosting service for managing git repositories in the cloud.</b>
+*Github is a web hosting service for managing git repositories in the cloud.*
 
 For most cases, users will use **git** to manage changes between repositories on their local machine and the remote ones in **Github**. **Github** is a web-hosting service that provides cloud-based storage and GUI for storing and managing the centralized repositories.
 
-## Glossary of Git Commands
+### Glossary of Git Commands
 
-### Configuration                                                                                                                       
+#### Configuration                                                                                                                       
 ```
 git config --global user.name `name`           Set the name you want attached to your commits                      
 git config --global user.email `email_address` Set the email you want attached to your commits                     
 git config --global color.ui auto              Set automatic command line coloring for easy reviewing of Git output            
 export GIT_SSL_NO_VERIFY=`boolean`             Environment variable for running git commands on server without SSL certificates 
 ```
-### Initialisation/Setup    
+#### Initialisation/Setup    
 ```                                                    
 git init         Initialize an existing directory as a Git repository  
 git clone `url`  Clone a repository using a remote url                 
 ```
 
-### Change Management
+#### Change Management
 ```                                                                                                                                 
 git status                          Show modified files in working directory, staged for your next commit                                    
 git add `file`                      Add a file to the stage before your next commit                                                   
@@ -76,7 +75,7 @@ git show `commit`                   Show one or more objects (blobs, trees, tags
 git blame `filename`                Show history of commits made on the specific file                                                        
 ```
 
-### Branch Management         
+#### Branch Management         
 ```                                                                                                                                                                                                           
 git branch                         List all your local branches. A \* will appear next to the currently active branch. Adding a -a flag lists all possible branches (local + remote) 
 git branch `branch`                Create a new branch at the current commit                                                                                                               
@@ -90,20 +89,23 @@ git push origin -u `newname`       Push new local branch and set the remote bran
 git diff `branchB`...`branchA`     Show the difference of what is in branchA that is not in branchB                                                                                              
 git log                            Show all commits in the current branch\'s history                                                                                                        
 ```
-### Stash Management                                              
+#### Stash Management                                              
 ```
 git stash        Save modified and staged changes            
 git stash list   List stack-order of stashed file changes    
 git stash pop    Write working from top of stash stack       
 git stash drop   Discard the changes from top of stash stack 
 ```
-## Conclusion
-
+### Conclusion
 The above list collates the many commands that I usually use in my day-to-day. This list is especially useful if you need remedies to common problematic scenarios (Eg. Accidentally pushing commits to master/dev branches: git reset; Trying to trace past commits for a specific file: git blame). Despite being around for almost 20 years, git still serves as a primary version control tool for many developers today. With most projects requiring multiple hands on deck and remote work being the new normal, it is hard for one to work on a project properly without it.
 
-## Sources
+### Related Links
 1. [Git vs. GitHub: What's the Difference?](https://devmountain.com/blog/git-vs-github-whats-the-difference/)
+
 2. [Git Cheat Sheet Education PDF](https://education.github.com/git-cheat-sheet-education.pdf)
+
 3. [Git Commands List for Beginners - Learn the Essential Git Commands in 30 Minutes](https://intellipaat.com/blog/tutorial/devops-tutorial/git-commands/)
+
 4. [Stackoverflow - Renaming a branch in Github](https://stackoverflow.com/questions/9524933/renaming-a-branch-in-github)
+
 5. [Git vs GitHub: Difference Between Git and GitHub](https://www.simplilearn.com/tutorials/git-tutorial/git-vs-github)
