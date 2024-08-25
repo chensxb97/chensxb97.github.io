@@ -101,8 +101,8 @@ export default function Page() {
         <ul className='indented-list ml-4 text-l dark:text-neutral-300 mb-2'>
           <li>React App Template that supports Basic CRUD and Vertical sidebar</li>
           <li>To-Do App, made using NextJS</li>
-          <li>Prometheus Query Visualizer, a React app that onboards and visualises Prometheus queries</li>
-          <li>A step-by-step guide for migrating between React to NextJS for large repos</li>
+          <li>Prometheus Onboarding Manager, a React/Golang app that manages your Prometheus queries and other metadata</li>
+          <li>A step-by-step migration guide from React to NextJS for large repos</li>
           <li>Passport photo making, a Python app that uses opencv and rembg libraries for generating ICA-compliant passport photos</li>
         </ul >
         <i className="text-l dark:text-neutral-300">
