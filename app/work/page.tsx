@@ -13,8 +13,8 @@ export default function Page() {
       <div className="mb-4">
         <h2 className="text-xl font-medium mb-1">Summary</h2>
         <p className="text-l dark:text-neutral-300">
-          The majority of my experience involves designing full-stack automations and integrations in observability.
-          Today, I am actively seeking new opportunities to apply my expertise in observability, distributed systems, and new areas of backend development.
+          The majority of my experience involves designing end-to-end automations and integrations in the Observability space.
+          Today, I am actively seeking new opportunities to apply this expertise in both full-stack and backend engineering.
         </p>
       </div>
       <hr className="my-6 border-neutral-100 dark:border-neutral-800" />
@@ -30,12 +30,13 @@ export default function Page() {
       </div>
       <hr className="my-6 border-neutral-100 dark:border-neutral-800" />
       <div className="mb-4">
-        <h2 className="text-xl font-medium mb-1">Skills</h2>
+        <h2 className="text-xl font-medium mb-1">Skills/Certifications</h2>
         <ul className='indented-list ml-4 text-l dark:text-neutral-300'>
-          <li className="text-l dark:text-neutral-300">React for frontend development</li>
-          <li>Golang for observability development, mostly on Prometheus and Exporters instrumentation</li>
-          <li>Python for automating migrations</li>
-          <li>Ansible for seamless builds and deployment</li>
+          <li>React/NodeJS</li>
+          <li>Golang</li>
+          <li>Python</li>
+          <li>Ansible</li>
+          <li><a rel="noopener noreferrer" href="https://www.credly.com/badges/642a9fa3-b200-4994-967e-ebc698236747/public_url" target="_blank" style={{ color: '#91e8ff' }}>AWS Certified Solutions Architect - Associate</a></li>
         </ul>
       </div>
       <hr className="my-6 border-neutral-100 dark:border-neutral-800" />
@@ -101,9 +102,10 @@ export default function Page() {
         <ul className='indented-list ml-4 text-l dark:text-neutral-300 mb-2'>
           <li>React App Template that supports Basic CRUD and Vertical sidebar</li>
           <li>To-Do App, made using NextJS</li>
-          <li>Prometheus Onboarding Manager, a React/Golang app that manages your Prometheus queries and other metadata</li>
           <li>A step-by-step migration guide from React to NextJS for large repos</li>
+          <li>Prometheus Onboarding Manager, a React/Golang app that manages your Prometheus queries and other metadata</li>
           <li>Passport photo making, a Python app that uses opencv and rembg libraries for generating ICA-compliant passport photos</li>
+          <li>Healthchecker, a React/Golang app that regularly checks for the up status of endpoints/APIs.</li>
         </ul >
         <i className="text-l dark:text-neutral-300">
           For more details, please check them out on <a rel="noopener noreferrer" target='_blank' href='https://github.com/chensxb97/' style={{ color: '#91e8ff' }}>
