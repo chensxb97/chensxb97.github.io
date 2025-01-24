@@ -103,7 +103,7 @@ export default function Page() {
           <li>React App Template that supports Basic CRUD and Vertical sidebar</li>
           <li>To-Do App, made using NextJS</li>
           <li>A step-by-step migration guide from React to NextJS for large repos</li>
-          <li>Prometheus Onboarding Manager, a React/Golang app that manages your Prometheus queries and other metadata</li>
+          <li>Prometheus Onboarding Manager, a React/Golang app that simplifies the management of your Prometheus Services</li>
           <li>Passport photo making, a Python app that uses opencv and rembg libraries for generating ICA-compliant passport photos</li>
           <li>Healthchecker, a React/Golang app that regularly checks for the up status of endpoints/APIs.</li>
         </ul >
