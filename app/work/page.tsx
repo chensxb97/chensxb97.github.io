@@ -49,7 +49,7 @@ export default function Page() {
             <p className="text-sm dark:text-neutral-300">Intern, May 2022 - July 2022</p>
           </div>
           <ul className='text-l dark:text-neutral-300 indented-list ml-4'>
-            <li>Built a chat-interface powered by autonomous AI Agents that can intelligently analyse data from multiple external services in a Hackathon to improve the productivity of application teams in solving large-scale infra issues.</li>
+            <li>Developed a chat interface powered by autonomous AI agents during a hackathon. These agents analyze data from multiple external services to help application teams solve large-scale infrastructure issues, enhancing productivity.</li>
             <li>Developed a self-service onboarding service for developer teams for monitoring thousands of endpoints using Blackbox Exporter.</li>
             <li>Supported the development of a configuration management tool for managing exporter configurations using Git APIs, deployed across thousands of servers,</li>
             <li>Prototyped a log enrolment form powered with Generative AI in Hackathon to reduce log ingestion, projected to save up to 30% in licensing cost.</li>
