@@ -33,13 +33,13 @@ export default function Page() {
             key="/work"
             href="/work"
             style={{ color: '#91e8ff' }}
-          >work</Link>. During my spare time, I like to either explore and experiment with new <a
+          >work</Link>. During my spare time, I like to either explore new <a
             rel="noopener noreferrer"
             target="_blank"
             href="https://github.com/chensxb97"
             style={{ color: '#91e8ff' }}>
             side projects
-          </a> or document my learnings in my <Link
+          </a> or document my learnings in <Link
             key="/blog"
             href="/blog"
             style={{ color: '#91e8ff' }}
