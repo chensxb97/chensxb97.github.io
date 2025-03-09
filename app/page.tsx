@@ -23,7 +23,7 @@ export default function Page() {
           </p>
           <p className="mb-4">
             Today, I am proud to be part of the Observability team in <a rel="noopener noreferrer" target='_blank' href='https://www.visa.com.sg/' style={{ color: '#91e8ff' }}>
-              Visa Inc</a> where I design and implement solutions to support monitoring and logging at scale.
+              Visa</a> where I design and implement solutions to support monitoring and logging at scale.
           </p>
         </div>
       </div>

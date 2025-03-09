@@ -23,7 +23,7 @@ export default function Page() {
         <h2 className="text-xl font-medium mb-4">Work Experience</h2>
         <div className="mb-4">
           <div className="mb-2">
-            <h2 className="text-l font-medium dark:text-neutral-200">Visa Inc</h2>
+            <h2 className="text-l font-medium dark:text-neutral-200">Visa</h2>
             <p className="text-sm dark:text-neutral-300">Software Engineer, February 2023 - Present</p>
             <p className="text-sm dark:text-neutral-300">Intern, May 2022 - July 2022</p>
             <p className="text-sm dark:text-neutral-300">Intern, May 2021 - July 2021</p>
