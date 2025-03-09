@@ -13,31 +13,10 @@ export default function Page() {
       <div className="mb-4">
         <h2 className="text-xl font-medium mb-1">Summary</h2>
         <p className="text-l dark:text-neutral-300">
-          The majority of my experience involves designing end-to-end automations and integrations in the Observability space.
+          The majority of my experience involves building integrations and tools in the Observability space.
+          When it comes to building new apps or features, I am always looking for areas to improve productivity, eliminate operational overhead and costs.
           Today, I am actively seeking new opportunities to apply this expertise in both full-stack and backend engineering.
         </p>
-      </div>
-      <hr className="my-6 border-neutral-100 dark:border-neutral-800" />
-      <div className="mb-4">
-        <h2 className="text-xl font-medium mb-1">Education</h2>
-        <ul className='indented-list ml-4 text-l dark:text-neutral-300'>
-          <li>Got my B.S in Engineering Science (Mechanical Engineering) and M.S in Science (Technology Management) from Nanyang Technological Unversity (NTU) in 2022.</li>
-          <li>Graduated with a First Class Honors, GPA 4.76/5.</li>
-          <li>
-            For my <a rel="noopener noreferrer" href="https://github.com/chensxb97/ferryServiceVRP" target="_blank" style={{ color: '#91e8ff' }}>Final Year Project</a>, I researched and designed a routing and scheduling algorithm to tackle the Vehicle Routing Problem (VRP) in the context of ferry service operations.
-          </li>
-        </ul>
-      </div>
-      <hr className="my-6 border-neutral-100 dark:border-neutral-800" />
-      <div className="mb-4">
-        <h2 className="text-xl font-medium mb-1">Skills/Certifications</h2>
-        <ul className='indented-list ml-4 text-l dark:text-neutral-300'>
-          <li>React/NodeJS</li>
-          <li>Golang</li>
-          <li>Python</li>
-          <li>Ansible</li>
-          <li><a rel="noopener noreferrer" href="https://www.credly.com/badges/642a9fa3-b200-4994-967e-ebc698236747/public_url" target="_blank" style={{ color: '#91e8ff' }}>AWS Certified Solutions Architect - Associate</a></li>
-        </ul>
       </div>
       <hr className="my-6 border-neutral-100 dark:border-neutral-800" />
       <div className="mb-4">
@@ -47,14 +26,17 @@ export default function Page() {
             <h2 className="text-l font-medium dark:text-neutral-200">Visa Inc</h2>
             <p className="text-sm dark:text-neutral-300">Software Engineer, February 2023 - Present</p>
             <p className="text-sm dark:text-neutral-300">Intern, May 2022 - July 2022</p>
+            <p className="text-sm dark:text-neutral-300">Intern, May 2021 - July 2021</p>
           </div>
           <ul className='text-l dark:text-neutral-300 indented-list ml-4'>
-            <li>Developed a chat interface powered by autonomous AI agents during a hackathon. These agents analyze data from multiple external services to help application teams solve large-scale infrastructure issues, enhancing productivity.</li>
-            <li>Developed a self-service onboarding service for developer teams for monitoring thousands of endpoints using Blackbox Exporter.</li>
-            <li>Supported the development of a configuration management tool for managing exporter configurations using Git APIs, deployed across thousands of servers,</li>
-            <li>Prototyped a log enrolment form powered with Generative AI in Hackathon to reduce log ingestion, projected to save up to 30% in licensing cost.</li>
-            <li>Implemented a self-service form for integrating AAA failover in hundreds of alerts.</li>
-            <li>Designed a Prometheus Configuration Management system for automating the changes in shared configurations across all Prometheus services deployed in both baremetal and K8 clusters, with a potential to reduce manual overhead by at least 90%.</li>
+            <li>Prototyped an AI-powered observability assistant using the autogen framework, accelerating the resolution of infrastructure issues by 80%.</li>
+            <li>Created an AI-driven onboarding tool for optimising log ingestion, with a projection of 30% in cost savings.</li>
+            <li>Designed and implemented new features in React to improve the user experience of developer teams on Visa's Observability Platform.</li>
+            <li>Developed several automations to allow critical integrations with existing alerting workflows such as AAA failover and additional exporter support.</li>
+            <li>Supported the development of a configuration tool using Git APIs for managing exporter configurations across thousands of servers.</li>
+            <li>Built a Prometheus configuration manager using TypeScript and Go to streamline shared configuration management across hundreds of VMs and Kubernetes clusters. Automated deployment reduced manual DevOps overhead by 90%.</li>
+            <li>Explored and developed a modularized Prometheus exporter from open-source grok exporter, to extract metrics from unstructured log data.
+            </li>
           </ul>
         </div>
         <div className="mb-4">
@@ -78,7 +60,7 @@ export default function Page() {
           </div>
           <ul className='text-l dark:text-neutral-300 indented-list ml-4'>
             <li>
-              Worked on data-patching and managed small feature-developments on Shopee’s Salesforce Force.com platform using APEX, Lightning and SOQL.
+              Managed data patching and development projects on Salesforce,com platform using APEX, Lightning, SOQL, and related technologies.
             </li>
           </ul>
         </div>
@@ -99,14 +81,47 @@ export default function Page() {
       </div>
       <hr className="my-6 border-neutral-100 dark:border-neutral-800" />
       <div className="mb-4">
+        <h2 className="text-xl font-medium mb-1">Education</h2>
+        <ul className='indented-list ml-4 text-l dark:text-neutral-300'>
+          <li>Got my B.S in Engineering Science (Mechanical Engineering) and M.S in Science (Technology Management) from Nanyang Technological Unversity (NTU) in 2022.</li>
+          <li>Graduated with a First Class Honors, GPA 4.76/5.</li>
+          <li>
+            For my <a rel="noopener noreferrer" href="https://github.com/chensxb97/ferryServiceVRP" target="_blank" style={{ color: '#91e8ff' }}>Final Year Project</a>, I researched and designed a routing and scheduling algorithm to tackle the Vehicle Routing Problem (VRP) in the context of ferry service operations.
+          </li>
+        </ul>
+      </div>
+      <hr className="my-6 border-neutral-100 dark:border-neutral-800" />
+      <h2 className="text-xl font-medium  mb-4">Skills</h2>
+      <div className="mb-4">
+        <h2 className="text-l font-medium dark:text-neutral-200">Programming Languages</h2>
+        <li className='text-l dark:text-neutral-300 indented-list ml-4'>
+          Javascript,
+          Typescript,
+          Go,
+          Python
+        </li>
+      </div>
+      <div className="mb-4">
+        <h2 className="text-l font-medium dark:text-neutral-200">Technologies</h2>
+        <li className='text-l dark:text-neutral-300 indented-list ml-4'>
+          React, Next.js, Node.js, Redis, MySQL, MongoDB, GraphQL, Kafka, Prometheus, Node Exporter, Ansible, Grafana, Generative AI, autogen
+        </li>
+      </div>
+      <div className="mb-4">
+        <h2 className="text-l font-medium dark:text-neutral-200">Certifications</h2>
+        <div className='text-l dark:text-neutral-300 indented-list ml-4'>
+          <li><a rel="noopener noreferrer" href="https://www.credly.com/badges/642a9fa3-b200-4994-967e-ebc698236747/public_url" target="_blank" style={{ color: '#91e8ff' }}>AWS Certified Solutions Architect - Associate</a></li>
+        </div>
+      </div>
+      <hr className="my-6 border-neutral-100 dark:border-neutral-800" />
+      <div className="mb-4">
         <h2 className="text-xl font-medium mb-1">Side Projects</h2>
         <ul className='indented-list ml-4 text-l dark:text-neutral-300 mb-2'>
+          <li>Prometheus Onboarding Manager, a React/Go app that streamlines the management of your Prometheus Services</li>
+          <li>Service Manager, a UI prototype written in React/Go for managing service lifecycles, boosting deployment speeds by 90%, inspired by Apache Amabari.</li>
+          <li>A step by step migration guide from React to NextJS to capitalise on React Server Components.</li>
           <li>React App Template that supports Basic CRUD and Vertical sidebar</li>
-          <li>To-Do App, made using NextJS</li>
-          <li>A step-by-step migration guide from React to NextJS for large repos</li>
-          <li>Passport photo making, a Python app that uses opencv and rembg libraries for generating ICA-compliant passport photos</li>
-          <li>ServiceManager, a UI prototype written in React/Golang that manages service application lifecycle in Linux environments, inspired by Apache Amabari.</li>
-          <li>Prometheus Onboarding Manager, a React/Golang app that simplifies the management of your Prometheus Services</li>
+          <li>Passport photo maker, a Python tool using opencv and rembg libraries for quick generation of ICA-compliant passport photos.</li>
         </ul >
         <i className="text-l dark:text-neutral-300">
           For more details, please check them out on <a rel="noopener noreferrer" target='_blank' href='https://github.com/chensxb97/' style={{ color: '#91e8ff' }}>
@@ -114,15 +129,6 @@ export default function Page() {
           </a>.
         </i>
       </div>
-      <hr className="my-6 border-neutral-100 dark:border-neutral-800" />
-      <div className="mb-4">
-        <h2 className="text-xl font-medium mb-1">Other things about me</h2>
-        <ul className='indented-list ml-4 mb-4 text-l dark:text-neutral-300'>
-          <li>I used to intern as a secondary school teacher. Today, I still enjoy coaching or giving technical sharings.</li>
-          <li>I used to compete in powerlifting but have stopped doing it due to its monotony.</li>
-          <li>I discovered rock-climbing in university and have been enjoying this sport since 2018.</li>
-        </ul>
-      </div >
     </section >
   )
 }

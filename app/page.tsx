@@ -1,19 +1,33 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Page() {
   return (
     <section>
-      <h1 className="mb-6 text-2xl font-medium tracking-tighter">
-        hi there, I'm Benedict 👨‍💻
-      </h1>
+      <div className="mb-6">
+        <div className="flex float-left mr-4">
+          <Image
+            src="/profile.png"
+            alt="Profile picture"
+            width={330}
+            height={500}
+            className="rounded rounded-xl"
+          />
+        </div>
+        <h1 className="mb-4 text-2xl font-medium tracking-tighter">
+          hi there, I'm Benedict 👨‍💻
+        </h1>
+        <div className="text-l dark:text-neutral-300">
+          <p className="mb-4">
+            I am a software engineer, rock-climber and coffee-lover.
+          </p>
+          <p className="mb-4">
+            Today, I am proud to be part of the Observability team in <a rel="noopener noreferrer" target='_blank' href='https://www.visa.com.sg/' style={{ color: '#91e8ff' }}>
+              Visa Inc</a> where I design and implement solutions to support monitoring and logging at scale.
+          </p>
+        </div>
+      </div>
       <div className="text-l dark:text-neutral-300">
-        <p className="mb-4">
-          I am a software engineer, rock-climber and coffee-lover.
-        </p>
-        <p className="mb-4">
-          Today, I am proud to be part of the Observability team in <a rel="noopener noreferrer" target='_blank' href='https://www.visa.com.sg/' style={{ color: '#91e8ff' }}>
-            Visa Inc</a> where I design and implement solutions to support monitoring and logging at scale.
-        </p>
         <p className="mb-4">
           I mostly use React, Go and Python for <Link
             key="/work"
@@ -32,7 +46,7 @@ export default function Page() {
           >blogs</Link>.
         </p>
         <p className="mb-4">
-          If you wish to reach out, the best way to do so is through <a
+          If you wish to reach out, I am happy to connect via <a
             rel="noopener noreferrer"
             target="_blank"
             href="https://www.linkedin.com/in/benedict-chen-1a8024189/"
