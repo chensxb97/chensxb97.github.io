@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <section>
       <div className="mb-6">
-        <div className="flex float-left mr-4">
+        <div className="flex float-left mr-4 mb-4">
           <Image
             src="/profile.png"
             alt="Profile picture"
