@@ -14,7 +14,7 @@ export default function Page() {
             className="rounded rounded-xl"
           />
         </div>
-        <h1 className="mb-4 text-2xl font-medium tracking-tighter">
+        <h1 className="mb-5 text-2xl font-medium tracking-tighter">
           hi there, I'm Benedict 👨‍💻
         </h1>
         <div className="text-l dark:text-neutral-300">
