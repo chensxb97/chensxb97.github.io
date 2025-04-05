@@ -9,12 +9,12 @@ export default function Page() {
           <Image
             src="/profile.png"
             alt="Profile picture"
-            width={300}
-            height={500}
+            width={320}
+            height={400}
             className="rounded rounded-xl"
           />
         </div>
-        <h1 className="mb-5 text-2xl font-medium tracking-tighter">
+        <h1 className="mb-4 text-2xl font-medium tracking-tighter">
           hi there, I'm Benedict 👨‍💻
         </h1>
         <div className="text-l dark:text-neutral-300">
