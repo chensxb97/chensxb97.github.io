@@ -4,7 +4,7 @@ import Image from 'next/image'
 export default function Page() {
   return (
     <section>
-      <div className="mb-6">
+      <div className="mb-4">
         <div className="flex mb-4">
           <Image
             src="/profile.png"
@@ -45,7 +45,7 @@ export default function Page() {
             style={{ color: '#91e8ff' }}
           >blogs</Link>.
         </p>
-        <p className="mb-4">
+        <p>
           If you wish to reach out, I am happy to connect via <a
             rel="noopener noreferrer"
             target="_blank"
