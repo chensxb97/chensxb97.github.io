@@ -9,8 +9,8 @@ export default function Page() {
           <Image
             src="/profile.png"
             alt="Profile picture"
-            width={320}
-            height={400}
+            width={290}
+            height={450}
             className="rounded rounded-xl"
           />
         </div>
