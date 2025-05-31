@@ -156,3 +156,8 @@ table {
 .indented-list {
   list-style-type: disc;
 }
+
+.link,
+article a {
+  color: #91e8ff;
+}

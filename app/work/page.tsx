@@ -14,8 +14,8 @@ export default function Page() {
         <h2 className="text-xl font-medium mb-1">Summary</h2>
         <p className="text-l dark:text-neutral-300">
           The majority of my experience involves building integrations and tools in the Observability space.
-          When it comes to building new apps or features, I am always looking for areas to improve productivity, eliminate operational overhead and costs.
-          Today, I am actively seeking new opportunities to apply this expertise in both full-stack and backend engineering.
+          When it comes to building new apps or features, I am always seeking to chase productivity, eliminate operational overhead and improve the user experience.
+          Today, I am open to new opportunities to apply this expertise in both full-stack and backend engineering.
         </p>
       </div>
       <hr className="my-6 border-neutral-100 dark:border-neutral-800" />
@@ -86,7 +86,7 @@ export default function Page() {
           <li>Got my B.S in Engineering Science (Mechanical Engineering) and M.S in Science (Technology Management) from Nanyang Technological Unversity (NTU) in 2022.</li>
           <li>Graduated with a First Class Honors, GPA 4.76/5.</li>
           <li>
-            For my <a rel="noopener noreferrer" href="https://github.com/chensxb97/ferryServiceVRP" target="_blank" style={{ color: '#91e8ff' }}>Final Year Project</a>, I researched and designed a routing and scheduling algorithm to tackle the Vehicle Routing Problem (VRP) in the context of ferry service operations.
+            For my <a rel="noopener noreferrer" href="https://github.com/chensxb97/ferryServiceVRP" target="_blank" className="link">Final Year Project</a>, I researched and designed a routing and scheduling algorithm to tackle the Vehicle Routing Problem (VRP) in the context of ferry service operations.
           </li>
         </ul>
       </div>
@@ -110,7 +110,7 @@ export default function Page() {
       <div className="mb-4">
         <h2 className="text-l font-medium dark:text-neutral-200">Certifications</h2>
         <div className='text-l dark:text-neutral-300 indented-list ml-4'>
-          <li><a rel="noopener noreferrer" href="https://www.credly.com/badges/642a9fa3-b200-4994-967e-ebc698236747/public_url" target="_blank" style={{ color: '#91e8ff' }}>AWS Certified Solutions Architect - Associate</a></li>
+          <li><a rel="noopener noreferrer" href="https://www.credly.com/badges/642a9fa3-b200-4994-967e-ebc698236747/public_url" target="_blank" className="link">AWS Certified Solutions Architect - Associate</a></li>
         </div>
       </div>
       <hr className="my-6 border-neutral-100 dark:border-neutral-800" />
@@ -124,7 +124,7 @@ export default function Page() {
           <li>Passport photo maker, a Python tool using opencv and rembg libraries for quick generation of ICA-compliant passport photos.</li>
         </ul >
         <i className="text-l dark:text-neutral-300">
-          For more details, please check them out on <a rel="noopener noreferrer" target='_blank' href='https://github.com/chensxb97/' style={{ color: '#91e8ff' }}>
+          For more details, please check them out on <a rel="noopener noreferrer" target='_blank' href='https://github.com/chensxb97/' className="link">
             Github
           </a>.
         </i>

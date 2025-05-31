@@ -21,14 +21,14 @@ export function BlogPosts() {
             className="flex flex-col space-y-1 mb-4"
             href={`/blog/${post.slug}`}
           >
-            {/* <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2"> */}
-            <p className="text-l dark:text-neutral-100">
-              {post.metadata.title}
-            </p>
-            <p className="text-sm dark:text-neutral-400">
-              {formatDate(post.metadata.publishedAt, false)}
-            </p>
-            {/* </div> */}
+            <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-3">
+              <p className="text-sm dark:text-neutral-400 mt-1">
+                {formatDate(post.metadata.publishedAt, false)}
+              </p>
+              <p className="text-md dark:text-neutral-100">
+                {post.metadata.title}
+              </p>
+            </div>
           </Link>
         ))}
     </div>

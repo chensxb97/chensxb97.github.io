@@ -22,27 +22,27 @@ export default function Page() {
             I am a software engineer, rock-climber and coffee-lover.
           </p>
           <p className="mb-4">
-            Today, I am proud to be part of the Observability team in <a rel="noopener noreferrer" target='_blank' href='https://www.visa.com.sg/' style={{ color: '#91e8ff' }}>
+            Today, I am proud to be part of the Observability team in <a rel="noopener noreferrer" target='_blank' href='https://www.visa.com.sg/' className="link">
               Visa</a> where I design and implement solutions to support monitoring and logging at scale.
           </p>
         </div>
       </div>
       <div className="text-l dark:text-neutral-300">
         <p className="mb-4">
-          I mostly use React, Go and Python for <Link
+          I mostly use Javascript, Go and Python for <Link
             key="/work"
             href="/work"
-            style={{ color: '#91e8ff' }}
-          >work</Link>. During my spare time, I like to either explore new <a
+            className="link"
+          >work</Link>. During my spare time, I like to either explore <a
             rel="noopener noreferrer"
             target="_blank"
             href="https://github.com/chensxb97"
-            style={{ color: '#91e8ff' }}>
+            className="link">
             side projects
           </a> or document my learnings in <Link
             key="/blog"
             href="/blog"
-            style={{ color: '#91e8ff' }}
+            className="link"
           >blogs</Link>.
         </p>
         <p>
@@ -50,7 +50,7 @@ export default function Page() {
             rel="noopener noreferrer"
             target="_blank"
             href="https://www.linkedin.com/in/benedict-chen-1a8024189/"
-            style={{ color: '#91e8ff' }}>
+            className="link">
             LinkedIn
           </a>.
         </p>
