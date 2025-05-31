@@ -32,32 +32,37 @@ For ZSH users,
 
 To ensure that your aliases are available in both login and non-login shell sessions, you can set up your `.bash_profile` to source the commands in your `.bashrc`.
 
-```bash
-# Open your .bash_profile to source your .bashrc
-$ vi ~/.bash_profile
-```
+1. Open your .bash_profile file.
 
-```bash
-# .bash_profile
+    ```bash
+    # Open your .bash_profile
+    $ vi ~/.bash_profile
+    ```
 
-# Source .bashrc if it exists
-if [ -f ~/.bashrc ]; then
-    . ~/.bashrc
-fi
+2. Add the following line.
 
-# Other .bash_profile configurations
-```
-```bash
-# Open your .bashrc to start adding aliases
-$ vi ~/.bashrc
-```
+    ```bash
+
+    # Source .bashrc if it exists
+    if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+    fi
+
+    # Other .bash_profile configurations
+    ...
+    ```
+3. Start adding aliases to the .bashrc file.
+
+    ```bash
+    # Open your .bashrc to start adding aliases
+    $ vi ~/.bashrc
+    ```
 
 #### Step 2: Defining your alias
 
 Let's say you have a nodejs application that you wish to run in test mode, with a specific set of environment variables. 
 
 ```bash
-# long and tedious command that runs your nodejs application in test mode
 $ PORT=8000 SERVER='TEST_SERVER' NODE_ENV='TEST' WORKERS=5 npm run start
 ```
 
@@ -83,7 +88,7 @@ function prod() {
     echo 'Initialised Production Environment'
 }
 
-# Shortened command to run nodejs application
+# Alias to run nodejs application
 alias 'npm run start'='nrs'
 ```
 
@@ -116,28 +121,27 @@ $ echo $WORKERS
 5
 ```
 
-Proceed to run your application using the new alias.
+Proceed to run your application using the new short alias.
 ```bash
-# Short and sweet
 $ nrs
 ```
 
-Congratulations! You have created a combination of functions and alias for running your nodejs application in different environments.
+Congratulations! You have created a function/alias combo for running nodejs apps in different environments`.
 
-### Some aliases that I frequently use
+### Other aliases that I frequently use
 
 ```bash
 # .bashrc
 
 # Filesystem
-alias ll='ls -lha' # List directory contents in detail
-alias cls='clear' # Clear Terminal
-alias c='code .' # VSCode
-alias e='exit' # Exit Terminal
-alias h='history' # History of commands used
-alias home='cd ~' # Home directory
-alias work='cd ~/work' # Work directory
-alias vibrc='vi ~/.bashrc' # Open .bashrc file
+alias ll='ls -lha'          # List directory contents in detail
+alias cls='clear'           # Clear Terminal
+alias c='code .'            # VSCode
+alias e='exit'              # Exit Terminal
+alias h='history'           # History of commands used
+alias home='cd ~'           # Home directory
+alias work='cd ~/work'      # Work directory
+alias vibrc='vi ~/.bashrc'  # Open .bashrc file
 alias sourcebrc='source ~/.bashrc' # Save .bashrc file
 
 # Archive and Compression
@@ -160,12 +164,13 @@ alias gpsf='git push -f origin' # Force push
 alias gpl='git pull'
 alias gsh='git stash'
 alias gsp='git stash pop'
-alias grhh='git reset --hard HEAD~1'
-alias grsh='git reset --soft HEAD~1'
+alias grhh='git reset --hard HEAD~1' # Roll back to previous commit
+alias grsh='git reset --soft HEAD~1' # Roll back to previous commit, with previous changes staged.
 
 # Go
 # Assumes Makefile defines the following actions:
 # 1) build 2) run 3) run-test
+
 alias mb='make build'
 alias mr='make run'
 alias mrt='make run-test'
@@ -173,6 +178,7 @@ alias mrt='make run-test'
 # Javascript
 # Assumes package.json defines the following actions:
 # 1) start 2) test 3) lint
+
 alias nrs='npm run start'
 alias nrt='npm run test'
 alias nrl='npm run lint'

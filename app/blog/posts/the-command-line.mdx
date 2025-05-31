@@ -54,19 +54,19 @@ The below cheatsheet is a compilation of commands that I either frequently used 
 
 #### General Usage                                              
 ```            
- date                  Print current date and time          
- exit                  Close current session                
- history               Check the history of used commands   
- hostname              Print name of host system            
- sudo                  Run command as an root/administrator 
- sudo shutdown -h now  Shutdown computer                    
- sudo shutdown -r now  Restart computer                     
- sudo su -             Log in as an root/adminstrator      
- whoami                Prints current user                  
+date                  Print current date and time          
+exit                  Close current session                
+history               Check the history of used commands   
+hostname              Print name of host system            
+sudo                  Run command as an root/administrator 
+sudo shutdown -h now  Shutdown computer                    
+sudo shutdown -r now  Restart computer                     
+sudo su -             Log in as an root/adminstrator      
+whoami                Prints current user                  
 ```
 
 #### Filesystem management
-```                                                                                                                                                                                                          
+```
 cat `filename`                      Read and print content from file (Fast for reading small contents). Use "less `filename`" for viewing large contents page by page. For Windows, use "`filename`"                                                     
 cd                                  Change directory to home                                                                                    
 cd -                                Change to previous directory                                                                                
@@ -99,7 +99,7 @@ pwd                                 List path to the working directory.For Windo
 rm -i `filename`                    Remove directory  
 rm -r `dirname`                     Remove directory with contents recursively                                                                  
 rm -rf `dirname`                    Remove directory with contents recursively and ignore non-existent files and arguments, no confirmation prompt                                                                                     
-rm ./\*                             Remove everything in the current folder                                                                     
+rm ./*                             Remove everything in the current folder                                                                     
 rm `filename`                       Remove file. For Windows, use "del `filename`"       
 rmdir `dirname`                     Remove empty directory                                                                                      
 tail -10 `input_file` 
