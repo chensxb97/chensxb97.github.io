@@ -29,7 +29,7 @@ export function BlogPosts() {
                 <p className="text-l font-medium text-neutral-900 dark:text-neutral-100">
                   {post.metadata.title}
                 </p>
-                <p className="text-xs text-neutral-700 dark:text-neutral-300">
+                <p className="text-xs text-neutral-700 dark:text-neutral-300 mt-1">
                   {post.metadata.summary}
                 </p>
               </div>
