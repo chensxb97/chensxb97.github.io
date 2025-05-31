@@ -13,8 +13,8 @@ export default function Page() {
       <div className="mb-4">
         <h2 className="text-xl font-medium mb-1">Summary</h2>
         <p className="text-l dark:text-neutral-300">
-          The majority of my experience involves building integrations and tools in the Observability space.
-          When it comes to building new apps or features, I am always seeking to chase productivity, eliminate operational overhead and improve the user experience.
+          Most of my current work involves building new integrations and tools in Observability.
+          When it comes to new apps, I am always seeking to chase productivity, eliminate operational overhead and improve the user experience.
           Today, I am open to new opportunities to apply this expertise in both full-stack and backend engineering.
         </p>
       </div>
