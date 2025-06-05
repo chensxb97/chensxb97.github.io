@@ -29,24 +29,24 @@ export default function Page() {
       </div>
       <div className="text-l dark:text-neutral-300">
         <p className="mb-4">
-          I mostly use Javascript, Go and Python for <Link
+          I mostly use Javascript, Go, and Python for <Link
             key="/work"
             href="/work"
             className="link"
-          >work</Link>. During my spare time, I like to either explore <a
+          >work</Link>. During my spare time, I like to explore <a
             rel="noopener noreferrer"
             target="_blank"
             href="https://github.com/chensxb97"
             className="link">
             side projects
-          </a> or document my learnings in <Link
+          </a> and, from time to time, document some of my own experiences, learnings and thoughts in my <Link
             key="/blog"
             href="/blog"
             className="link"
-          >blogs</Link>.
+          >blog</Link>.
         </p>
-        <p>
-          If you wish to reach out, I am happy to connect via <a
+        <p className="mb-4">
+          If you wish to reach out to me, I am happy to connect via <a
             rel="noopener noreferrer"
             target="_blank"
             href="https://www.linkedin.com/in/benedict-chen-1a8024189/"

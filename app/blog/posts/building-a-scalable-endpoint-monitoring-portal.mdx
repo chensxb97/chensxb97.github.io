@@ -1,0 +1,271 @@
+---
+title: Designing An Endpoint Monitoring Service
+publishedAt: '2025-06-06'
+summary: 'Building a scalable and maintainable system for monitoring endpoints using Prometheus and Blackbox Exporter.'
+---
+Endpoint Monitoring is the practice of probing applications/services to gather data about their availability and performance.
+
+In many organizations, it is critical to detect application downtime early and quickly identify possible root causes for such downtime. 
+
+For this article, we will be discussing how we can implement Blackbox Exporter to support endpoint monitoring for the long term.
+
+*Blackbox Exporter is a [Prometheus exporter](https://github.com/prometheus/blackbox_exporter) that can probe endpoints over HTTP, HTTPS, DNS, TCP, ICMP and gRPC. From the probe results, it collects metrics to provide insights on the uptime, response times, and health of the endpoints.*
+
+## A simple example
+Let's run through a simple setup for a small set of endpoints.
+
+From the [Prometheus](https://prometheus.io/docs/introduction/first_steps/) and [Blackbox Exporter](https://github.com/prometheus/blackbox_exporter?tab=readme-ov-file#blackbox-exporter) docs, it takes 3 steps to accomplish this.
+
+1. Run Blackbox Exporter with custom module definitions to instrument different probing behaviors.
+
+    According to the [docs](https://github.com/prometheus/blackbox_exporter/blob/master/CONFIGURATION.md?tab=readme-ov-file#configuration), the following probing functions are supported: *HTTP, HTTPS (via the http prober), DNS, TCP socket, ICMP and gRPC*. For simplicity, let's assume that all apps are expected to return a HTTP 2XX response and they are all running on HTTP. We can define the a single module: http_2xx in our configuration:
+
+    ```yaml
+    modules:
+      http_2xx:
+        prober: http
+        timeout: 5s
+        http:
+          valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
+          valid_status_codes: [] # checks for any 2xx status
+          method: GET
+          tls_config:
+            insecure_skip_verify: false # Skip verification for simplicity
+      ...
+      # Define more modules here if required
+    ```
+
+    To validate the probing mechanism, we can initate a probe by specifying this url in the browser: `http://localhost:9115/probe?target=<your_endpoint>&module=<http_2xx>`
+
+    This instructs blackbox exporter to probe `<your_endpoint>` using `<http_2xx>` module.
+
+2. Define a Prometheus job definition to fetch metrics from Blackbox Exporter.
+    ```yaml
+    scrape_configs:
+    - job_name: "blackbox-exporter"
+      metrics_path: /probe # Metrics are collected here.
+      params:
+        module: [http_2xx]  # Defined in blackbox exporter configuration
+      static_configs:
+      # To onboard more endpoints, simply update this section
+      - targets:
+        - http://example.com
+        - http://localhost:8000
+            
+      relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: localhost:9115 # Blackbox exporter endpoint
+    ```
+
+    We define a single job: `blackbox-exporter` which contain the metrics_path: `/probe` and a static list of targets. Additionally, we take advantage of [relabel_configs](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config) to define the endpoint metadata to be used in the exporter's query parameters.
+
+    - For each endpoint, we extract the `__address__` and store it as `__param_target`, which represents the `target` query parameter. `__param_target` is then copied into a Prometheus label called `instance`. This label will helpful for filtering the Prometheus metrics later.
+    
+    - We then replace `__address__` with the blackbox exporter url. 
+      
+      For example, for the static target: `http://example.com`, Prometheus will call: `http://localhost:9115/probe?target=http://example.com&module=http_2xx`
+
+
+3. Query your metrics via the Prometheus UI. Since we previously copied `__param_target` and created an `instance` label, we can use that label to filter the endpoint's `probe_success` metric using the following Prometheus query. The query returns 1 for successful probe,  0 otherwise.
+
+```bash
+probe_success{instance='http://example.com'}
+```
+
+### Simple Architecture 
+
+![Simple Endpoint Monitoring Example](/assets/building-a-scalable-endpoint-monitoring-portal/SimpleExample.png)
+
+This seems straightforward. However, if you are building for the long term, you might start to notice several problems:
+
+1. As development teams and microservices grow, the number of endpoints will increase exponentially. How do we **scale up**? Furthermore, this design uses 1 server per component. How do we make it **highly available**?
+
+2. For a large organisation, many job definitions will have to be created to probe different sets of endpoints. In the long run, maintaining these definitions will become an administrative nightmare - unsustainable and prone to error. Is there an **easier** and more **foolproof** onboarding process? 
+
+3. There is only a single job label: `blackbox-exporter` so far. As mentioned in the previous point, there are many endpoints to be monitored in a large organisation. Can we introduce more metadata like **custom labels** to filter metrics for different sets of endpoints?
+
+## Requirements
+In light of the above painpoints, we arrive at the following set of requirements:
+
+1. The system must be scalable and highly available.
+
+2. The system must be easy to maintain, minimising operational overhead.
+
+3. The system must allow teams to configure custom Prometheus labels for metrics filtering. 
+
+## Design Improvements
+
+### 1. Scaling up + High Availability
+Let's explore horizontal scaling.
+1. We can increase the number of Blackbox exporter servers and set up a load balancer.
+
+2. The main weaknesses of Prometheus are that it is designed to run on a single server and it does not implement deduplication logic. This means that
+
+    - It's not scalable as the metric storage is limited by its local disk.
+    
+    - If we want to establish HA, we have to somehow federate and deduplicate metrics from two or more servers.
+   
+    To combat these painpoints, let's perform the following.
+
+    - Increase the number of Prometheus servers, using the same job definition. This means storing the same set of metrics across all servers. 
+
+    - To federate and dedup the metrics, we can introduce [Thanos](https://thanos.io).
+
+![HA Endpoint Monitoring Example](/assets/building-a-scalable-endpoint-monitoring-portal/HighAvailabilityExample.png)
+
+### 2. HTTP Service Discovery
+Instead of defining a list of static targets, let's implement a service discovery mechanism using Prometheus [HTTP Service Discovery](https://prometheus.io/docs/prometheus/latest/http_sd/). This allows Prometheus to fetch the list of targets dynamically via a HTTP endpoint.
+    
+```yaml
+# Updated job definition using http_sd_configs
+scrape_configs:
+- job_name: "blackbox-exporter"
+  metrics_path: /probe
+  params:
+    module: [http_2xx] # Defined in blackbox exporter configuration
+  http_sd_configs: # Implement service discovery
+    - url: http://localhost:8000/targets # HTTP SD Endpoint
+      refresh_interval: 5m
+
+  relabel_configs:
+  - source_labels: [__address__]
+    target_label: __param_target
+  - source_labels: [__param_target]
+    target_label: instance
+  - target_label: __address__
+    replacement: localhost:9115 # Blackbox exporter endpoint
+```
+
+How do we store and expose the endpoints? We can run a backend endpoint that regularly caches and exposes this data via an API, following this [response format](https://prometheus.io/docs/prometheus/latest/http_sd/#http_sd-format). For this example, I have defined a backend endpoint `/targets` running on `http://localhost:8000`.
+
+```json
+// Data format for HTTP SD API
+[
+    {
+        "targets": [ "http://example.com" ],
+        "labels": []
+    },
+    {
+        "targets": [ "http://localhost:8000" ],
+        "labels": []
+    },
+    ...
+]
+```
+### 3. Simplifying Onboarding
+So far, we have made significant improvement by making the targets list dynamic via service discovery, but we still can do better. 
+
+Instead of managing these endpoints ourselves, can we shift this responsibility to users? 
+
+Yes! We can build a **UI** to make this process self-service.
+1. Users submit endpoints through a form, saved in a database. The backend caches this data and exposes it in an API endpoint, refreshed every 5 minutes.
+        
+2. Prometheus servers discovers these endpoints by calling the HTTP endpoint and relay them to Blackbox exporters to probe these endpoints.
+
+### 4. Introducing Custom Labels
+Previously, we learnt about using relabelling rules in [relabel_configs](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config) to define query parameters and create new Prometheus labels. To inject more metadata in our metrics, we can apply the same procedure.
+
+- According to the [docs](https://prometheus.io/docs/prometheus/latest/http_sd/#http_sd-format), new labels are assigned to the `labels` array, where each label key is defined using this naming convention: `__meta__<label>`.
+    
+    ```json
+    [
+        {
+            "targets": [ "http://example.com" ],
+            "labels": [
+                {
+                    "__meta_module": "http_2xx",
+                    "__meta_application": "App 1",
+                    "__meta_team": "Alpha",
+                    "__meta_environment": "prod",
+                    "__meta_datacenter": "A"
+                }
+            ]
+        },
+        {
+            "targets": [ "http://localhost:8000" ],
+            "labels": [
+                {
+                    "__meta_module": "http_2xx",
+                    "__meta_application": "App 2",
+                    "__meta_team": "Beta",
+                    "__meta_environment": "nonprod",
+                    "__meta_datacenter": "B"
+                }
+            ]
+        },
+        ...
+    ]
+    ```
+
+- We can now introduce new relabelling rules to enrich each endpoint's metrics with the new labels.
+
+```yaml
+scrape_configs:
+- job_name: "blackbox-exporter"
+  metrics_path: /probe
+  # No need for static params
+  http_sd_configs: # Implement service discovery
+    - url: http://localhost:8000/targets # HTTP SD Endpoint
+      refresh_interval: 5m
+      
+  relabel_configs:
+  - source_labels: [__address__]
+    target_label: __param_target # Define target query parameter
+  - source_labels: [__param_target] # Create instance label from target param
+    target_label: instance
+  - source_labels: [__meta_module] # Define module query parameter
+    target_label: __param_module
+  - source_labels: [__meta_module] # Define module label, same operation for the remaining labels
+    target_label: module
+  - source_labels: [__meta_application]
+    target_label: application
+  - source_labels: [__meta_team]
+    target_label: team
+  - source_labels: [__meta_environment]
+    target_label: environment
+  - source_labels: [__meta_datacenter]
+    target_label: datacenter
+  - target_label: __address__
+    replacement: localhost:9115 # Blackbox exporter endpoint
+```
+
+To validate if the new labels are extracted properly, we can inspect the Prometheus UI's targets health page: `http://localhost:9090/targets`.
+Under the blackbox-exporter job, we can verify the list of different labels that were extracted from the discovered endpoints.
+
+![Prometheus Targets](/assets/building-a-scalable-endpoint-monitoring-portal/PrometheusTargets.png)
+
+## Putting Everything Together
+
+After factoring in all the design improvements, we arrive at the following design.
+
+![Improved Architecture](/assets/building-a-scalable-endpoint-monitoring-portal/FinalArchitecture.png)
+
+### Endpoint Status Dashboard
+![Dashboard](/assets/building-a-scalable-endpoint-monitoring-portal/Dashboard.png)
+
+### Onboarding Form
+![Endpoint Onboarding Form](/assets/building-a-scalable-endpoint-monitoring-portal/EndpointForm.png)
+
+### Onboarding Flow
+
+1. Users create endpoints via a self-service form, defining additional metadata like module, team, environment, etc.
+
+2. Backend stores and exposes the endpoint data via a `/targets` API, refreshed from the database in regular intervals.
+
+3. Prometheus uses HTTP Service Discovery to pull this target list, using relabelling rules to extract metadata, and passing them as query parameters to Blackbox Exporter calls.
+
+4. Blackbox Exporter probes each target based on the module passed in the query parameter, returning metrics to Prometheus.
+
+5. Prometheus stores these metrics, which can be queried by the UI or visualised on Grafana.
+
+## Source Code
+If you are interested to learn and set up the implementations covered in this blog, feel free to explore the repos below.
+
+[Endpoint Monitoring Setup](https://github.com/chensxb97/endpointMonitoringSetup) experiments with different ways of setting up Blackbox Exporter and Prometheus for endpoint monitoring.
+
+[Endpoint Monitoring Service](https://github.com/chensxb97/endpointMonitoringService) covers the end-to-end implementation of the endpoint monitoring service design we just discussed.
+
