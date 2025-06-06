@@ -169,39 +169,35 @@ Yes! We can build a **UI** to make this process self-service.
 ### 4. Introducing Custom Labels
 Previously, we learnt about using relabelling rules in [relabel_configs](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config) to define query parameters and create new Prometheus labels. To inject more metadata in our metrics, we can apply the same procedure.
 
-- According to the [docs](https://prometheus.io/docs/prometheus/latest/http_sd/#http_sd-format), we can define the new labels in key value pairs, and store them in the `labels` array.
+- We can define the new labels in key value pairs, and store them as a hash map in the `labels` variable.
     
     ```json
     [
         {
             "targets": [ "http://example.com" ],
-            "labels": [
-                {
-                    "module": "http_2xx",
-                    "application": "App 1",
-                    "team": "Alpha",
-                    "environment": "prod",
-                    "datacenter": "A"
-                }
-            ]
+            "labels": {
+              "module": "http_2xx",
+              "application": "App 1",
+              "team": "Alpha",
+              "environment": "prod",
+              "datacenter": "A"
+            }
         },
         {
             "targets": [ "http://localhost:8000" ],
-            "labels": [
-                {
-                    "module": "http_2xx",
-                    "application": "App 2",
-                    "team": "Beta",
-                    "environment": "nonprod",
-                    "datacenter": "B"
-                }
-            ]
+            "labels": {
+              "module": "http_2xx",
+              "application": "App 2",
+              "team": "Beta",
+              "environment": "nonprod",
+              "datacenter": "B"
+            }
         },
         ...
     ]
     ```
 
-- Since we are making the `module` option configurable by the user, this will be passed as a query parameter. This will mean removing the `params` block and adding new relabelling rules in our Prometheus job definition, to pass the selected `module` dynamically.
+- Since we are making the `module` option configurable by the user, we will have to introduce a relabelling rule to pass this value as a query parameter. We will no longer need the `params` block to define a static `module` option.
 
 ```yaml
 scrape_configs:
@@ -225,7 +221,7 @@ scrape_configs:
     replacement: localhost:9115 # Blackbox exporter endpoint
 ```
 
-With this final job definition, we only need to maintain a single job definition. Users are free to define any custom labels they want, all managed by the backend that is serving the HTTP Service Discovery endpoint.
+With this approach, we only need to maintain a single job definition, which will probably not require frequent changes in the long term. Users are free to define any custom labels they want, all managed by the backend that is serving the HTTP Service Discovery endpoint.
 
 To validate if the new labels are available for filtering, we can inspect the Prometheus UI's targets health page: `http://localhost:9090/targets`.
 Under the blackbox-exporter job, we can verify the list of different labels that were extracted from the discovered endpoints.
