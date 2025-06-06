@@ -39,7 +39,7 @@ export default function Page() {
             href="https://github.com/chensxb97"
             className="link">
             side projects
-          </a> and, from time to time, document some of my own experiences, learnings and thoughts in my <Link
+          </a> and, occasionally, document personal experiences, thoughts and learnings in my <Link
             key="/blog"
             href="/blog"
             className="link"
