@@ -84,7 +84,7 @@ This seems straightforward. However, if you are building for the long term, you 
 
 1. As development teams and microservices grow, the number of endpoints will increase exponentially. How do we **scale up**? Furthermore, this design uses 1 server per component. How do we make it **highly available**?
 
-2. For a large organisation, many job definitions will have to be created to probe different sets of endpoints. In the long run, maintaining these definitions will become an administrative nightmare - unsustainable and prone to error. Is there an **easier** and more **foolproof** onboarding process? 
+2. For a large organisation, many job definitions will have to be maintained to probe different sets of endpoints. In the long run, this activity will become an administrative nightmare - unsustainable and prone to error. Is there an **easier** and more **foolproof** onboarding process? 
 
 3. There is only a single job label: `blackbox-exporter` so far. As mentioned in the previous point, there are many endpoints to be monitored in a large organisation. Can we introduce more metadata like **custom labels** to filter metrics for different sets of endpoints?
 
