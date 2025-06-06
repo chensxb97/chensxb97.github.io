@@ -169,7 +169,7 @@ Yes! We can build a **UI** to make this process self-service.
 ### 4. Introducing Custom Labels
 Previously, we learnt about using relabelling rules in [relabel_configs](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config) to define query parameters and create new Prometheus labels. To inject more metadata in our metrics, we can apply the same procedure.
 
-- According to the [docs](https://prometheus.io/docs/prometheus/latest/http_sd/#http_sd-format), new labels are assigned to the `labels` array, where each label key is defined using this naming convention: `__meta__<label>`.
+- According to the [docs](https://prometheus.io/docs/prometheus/latest/http_sd/#http_sd-format), we can define the new labels in key value pairs, and store them in the `labels` array.
     
     ```json
     [
@@ -177,11 +177,11 @@ Previously, we learnt about using relabelling rules in [relabel_configs](https:/
             "targets": [ "http://example.com" ],
             "labels": [
                 {
-                    "__meta_module": "http_2xx",
-                    "__meta_application": "App 1",
-                    "__meta_team": "Alpha",
-                    "__meta_environment": "prod",
-                    "__meta_datacenter": "A"
+                    "module": "http_2xx",
+                    "application": "App 1",
+                    "team": "Alpha",
+                    "environment": "prod",
+                    "datacenter": "A"
                 }
             ]
         },
@@ -189,11 +189,11 @@ Previously, we learnt about using relabelling rules in [relabel_configs](https:/
             "targets": [ "http://localhost:8000" ],
             "labels": [
                 {
-                    "__meta_module": "http_2xx",
-                    "__meta_application": "App 2",
-                    "__meta_team": "Beta",
-                    "__meta_environment": "nonprod",
-                    "__meta_datacenter": "B"
+                    "module": "http_2xx",
+                    "application": "App 2",
+                    "team": "Beta",
+                    "environment": "nonprod",
+                    "datacenter": "B"
                 }
             ]
         },
@@ -201,7 +201,7 @@ Previously, we learnt about using relabelling rules in [relabel_configs](https:/
     ]
     ```
 
-- We can now introduce new relabelling rules to enrich each endpoint's metrics with the new labels.
+- Since we are making the `module` option configurable by the user, this will be passed as a query parameter. This will mean removing the `params` block and adding new relabelling rules in our Prometheus job definition, to pass the selected `module` dynamically.
 
 ```yaml
 scrape_configs:
@@ -221,19 +221,13 @@ scrape_configs:
     target_label: __param_module
   - source_labels: [__meta_module] # Define module label, same operation for the remaining labels
     target_label: module
-  - source_labels: [__meta_application]
-    target_label: application
-  - source_labels: [__meta_team]
-    target_label: team
-  - source_labels: [__meta_environment]
-    target_label: environment
-  - source_labels: [__meta_datacenter]
-    target_label: datacenter
   - target_label: __address__
     replacement: localhost:9115 # Blackbox exporter endpoint
 ```
 
-To validate if the new labels are extracted properly, we can inspect the Prometheus UI's targets health page: `http://localhost:9090/targets`.
+With this final job definition, we only need to maintain a single job definition. Users are free to define any custom labels they want, all managed by the backend that is serving the HTTP Service Discovery endpoint.
+
+To validate if the new labels are available for filtering, we can inspect the Prometheus UI's targets health page: `http://localhost:9090/targets`.
 Under the blackbox-exporter job, we can verify the list of different labels that were extracted from the discovered endpoints.
 
 ![Prometheus Targets](/assets/building-a-scalable-endpoint-monitoring-portal/PrometheusTargets.png)
