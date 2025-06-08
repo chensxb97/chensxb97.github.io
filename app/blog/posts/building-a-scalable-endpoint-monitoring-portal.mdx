@@ -7,7 +7,7 @@ Endpoint Monitoring is the practice of probing applications/services to gather d
 
 In many organizations, it is critical to detect application downtime early and quickly identify possible root causes for such downtime. 
 
-For this article, we will be discussing how we can implement Blackbox Exporter to support endpoint monitoring for the long term.
+For this article, we will be discussing how we can design a service for endpoint monitoring in the long term.
 
 *Blackbox Exporter is a [Prometheus exporter](https://github.com/prometheus/blackbox_exporter) that can probe endpoints over HTTP, HTTPS, DNS, TCP, ICMP and gRPC. From the probe results, it collects metrics to provide insights on the uptime, response times, and health of the endpoints.*
 
@@ -18,7 +18,7 @@ From the [Prometheus](https://prometheus.io/docs/introduction/first_steps/) and 
 
 1. Run Blackbox Exporter with custom module definitions to instrument different probing behaviors.
 
-    According to the [docs](https://github.com/prometheus/blackbox_exporter/blob/master/CONFIGURATION.md?tab=readme-ov-file#configuration), the following probing functions are supported: *HTTP, HTTPS (via the http prober), DNS, TCP socket, ICMP and gRPC*. For simplicity, let's assume that all apps are expected to return a HTTP 2XX response and they are all running on HTTP. We can define the a single module: http_2xx in our configuration:
+    According to the [docs](https://github.com/prometheus/blackbox_exporter/blob/master/CONFIGURATION.md?tab=readme-ov-file#configuration), the following probing functions are supported: *HTTP, HTTPS (via the http prober), DNS, TCP socket, ICMP and gRPC*. For simplicity, let's assume that all apps are expected to return a HTTP 2XX response and they are all running on HTTP. We can define a single module: http_2xx in our configuration:
 
     ```yaml
     modules:
@@ -93,7 +93,7 @@ In light of the above painpoints, we arrive at the following set of requirements
 
 1. The system must be scalable and highly available.
 
-2. The system must be easy to maintain, minimising operational overhead.
+2. The system must be easy to maintain, with minimal operational overhead.
 
 3. The system must allow teams to configure custom Prometheus labels for metrics filtering. 
 
