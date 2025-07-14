@@ -13,8 +13,7 @@ export default function Page() {
       <div className="mb-4">
         <h2 className="text-xl font-medium mb-1">Summary</h2>
         <p className="text-l dark:text-neutral-300">
-          Most of my current work involves building new integrations and tools in Observability.
-          When it comes to new apps, I am always seeking to chase productivity, eliminate operational overhead and improve the user experience.
+          Most of my current work involves building new integrations and tools in the AI and Observability space.
           Today, I am open to new opportunities to apply this expertise in both full-stack and backend engineering.
         </p>
       </div>
@@ -24,7 +23,8 @@ export default function Page() {
         <div className="mb-4">
           <div className="mb-2">
             <h2 className="text-l font-medium dark:text-neutral-200">Visa</h2>
-            <p className="text-sm dark:text-neutral-300">Software Engineer, February 2023 - Present</p>
+            <p className="text-sm dark:text-neutral-300">Sr. Software Engineer, July 2025 - Present</p>
+            <p className="text-sm dark:text-neutral-300">Software Engineer, February 2023 - June 2025</p>
             <p className="text-sm dark:text-neutral-300">Intern, May 2022 - July 2022</p>
             <p className="text-sm dark:text-neutral-300">Intern, May 2021 - July 2021</p>
           </div>
@@ -35,8 +35,6 @@ export default function Page() {
             <li>Developed several automations to allow critical integrations with existing alerting workflows such as AAA failover and additional exporter support.</li>
             <li>Supported the development of a configuration tool using Git APIs for managing exporter configurations across thousands of servers.</li>
             <li>Built a Prometheus configuration manager using TypeScript and Go to streamline shared configuration management across hundreds of VMs and Kubernetes clusters. Automated deployment reduced manual DevOps overhead by 90%.</li>
-            <li>Explored and developed a modularized Prometheus exporter from open-source grok exporter, to extract metrics from unstructured log data.
-            </li>
           </ul>
         </div>
         <div className="mb-4">
@@ -117,11 +115,13 @@ export default function Page() {
       <div className="mb-4">
         <h2 className="text-xl font-medium mb-1">Side Projects</h2>
         <ul className='indented-list ml-4 text-l dark:text-neutral-300 mb-2'>
-          <li>Prometheus Onboarding Manager, a React/Go app that streamlines the management of your Prometheus Services</li>
+          <li>MCP Protocol for AI Observability</li>
+          <li>Exploring Monacopilot for autocompleting niche languages</li>
+          <li>Endpoint Monitoring Service for simplifying Blackbox Exporter monitoring</li>
           <li>Service Manager, a UI prototype written in React/Go for managing service lifecycles, boosting deployment speeds by 90%, inspired by Apache Amabari.</li>
+          <li>Passport photo maker, a Python tool using opencv and rembg libraries for quick generation of ICA-compliant passport photos.</li>
           <li>A step by step migration guide from React to NextJS to capitalise on React Server Components.</li>
           <li>React App Template that supports Basic CRUD and Vertical sidebar</li>
-          <li>Passport photo maker, a Python tool using opencv and rembg libraries for quick generation of ICA-compliant passport photos.</li>
         </ul >
         <i className="text-l dark:text-neutral-300">
           For more details, please check them out on <a rel="noopener noreferrer" target='_blank' href='https://github.com/chensxb97/' className="link">
