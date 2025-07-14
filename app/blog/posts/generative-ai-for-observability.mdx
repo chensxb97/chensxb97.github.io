@@ -5,7 +5,7 @@ summary: 'Exploring generative artificial intelligence for tackling some of the 
 ---
 In computer science, **observability** is the ability to understand the internal state of a system by analysing its telemetry outputs.
 
-The three core pillars of observability, as described by [IBM](https://www.ibm.com/think/topics/observability) are:
+The three core pillars of observability as described by [IBM](https://www.ibm.com/think/topics/observability), are:
 - **Logs** – Timestamped events that provide detailed context about an application.
 - **Metrics** – Numerical data points that track the performance and health of systems over time.
 - **Traces** – Track the status of requests as they flow through different components of a distributed system.
@@ -19,25 +19,25 @@ In observability, manual tasks like interpreting alerts, writing prometheus quer
 ## Painpoints in large observability systems
 As observability systems scale, these issues are bound to become more noticeable:
 
-### 1. Interpeting complex observability data
+### 1. Interpeting complex data
 Engineers may struggle to extract critical insights from verbose alerts and convoluted logs. This can make remedation difficult, slowing down incident response.
 
-### 2. Difficulty constructing complex infrastructure-as-code
+### 2. Constructing complex infrastructure-as-code
 Writing complex queries and configuration files for observability tools require specialized domain knowledge, which can be time-consuming.
 
 ### 3. Human errors in configurations
 Since configurations are mostly edited manually, syntax errors can easily be left unnoticed post-deployment. This can lead to gaps in monitoring which can result in undetected outages.
 
-### 4. Onboarding new teams on observability
-As each observability tool has their own demanding learning curve, it can take a lot of time to educate new teams on observability configurations. This is especially worse when companies are constantly forced to migrate to new tools that are better and cheaper in the market.
+### 4. Onboarding new teams
+As each observability tool has their own demanding learning curve, it can take time to educate new teams on observability configurations. This is especially worse when companies are constantly forced to migrate to new tools that are better and cheaper in the market.
 
 ### 5. Debugging can be time-consuming
-Manually investigating and correlating alerts, metrics, logs, and traces can take up as long as hours.
+Manually investigating and correlating alerts, metrics, logs, and traces during SWAT calls, can take as long as hours.
 
 ## Solutions using GenAI
-Thankfully, GenAI opens powerful automation opportunities to help us alleviate these issues. By properly crafting system prompts and describing the correct context, LLMs can greatly 
+Thankfully, GenAI opens up many opportunities for powerful automations to alleviate these issues. By properly crafting system prompts and describing the correct context, LLMs can greatly 
 
-- Simplify observability workflows
+- Simplify workflows
 
 - Eliminate repetitive tasks
 
@@ -89,9 +89,9 @@ To reduce the difficulty of interpreting complex alerts, LLMs can be instructed 
     ```
     
 ### Scaffolding infra-as-a-code objects
-To speed up onboarding and reduce time-to-production, LLMs can be leveraged to generate boilerplate configurations automatically.
+To reduce time-to-production for new infra-as-a-code configurations, LLMs can be leveraged to generate boilerplates quickly.
 
-A common use case is Grafana Dashboarding, where new users can find it overwhelming to build dashboards from scratch due to the high number of configurable settings.
+A common use case is Grafana Dashboarding, where new users can find it overwhelming to build dashboards from scratch due to an ever-increasing number of configurable settings.
 
 - System prompt
     ```
@@ -158,7 +158,7 @@ A common use case is Grafana Dashboarding, where new users can find it overwhelm
     ```
 
 ### Intelligent code configuration reviews
-LLMs can also be trained to review code configurations. They can provide suggestions for improvements and best practises, and catch identify errors early. One example is reviewing K8 deployment configurations.
+LLMs can also be trained to review code configurations. They can provide suggestions for improvements and best practises, and catch syntax errors early. One example is reviewing K8 deployment configurations.
 
 - System prompt
     ```
@@ -259,7 +259,7 @@ LLMs can also be trained to review code configurations. They can provide suggest
     ```
 
 ### Onboarding checklists
-As observability pipelines involves many moving parts, we can seek the help of LLMs to dynamically generate onboarding checklists to assess if critical steps are properly configured. This improves transparency in the onboarding process and reduces the need for manual verification.
+As observability pipelines can involve many moving parts, it will be useful to generate onboarding checklists to assess if critical steps are properly configured. This improves transparency in the onboarding process and reduces the need for manual verification.
 
 - System prompt
     ```
@@ -300,7 +300,7 @@ As observability pipelines involves many moving parts, we can seek the help of L
 
     ```
 ### Automate root cause analysis (RCA)
-We can also feed sets of observability data into LLMs to automatically generate root cause summaries. This reduces the time and effort spent digging through logs and metrics.
+We can also feed observability data into LLMs to automatically generate root cause summaries. This reduces the time and effort spent digging through logs and metrics.
 
 - System prompt
     ```
@@ -376,11 +376,13 @@ We can also feed sets of observability data into LLMs to automatically generate 
     to prevent future occurrences.
     ```
 ### Source code
-To explore the implementation behind the examples, you can check out the following [source code](https://github.com/chensxb97/genaiObservability). Prompts and responses were tested using the [Mistral AI API](https://docs.mistral.ai/getting-started/quickstart/).
+To explore the implementation behind the examples, you can check out the following [repo](https://github.com/chensxb97/genaiObservability). Prompts and responses were tested using the [Mistral AI API](https://docs.mistral.ai/getting-started/quickstart/).
 
 ## Final thoughts
-The above use cases reflect some of the most frequently requested needs I have encountered from stakeholders who want more out of an AI-powered observability system.
+The above use cases highlight just how much value stakeholders can stand to benefit by integrating GenAI in our observability systems. 
 
-GenAI is just the beginning of the AI revolution. With newer technologies like AI Agents, MCP, and many others, I’m excited to see the endless possibilities they can unlock in this space moving forward.
+Its ability to automate, summarize, and reason with complex observability data has been a game-changer, allowing us to cut time spent on repetitive tasks and gain more insights from intelligent outputs.
+
+And this is only the beginning. With many new technologies quickly entering the market (AI Agents, MCP, etc.), I’m excited to see the endless possibilities we can unlock in this space moving forward.
 
 Stay tuned for more!
