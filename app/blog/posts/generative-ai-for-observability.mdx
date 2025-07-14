@@ -1,0 +1,389 @@
+---
+title: Generative AI For Observability
+publishedAt: '2025-07-14'
+summary: 'Exploring generative artificial intelligence for tackling some of the biggest painpoints in observability.'
+---
+In computer science, **observability** is the ability to understand the internal state of a system by analysing its telemetry outputs.
+
+According to [IBM](https://www.ibm.com/think/topics/observability), the three core pillars of observability are:
+- **Logs** – Timestamped events that provide detailed context about an application.
+- **Metrics** – Numerical data points that track the performance and health of systems over time.
+- **Traces** – Track the status of requests as they flow through different components of a distributed system.
+
+## Generative AI
+According to [Oracle](https://www.oracle.com/sg/artificial-intelligence/generative-ai/what-is-generative-ai), **Generative AI (GenAI)** is a revolutionary technology capable of producing human-like text, images, audio, and video. Successful applications that use this technology - ChatGPT, Claude and Deepseek, leverage on large language models (LLMs) to understand and generate human-readable content. 
+
+Since its introduction in 2022, its impact has enabled automations previously unimaginable through traditional programming. In software engineering, it has been rapidly adopted by developers to automate tasks involving boilerplating, documentation, and code-completion.
+
+For large, distributed observability systems, manual tasks like interpreting alerts, writing prometheus queries, and reviewing infrastructure configuration files can be streamlined and automated using LLMs. By integrating LLMs with telemetry data, teams can expect to improve process efficiency and unlock many new ways on interacting with observability data.
+
+## Painpoints in large observability systems
+As observability systems scale, these issues are bound to become more noticeable:
+
+### 1. Interpeting complex observability data
+Engineers often struggle to extract critical insights from verbose alerts and convoluted logs. This can make remedation difficult, slowing down incident response.
+
+### 2. Difficulty constructing complex infrastructure-as-code
+Writing complex queries and configuration files for observability tools require specialized domain knowledge, which can be time-consuming.
+
+### 3. Human errors in configurations
+Since configurations are mostly edited manually, syntax errors can easily occur and go unnoticed post-deployment. This can lead to gaps in monitoring which can result in undetected incidents or prolonged outages.
+
+### 4. Challenges in onboarding new teams
+As each observability tool has their own demanding learning curve, it can take a lot of time to edcuate new engineers on observability configurations. This is especially worse when companies are constantly forced to migrate to new tools that are better and cheaper in the market.
+
+### 5. Debugging is a Time Sink
+Manually investigating and correlating alerts, metrics, logs, and traces can take up as long as hours.
+
+## Solutions using GenAI
+Thankfully, GenAI opens powerful automation opportunities to help us alleviate these issues. By properly crafting system prompts and describing the correct context, LLMs can greatly 
+
+- Simplify observability workflows
+
+- Eliminate repetitive tasks
+
+- Reduce human errors
+
+- Improve knowledge transfer across teams
+
+Let’s walkthrough how we can implement LLMs to address each painpoint.
+
+### Data Summarisation and Metadata Extraction
+To reduce the difficulty of interpreting complex alerts, LLMs can be instructed to translate and extract the most crucial information to speed up incident resolutions.
+
+- System prompt
+    ```
+    You are an observability alerting assistant. 
+    
+    Summarise the input alert or incident information into 
+    a clear, concise, and non-technical paragraph suitable for
+    an engineer to quickly understand the issue, its impact,
+    and urgency.
+    ```
+
+- Prompt
+    ```
+    Alert Details: {
+        "alert_name": "High CPU Usage",
+        "severity": "critical",
+        "description": "CPU usage has exceeded 90% for 
+        the last 5 minutes on server XYZ. This could indicate
+        a potential performance issue or a runaway process.",
+        "timestamp": "2023-10-01T12:00:00Z",
+        "application": "web-server",
+        "environment": "production"
+    }
+    ```
+
+- Response
+    ```
+    Summary:
+    There's a critical issue with our production web server, 
+    where the CPU usage has been over 90% for the past 5 minutes.
+
+    This could be causing performance problems 
+    or might be due to a runaway process. 
+    
+    Immediate attention is required to investigate and 
+    resolve the issue to prevent any potential downtime 
+    or service degradation.
+    ```
+    
+### Scaffolding infra-as-a-code objects
+To speed up onboarding and reduce time-to-production, LLMs can be leveraged to generate complex boilerplate configurations automatically. This eliminates manual setup and ensures consistency across environments.
+
+A common use case is Grafana Dashboarding, where new users can find it overwhelming to build dashboards from scratch due to the high number of configurable settings.
+
+- System prompt
+    ```
+    Analyse the input Prometheus query and generate a 
+    grafana dashboard json code with various panels associated 
+    with different metrics that you think are necessary 
+    to be tracked. 
+    
+    Group related metrics together 
+    and use appropriate types of panels - gauges, text, 
+    histograms etc. - based on your analysis of the metrics.
+
+    Provide the answer in JSON format:
+    ```json```
+    ```
+    
+- Prompt
+    ```
+    Prometheus Query: 
+    sum(rate(http_requests_total{job="web-server", 
+    status="500"}[5m]))by (instance)
+    ```
+
+- Response
+    ```
+    Based on the provided Prometheus query, which tracks the 
+    rate of HTTP 500 errors for a web server, I've created a
+    Grafana dashboard JSON that includes related metrics for 
+    monitoring the web server's health and performance. 
+    
+    The dashboard is organized into sections for Error Tracking, 
+    Request Rates, Response Times, and System Metrics.
+
+    {
+        "dashboard": {
+            "title": "Web Server Monitoring",
+            "panels": [
+                {
+                    "title": "500 Errors Rate",
+                    "type": "graph",
+                    "gridPos": {
+                    "x": 0,
+                    "y": 0,
+                    "w": 12,
+                    "h": 4
+                    },
+                    "targets": [
+                    {
+                        "expr": "sum(rate
+                        (http_requests_total
+                        {job=\"web-server\", status=\"500\"}
+                        [5m])) by (instance)",
+                        "refId": "A"
+                    }
+                    ]
+                },
+                ...
+            ]
+            "refresh": "1m",
+            "timezone": "browser"
+        },
+        "overwrite": true
+    }
+    ```
+
+### Intelligent code configuration reviews
+LLMs can also be trained to review code configurations. They can provide suggestions for improvements and best practises, identify and catch possible errors early. One example is reviewing large K8 deployment configurations.
+
+- System prompt
+    ```
+    You are an observability deployment code reviewer.
+
+    Review the given infrastructure code 
+    and try to spot any syntax errors/issues.
+
+    You can provide your analysis in the following format:
+    1. Summary
+    2. Recommended change in a single content block if applicable. 
+    
+    ```
+
+- Prompt
+    ```
+    Review the following infrastructure code for K8 Deployment:
+    
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+    name: test-app
+    spec:
+    replicas: 2
+    selector:
+        matchLabels:
+        app: test-app
+    template:
+        metadata:
+        labels:
+            app: test-app
+        spec:
+        containerz: # ❌ ERROR 1: Typo – should be `containers`
+            - name: test-app
+            image: nginx:latest
+            ports:
+                - containerPort: eighty 
+                # ❌ ERROR 2: Invalid value – 
+                # should be an integer like 80
+            volumeMounts:
+                - name: config
+                mountPath: /etc/config
+        volumes:
+            - name: config
+            configMap:
+                name: test-app-config 
+                # ❌ ERROR 3: Likely missing ConfigMap definition
+    ```
+    
+- Response
+    ```
+    1. Summary
+    The provided Kubernetes Deployment YAML 
+    has a few syntax errors and issues that need to be addressed:
+
+        1. **Typo in `containers`**: 
+        
+        The key `containerz` is misspelled; it should be `containers`.
+        
+        2. **Invalid port number**: 
+        
+        The port number `eighty` is not a valid integer; 
+        it should be `80`.
+        
+        3. **Indentation issues**:
+
+        The indentation of some elements is inconsistent,
+        which can cause parsing errors.
+
+    2. Recommended change
+
+        apiVersion: apps/v1
+        kind: Deployment
+        metadata:
+        name: test-app
+        spec:
+        replicas: 2
+        selector:
+            matchLabels:
+            app: test-app
+        template:
+            metadata:
+            labels:
+                app: test-app
+            spec:
+            containers:
+                - name: test-app
+                image: nginx:latest
+                ports:
+                    - containerPort: 80
+                volumeMounts:
+                    - name: config
+                    mountPath: /etc/config
+            volumes:
+                - name: config
+                configMap:
+                    name: test-app-config
+    ```
+
+### Onboarding Checklist
+As observability pipelines involves many moving parts, we can seek the help of LLMs to dynamically generate onboarding checklists to assess if critical steps are properly configured. This improves transparency in the onboarding process and reduces the need for manual verification.
+
+- System prompt
+    ```
+    You are an onboarding guide for Team Observability. 
+    
+    You help teams understand how to onboard to 
+    observability practices, tools, and processes 
+    based on the documented wiki below:
+    
+    <some wiki content>
+    ```
+    
+- Prompt
+    ```
+    Please provide a step-by-step guide on 
+    how to onboard to your observability system.
+    ```
+    
+- Response
+    ```
+    Certainly! Here's a step-by-step guide 
+    to help you onboard to our observability system:
+
+    Step 1: Setup
+    1. **Join Slack Channel**
+    ...
+
+    2. **Access Required Tools**
+    - Request access to the following tools:
+        ...
+
+    3. **Clone and Set Up Repository**
+    - Clone the observability platform repository:
+        ...
+    - Run the development setup script:
+        ...
+    ...
+
+    ```
+### Automate Root Cause Analysis (RCA)
+We can also feed sets of observability data into LLMs to automatically generate root cause summaries. This reduces the time and effort spent digging through logs and metrics by hand.
+
+- System prompt
+    ```
+    You are an observability and incident response assistant.
+    
+    Given the observabilty data, analyze the root cause 
+    of the incident. 
+    
+    Provide a short RCA summary including:
+    - What is likely causing the issue
+    - What systems are affected
+    - Suggested next steps to mitigate or resolve
+    ```
+    
+- Prompt
+    ```
+    {
+        "alert": {
+            "alert_name": "High CPU Usage",
+            "severity": "critical",
+            "description": "CPU usage exceeded 90% for 5 minutes 
+            on server XYZ.",
+            "timestamp": "2023-10-01T12:00:00Z",
+            "application": "web-server",
+            "environment": "production"
+        },
+        "logs": [
+            "2023-10-01T11:59:23Z ERROR nginx[1234]: 
+            worker process exited on signal 9",
+            "2023-10-01T11:59:25Z WARN app[5678]:
+            GC pause exceeded threshold",
+            "2023-10-01T11:58:12Z INFO deploy: 
+            web-server v2.3.1 deployed to XYZ"
+        ],
+        "deployments": [
+            {
+                "service": "web-server",
+                "version": "v2.3.1",
+                "timestamp": "2023-10-01T11:58:00Z"
+            }
+        ],
+        "metrics": {
+            "cpu_load_avg": "92%",
+            "memory_usage": "68%",
+            "disk_io": "normal"
+        }
+    }
+    ```
+    
+- Response
+    ```
+    Root Cause Analysis (RCA) Summary
+
+    **What is likely causing the issue:**
+    The high CPU usage (92%) on server XYZ is likely ...
+
+    **What systems are affected:**
+    - The web-server application running on server XYZ 
+    in the production environment.
+    - The nginx worker processes, which are critical
+    for handling web traffic.
+
+    **Suggested next steps to mitigate or resolve:**
+    1. **Rollback the Deployment:** ...
+    2. **Investigate Nginx Logs:** ...
+    3. **Analyze Application Logs:** ...
+    4. **Monitor Resource Usage:** ...
+    5. **Optimize Application Code:** ...
+    6. **Scale Resources:** ...
+
+    By following these steps, you should be able to
+    mitigate the immediate issue and gather more information 
+    to prevent future occurrences.
+    ```
+### Source Code
+To explore the implementation behind the examples, you can check out the following [source code](https://github.com/chensxb97/genaiObservability). Prompts and responses were tested using the [Mistral AI API](https://docs.mistral.ai/getting-started/quickstart/).
+
+## Final Thoughts
+The above use cases reflect some of the most frequently requested needs I have encountered from stakeholders who want more out of an AI-powered observability system.
+
+In the long term, I believe AI integration into observability workflows will deepen more significantly. As we adopt an AI-first mindset, observability will move from reactive troubleshooting towards becoming more anticipatory and self-healing.
+
+GenAI is just the beginning of the AI revolution. With newer technologies like AI Agents, MCP, and many others, I’m excited to see the endless possibilities they will unlock in this space moving forward.
+
+Stay tuned for more!
