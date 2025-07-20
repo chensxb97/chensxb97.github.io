@@ -33,20 +33,20 @@ export default function Page() {
       </div>
       <div className="text-l dark:text-neutral-300">
         <p className="mb-4">
-          During my spare time, I enjoy exploring and learning about new technologies through <a
+          In my spare time, I enjoy exploring the latest technologies through <a
             rel="noopener noreferrer"
             target="_blank"
             href="https://github.com/chensxb97"
             className="link">
             side projects
-          </a>. Occasionally, I also like to reflect on personal experiences, thoughts and learnings in <Link
+          </a>, mostly related to AI and Observability. I also like to reflect on my personal experiences, learnings and thoughts in <Link
             key="/blog"
             href="/blog"
             className="link"
           >my blog</Link>.
         </p>
         <p className="mb-4">
-          If you wish to reach out, I am happy to connect via <a
+          If you'd like to reach out, I'm happy to connect via <a
             rel="noopener noreferrer"
             target="_blank"
             href="https://www.linkedin.com/in/benedict-chen-1a8024189/"

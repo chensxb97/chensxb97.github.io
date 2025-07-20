@@ -13,8 +13,8 @@ export default function Page() {
       <div className="mb-4">
         <h2 className="text-xl font-medium mb-1">Summary</h2>
         <p className="text-l dark:text-neutral-300">
-          Most of my experience involves building tools and integrations in the Observability and AI space.
-          I'm currently open to new opportunities in full-stack and backend engineering roles where I can apply this expertise to deliver meaningful impact.
+          Most of my experience involves designing and building automations and integrations in the Observability and AI space.
+          I'm currently open to new opportunities in both full-stack and backend engineering roles where I can apply this expertise to deliver meaningful impact.
         </p>
       </div>
       <hr className="my-6 border-neutral-100 dark:border-neutral-800" />
