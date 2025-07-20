@@ -19,34 +19,34 @@ export default function Page() {
         </h1>
         <div className="text-l dark:text-neutral-300">
           <p className="mb-4">
-            I am a software engineer, rock-climber and coffee-lover.
+            I'm a software engineer and rock-climber who enjoys his coffee with two shots.
           </p>
           <p className="mb-4">
-            Today, I am proud to be part of the Observability team in <a rel="noopener noreferrer" target='_blank' href='https://www.visa.com.sg/' className="link">
-              Visa</a> where I design and implement solutions to support monitoring and logging at scale.
+            Today, I am proud to be part of the observability team in <a rel="noopener noreferrer" target='_blank' href='https://www.visa.com.sg/' className="link">
+              Visa</a> where I design and build solutions for monitoring applications at scale. Most of <Link
+                key="/work"
+                href="/work"
+                className="link"
+              >my work</Link> involves Javascript, Go, and Python.
           </p>
         </div>
       </div>
       <div className="text-l dark:text-neutral-300">
         <p className="mb-4">
-          I mostly use Javascript, Go, and Python for <Link
-            key="/work"
-            href="/work"
-            className="link"
-          >work</Link>. During my spare time, I like to explore <a
+          During my spare time, I enjoy exploring and learning about new technologies through <a
             rel="noopener noreferrer"
             target="_blank"
             href="https://github.com/chensxb97"
             className="link">
             side projects
-          </a> and occasionally, document personal experiences, thoughts and learnings in my <Link
+          </a>. Occasionally, I also like to reflect on personal experiences, thoughts and learnings in <Link
             key="/blog"
             href="/blog"
             className="link"
-          >blog</Link>.
+          >my blog</Link>.
         </p>
         <p className="mb-4">
-          If you wish to reach out to me, I am happy to connect via <a
+          If you wish to reach out, I am happy to connect via <a
             rel="noopener noreferrer"
             target="_blank"
             href="https://www.linkedin.com/in/benedict-chen-1a8024189/"
