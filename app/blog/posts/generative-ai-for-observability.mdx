@@ -10,25 +10,25 @@ The three core pillars of observability as described by [IBM](https://www.ibm.co
 - **Metrics** – Numerical data points that track the performance and health of systems over time.
 - **Traces** – Track the status of requests as they flow through different components of a distributed system.
 
-According to an article published by [Oracle](https://www.oracle.com/sg/artificial-intelligence/generative-ai/what-is-generative-ai), **Generative AI (GenAI)** is a revolutionary technology capable of producing human-like text, images, audio, and video. Successful applications that use this technology - ChatGPT, Claude and Deepseek, leverage on large language models (LLMs) to understand and generate human-readable content. 
+According to an article published by [Oracle](https://www.oracle.com/sg/artificial-intelligence/generative-ai/what-is-generative-ai), **Generative AI (GenAI)** is a revolutionary technology capable of producing human-like text, images, audio, and video. Successful applications that use this technology like ChatGPT, Claude and Deepseek, leverage on large language models (LLMs) to understand and generate human-readable content. 
 
 Since its introduction in 2022, its impact has enabled automations previously unimaginable through traditional programming. In software engineering, it has been rapidly adopted to automate boilerplating, documentation, and code-completion.
 
-In observability, manual tasks like interpreting alerts, writing prometheus queries, and reviewing infrastructure configuration files can be streamlined and automated using LLMs. By integrating LLMs with telemetry data, teams can expect to improve process efficiency and unlock many new ways to extract insights from their data.
+In observability, repetitive tasks like crafting alerts, prometheus queries and reviewing config files can be streamlined and automated using LLMs. By introducing GenAI into the picture, teams can benefit from greater process efficiency and extract much better insights from their data.
 
 ## Painpoints in large observability systems
 As observability systems scale, these issues are bound to become more noticeable:
 
 ### 1. Interpeting complex data
-Engineers may struggle to extract critical insights from verbose alerts and convoluted logs. This can make remedation difficult, slowing down incident response.
+Engineers may struggle to extract critical insights from verbose alerts and convoluted logs. This can make remediation difficult, slowing down incident response.
 
-### 2. Constructing complex infrastructure-as-code
+### 2. Crafting complex infrastructure-as-code
 Writing complex queries and configuration files for observability tools require specialized domain knowledge, which can be time-consuming.
 
-### 3. Human errors in configurations
+### 3. Human errors
 Since configurations are mostly edited manually, syntax errors can easily be left unnoticed post-deployment. This can lead to gaps in monitoring which can result in undetected outages.
 
-### 4. Onboarding new teams
+### 4. Difficulty in onboarding
 As each observability tool has their own demanding learning curve, it can take time to educate new teams on observability configurations. This is especially worse when companies are constantly forced to migrate to new tools that are better and cheaper in the market.
 
 ### 5. Debugging can be time-consuming
@@ -44,6 +44,8 @@ Thankfully, GenAI opens up many opportunities for powerful automations to allevi
 - Reduce human errors
 
 - Improve knowledge transfer across teams
+
+- Improve incident response time 
 
 Let’s walkthrough how we can implement LLMs to address each painpoint.
 
@@ -379,10 +381,10 @@ We can also feed observability data into LLMs to automatically generate root cau
 To explore the implementation behind the examples, you can check out the following [repo](https://github.com/chensxb97/genaiObservability). Prompts and responses were tested using the [Mistral AI API](https://docs.mistral.ai/getting-started/quickstart/).
 
 ## Final thoughts
-The above use cases highlight just how much value stakeholders can stand to benefit by integrating GenAI in our observability systems. 
+The above use cases highlight just how much value stakeholders can stand to benefit by integrating GenAI in our observability systems.
 
-Its ability to automate, summarize, and reason with complex observability data has been a game-changer, allowing us to cut time spent on repetitive tasks and gain more insights from intelligent outputs.
+Its ability to automate, summarize, and reason with complex observability data has been a game-changer, allowing us to cut time on repetitive tasks and gain more insights from intelligent outputs.
 
-And this is only the beginning. With many new technologies quickly entering the market (AI Agents, MCP, etc.), I’m excited to see the endless possibilities we can unlock in this space moving forward.
+And this is just the beginning. With many new technologies quickly entering the market (AI Agents, MCP, etc.), I’m excited to see the endless possibilities we can unlock in this space moving forward.
 
 Stay tuned for more!
