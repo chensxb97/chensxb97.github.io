@@ -13,8 +13,8 @@ export default function Page() {
       <div className="mb-4">
         <h2 className="text-xl font-medium mb-1">Summary</h2>
         <p className="text-l dark:text-neutral-300">
-          Most of my current work involves building new integrations and tools in the AI and Observability space.
-          Today, I am open to new opportunities to apply this expertise in both full-stack and backend engineering.
+          Most of my experience involves building tools and integrations in the Observability and AI space.
+          I'm currently open to new opportunities in full-stack and backend engineering roles where I can apply this expertise to deliver meaningful impact.
         </p>
       </div>
       <hr className="my-6 border-neutral-100 dark:border-neutral-800" />
@@ -29,12 +29,18 @@ export default function Page() {
             <p className="text-sm dark:text-neutral-300">Intern, May 2021 - July 2021</p>
           </div>
           <ul className='text-l dark:text-neutral-300 indented-list ml-4'>
-            <li>Prototyped an AI-powered observability assistant using the autogen framework, accelerating the resolution of infrastructure issues by 80%.</li>
-            <li>Created an AI-driven onboarding tool for optimising log ingestion, with a projection of 30% in cost savings.</li>
-            <li>Designed and implemented new features in React to improve the user experience of developer teams on Visa's Observability Platform.</li>
-            <li>Developed several automations to allow critical integrations with existing alerting workflows such as AAA failover and additional exporter support.</li>
+            <li>Spearheaded these initiatives for integrating AI in observability.
+              <ul className='text-l dark:text-neutral-300 indented-list ml-4'>
+                <li>Developed an intelligent workflow for generating Grafana Dashboard boilerplates in seconds.</li>
+                <li>Implemented an AI chat assistant powered by RAG, improving user onboarding efficiency by 75%.</li>
+                <li>Designed an autogen AI agent, capable of shortening incident resolution times by 80%.</li>
+                <li>Built a log ingestion optimiser, projected to save 30% in licensing cost.</li>
+              </ul>
+            </li>
+            <li>Designing and implementing new monitoring capabilities like new exporter support and other API integrations.</li>
+            <li>Optimising alerting workflows and developing new critical integrations like Active-Active Automation. </li>
             <li>Supported the development of a configuration tool using Git APIs for managing exporter configurations across thousands of servers.</li>
-            <li>Built a Prometheus configuration manager using TypeScript and Go to streamline shared configuration management across hundreds of VMs and Kubernetes clusters. Automated deployment reduced manual DevOps overhead by 90%.</li>
+            <li>Built a Prometheus configuration manager using TypeScript and Go to streamline shared configuration management across VMs and Kubernetes clusters, reducing administrative overhead by 90%.</li>
           </ul>
         </div>
         <div className="mb-4">
@@ -102,7 +108,7 @@ export default function Page() {
       <div className="mb-4">
         <h2 className="text-l font-medium dark:text-neutral-200">Technologies</h2>
         <li className='text-l dark:text-neutral-300 indented-list ml-4'>
-          React, Next.js, Node.js, Redis, MySQL, MongoDB, GraphQL, Kafka, Prometheus, Node Exporter, Ansible, Grafana, Generative AI, autogen
+          React, Next.js, Node.js, Redis, MySQL, MongoDB, GraphQL, Kafka, Prometheus, Node Exporter, Ansible, Grafana, autogen, MCP
         </li>
       </div>
       <div className="mb-4">
@@ -115,19 +121,21 @@ export default function Page() {
       <div className="mb-4">
         <h2 className="text-xl font-medium mb-1">Side Projects</h2>
         <ul className='indented-list ml-4 text-l dark:text-neutral-300 mb-2'>
-          <li>MCP Protocol for AI Observability</li>
-          <li>Exploring Monacopilot for autocompleting niche languages</li>
-          <li>Endpoint Monitoring Service for simplifying Blackbox Exporter monitoring</li>
-          <li>Service Manager, a UI prototype written in React/Go for managing service lifecycles, boosting deployment speeds by 90%, inspired by Apache Amabari.</li>
-          <li>Passport photo maker, a Python tool using opencv and rembg libraries for quick generation of ICA-compliant passport photos.</li>
-          <li>A step by step migration guide from React to NextJS to capitalise on React Server Components.</li>
-          <li>React App Template that supports Basic CRUD and Vertical sidebar</li>
+          <li><a rel="noopener noreferrer" href="https://github.com/chensxb97/mcpObservability" target="_blank" className="link">MCP for AI Observability</a></li>
+          <li><a rel="noopener noreferrer" href="https://github.com/chensxb97/genaiObservability" target="_blank" className="link">Generative AI usecases in Observability</a></li>
+          <li>Exploring <a rel="noopener noreferrer" href="https://github.com/chensxb97/monacopilotEditor" target="_blank" className="link">Monacopilot</a> for intelligent Github Copilot-like autocompletions</li>
+          <li><a rel="noopener noreferrer" href="https://github.com/chensxb97/endpointMonitoringService" target="_blank" className="link">Endpoint Monitoring Service</a> for simplifying Blackbox Exporter monitoring</li>
+          <li><a rel="noopener noreferrer" href="https://github.com/chensxb97/serviceManager" target="_blank" className="link">Service Manager</a>, a UI prototype written in React/Go for managing service lifecycles, boosting deployment speeds by 90%, inspired by Apache Amabari</li>
+          <li><a rel="noopener noreferrer" href="https://github.com/chensxb97/passportPhoto" target="_blank" className="link">Passport photo maker</a>, a Python tool using opencv and rembg libraries for quick generation of ICA-compliant passport photos</li>
+          <li>A step by step <a rel="noopener noreferrer" href="https://github.com/chensxb97/react-next-migration" target="_blank" className="link">migration guide </a>from React to NextJS to capitalise on React Server Components</li>
+          <li><a rel="noopener noreferrer" href="https://github.com/chensxb97/react-app-template" target="_blank" className="link">React App Template</a> that supports Basic CRUD and Vertical sidebar</li>
         </ul >
-        <i className="text-l dark:text-neutral-300">
-          For more details, please check them out on <a rel="noopener noreferrer" target='_blank' href='https://github.com/chensxb97/' className="link">
+
+        <p className="text-l dark:text-neutral-300">
+          For a deep dive on the implementations, please check them out on <a rel="noopener noreferrer" target='_blank' href='https://github.com/chensxb97/' className="link">
             Github
           </a>.
-        </i>
+        </p>
       </div>
     </section >
   )
