@@ -29,7 +29,7 @@ export default function Page() {
             <p className="text-sm dark:text-neutral-300">Intern, May 2021 - July 2021</p>
           </div>
           <ul className='text-l dark:text-neutral-300 indented-list ml-4'>
-            <li>Spearheaded these initiatives for integrating AI in observability.
+            <li>Spearheaded a suite of AI-driven observability initiatives, including:
               <ul className='text-l dark:text-neutral-300 indented-list ml-4'>
                 <li>Developed an intelligent workflow for generating Grafana Dashboard boilerplates in seconds.</li>
                 <li>Implemented an AI chat assistant powered by RAG, improving user onboarding efficiency by 75%.</li>
