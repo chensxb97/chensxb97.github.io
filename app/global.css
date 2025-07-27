@@ -17,17 +17,6 @@
   --sh-entity: #e25a1c;
 }
 
-.link,
-article a {
-  color: #374151;
-}
-
-.link:hover,
-article a:hover {
-  color: #374151;
-  text-decoration: underline;
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --sh-class: #4c97f8;
