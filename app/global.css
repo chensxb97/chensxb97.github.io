@@ -28,7 +28,13 @@ article a:hover {
   --sh-entity: #e25a1c;
 }
 
+@media (prefers-color-scheme: light) {
+  @import 'prismjs/themes/prism-tomorrow.css';
+}
+
 @media (prefers-color-scheme: dark) {
+  @import 'prismjs/themes/prism-okaidia.css';
+
   :root {
     --sh-class: #4c97f8;
     --sh-identifier: white;
