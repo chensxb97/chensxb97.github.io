@@ -7,13 +7,13 @@
 
 .link,
 article a {
-  color: #4b5563;
+  color: #393e46;
 }
 
 .link:hover,
 article a:hover {
-  color: #4b5563;
-  text-decoration: underline;
+  color: #393e46;
+  text-decoration: 2px solid underline;
 }
 
 :root {
@@ -43,12 +43,13 @@ article a:hover {
   .link,
   article a {
     color: #91e8ff;
+    text-decoration: none;
   }
 
   .link:hover,
   article a:hover {
     color: #91e8ff;
-    text-decoration: underline;
+    text-decoration: 2px solid underline;
   }
 }
 
