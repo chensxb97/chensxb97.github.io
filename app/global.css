@@ -29,11 +29,13 @@
     color-scheme: dark;
   }
 
-  .link {
+  .link,
+  article a {
     color: #91e8ff;
   }
 
-  .link:hover {
+  .link:hover,
+  article a:hover {
     color: #91e8ff;
     text-decoration: underline;
   }
