@@ -5,7 +5,7 @@ import React from 'react'
 
 // import { highlight } from 'sugar-high'
 import Prism from 'prismjs'
-import 'prismjs/themes/prism-twilight.css'
+import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/components/prism-javascript'
 import 'prismjs/components/prism-yaml'
 import 'prismjs/components/prism-bash'
