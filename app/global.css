@@ -9,6 +9,7 @@
 .link,
 article a {
   color: #393e46;
+  text-decoration: 2px solid underline;
 }
 
 .link:hover,
