@@ -28,10 +28,20 @@
   html {
     color-scheme: dark;
   }
+
+  .link {
+    color: #91e8ff;
+  }
+
+  .link:hover {
+    color: #91e8ff;
+    text-decoration: underline;
+  }
 }
 
 html {
   min-width: 360px;
+  background-color: #121212
 }
 
 .prose .anchor {
@@ -49,7 +59,7 @@ html {
 }
 
 .prose a {
-  @apply underline transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
+  /* @apply underline transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em]; */
 }
 
 .prose .anchor:after {
@@ -158,5 +168,11 @@ table {
 
 .link,
 article a {
-  color: #91e8ff;
+  color: #374151;
+}
+
+.link:hover,
+article a:hover {
+  color: #374151;
+  text-decoration: underline;
 }
