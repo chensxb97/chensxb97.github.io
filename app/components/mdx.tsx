@@ -5,11 +5,13 @@ import React from 'react'
 
 // import { highlight } from 'sugar-high'
 import Prism from 'prismjs'
-import 'prismjs/themes/prism-tomorrow.css'  // Import the CSS theme you like, e.g.:
-// import 'prismjs/components/prism-javascript'
-// import 'prismjs/components/prism-yaml'
-// import 'prismjs/components/prism-bash'
-// import 'prismjs/components/prism-jsx'
+import 'prismjs/themes/prism-twilight.css'
+import 'prismjs/components/prism-javascript'
+import 'prismjs/components/prism-yaml'
+import 'prismjs/components/prism-bash'
+import 'prismjs/components/prism-json'
+import 'prismjs/components/prism-python'
+import 'prismjs/components/prism-jsx'
 
 function Code({ children, className, ...props }) {
   const language = className?.replace('language-', '') || 'none'
