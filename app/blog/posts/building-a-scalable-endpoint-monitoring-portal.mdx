@@ -199,25 +199,25 @@ Previously, we learnt about using relabelling rules in [relabel_configs](https:/
 
 - Since we are making the `module` configurable, we will have to introduce a relabelling rule to pass this value as a query parameter. We no longer need the `params` block to define a static `module` option.
 
-```yaml
-scrape_configs:
-- job_name: "blackbox-exporter"
-  metrics_path: /probe
-  # No need for static params
-  http_sd_configs: # Implement service discovery
-    - url: http://localhost:8000/targets # HTTP SD Endpoint
-      refresh_interval: 5m
-      
-  relabel_configs:
-  - source_labels: [__address__]
-    target_label: __param_target # Define target query parameter
-  - source_labels: [__param_target] # Create instance label from target param
-    target_label: instance
-  - source_labels: [module] # Define module query parameter
-    target_label: __param_module
-  - target_label: __address__
-    replacement: localhost:9115 # Blackbox exporter endpoint
-```
+  ```yaml
+  scrape_configs:
+  - job_name: "blackbox-exporter"
+    metrics_path: /probe
+    # No need for static params
+    http_sd_configs: # Implement service discovery
+      - url: http://localhost:8000/targets # HTTP SD Endpoint
+        refresh_interval: 5m
+        
+    relabel_configs:
+    - source_labels: [__address__]
+      target_label: __param_target # Define target query parameter
+    - source_labels: [__param_target] # Create instance label from target param
+      target_label: instance
+    - source_labels: [module] # Define module query parameter
+      target_label: __param_module
+    - target_label: __address__
+      replacement: localhost:9115 # Blackbox exporter endpoint
+  ```
 
 With this approach, we only need to maintain a single job definition, which will likely not require frequent changes in the long term. Users are free to define any custom labels they want, all managed by the backend service discovery endpoint.
 
@@ -253,7 +253,7 @@ After factoring in all the design improvements, we arrive at the following desig
 ## Source Code
 If you are interested to learn more about the implementations covered in this blog, feel free to explore the repos below.
 
-[Endpoint Monitoring Setup](https://github.com/chensxb97/endpointMonitoringSetup) experiments with different ways of setting up Blackbox Exporter and Prometheus for endpoint monitoring.
+[Endpoint Monitoring Setup](https://github.com/chensxb97/endpointMonitoringSetup) - Experiments with different ways of setting up Blackbox Exporter and Prometheus for endpoint monitoring.
 
-[Endpoint Monitoring Service](https://github.com/chensxb97/endpointMonitoringService) covers the end-to-end implementation of the endpoint monitoring service design we just discussed.
+[Endpoint Monitoring Service](https://github.com/chensxb97/endpointMonitoringService) - Covers the end-to-end implementation of the endpoint monitoring service design we just discussed.
 
