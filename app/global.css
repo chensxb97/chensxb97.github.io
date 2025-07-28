@@ -35,7 +35,7 @@ article a:hover {
 @media (prefers-color-scheme: dark) {
 
   /* --- PrismJS Okaidia theme for dark mode --- */
-  @import 'prismjs/themes/prism-solarizedlight.css';
+  @import 'prismjs/themes/prism-okaidia.css';
 
   :root {
     --sh-class: #4c97f8;
@@ -112,7 +112,7 @@ html {
 
 .prose img {
   /* Don't apply styles to next/image */
-  @apply m-0;
+  @apply m-0 border border-neutral-200 rounded rounded-l;
 }
 
 .prose p {
