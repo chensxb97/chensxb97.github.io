@@ -35,9 +35,9 @@ From the [Prometheus](https://prometheus.io/docs/introduction/first_steps/) and 
       # Define more modules here if required
     ```
 
-    To validate the probing mechanism, we can initate a probe by specifying this url in the browser: `http://localhost:9115/probe?target=<your_endpoint>&module=<http_2xx>`
+    To validate the probing mechanism, we can initate a probe by specifying this url in the browser: `http://localhost:9115/probe?target=<endpoint>&module=http_2xx`
 
-    This instructs blackbox exporter to probe `<your_endpoint>` using `<http_2xx>` module.
+    This instructs blackbox exporter to probe `<endpoint>` using `http_2xx` module.
 
 2. Define a Prometheus job definition to fetch metrics from Blackbox Exporter.
     ```yaml
@@ -99,7 +99,7 @@ In light of the above painpoints, we arrive at the following set of requirements
 
 ## Design Improvements
 
-### 1. Scaling up + High Availability
+### 1. Scaling up + High Availability (HA)
 Let's explore horizontal scaling.
 1. We can increase the number of Blackbox exporter servers and set up a load balancer.
 

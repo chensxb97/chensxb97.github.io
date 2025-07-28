@@ -23,11 +23,13 @@ export default function Page() {
           </p>
           <p className="mb-4">
             Today, I'm proud to be part of the observability team in <a rel="noopener noreferrer" target='_blank' href='https://www.visa.com.sg/' className="link">
-              Visa</a> where I design and build solutions for monitoring applications at scale. Most of <Link
-                key="/work"
-                href="/work"
-                className="link"
-              >my work</Link> involves Javascript, Go, and Python.
+              Visa</a> where I design and build solutions for monitoring applications at scale. I am also deeply passionate about leveraging on AI to create smarter systems
+            that can unlock new and exciting possibilities.
+            Most of <Link
+              key="/work"
+              href="/work"
+              className="link"
+            >my work</Link> involves Javascript, Go, and Python.
           </p>
         </div>
       </div>
@@ -45,7 +47,7 @@ export default function Page() {
             className="link"
           >my blog</Link>.
         </p>
-        <p className="mb-4">
+        <p>
           If you'd like to reach out, I'm happy to connect via <a
             rel="noopener noreferrer"
             target="_blank"
