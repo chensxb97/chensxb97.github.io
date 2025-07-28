@@ -243,7 +243,7 @@ html {
 
 .prose img {
   /* Don't apply styles to next/image */
-  @apply m-0 border border-neutral-300 rounded rounded-l;
+  @apply m-0 border border-neutral-300 rounded rounded-lg;
 }
 
 .prose p {

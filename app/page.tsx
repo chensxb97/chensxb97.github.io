@@ -11,7 +11,7 @@ export default function Page() {
             alt="Profile picture"
             width={250}
             height={400}
-            className="rounded rounded-xl border border-neutral-200 dark:border-neutral-900"
+            className="rounded rounded-lg border border-neutral-200 dark:border-neutral-900"
           />
         </div>
         <h1 className="mb-4 text-2xl font-medium tracking-tighter">
