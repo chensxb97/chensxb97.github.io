@@ -23,8 +23,7 @@ export default function Page() {
           </p>
           <p className="mb-4">
             Today, I'm proud to be part of the observability team in <a rel="noopener noreferrer" target='_blank' href='https://www.visa.com.sg/' className="link">
-              Visa</a> where I design and build solutions for monitoring applications at scale. I am also deeply passionate about leveraging on AI to create smarter systems
-            that can unlock new and exciting possibilities.
+              Visa</a> where I design and build solutions for monitoring applications at scale.
             Most of <Link
               key="/work"
               href="/work"
