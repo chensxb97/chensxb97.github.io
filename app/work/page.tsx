@@ -31,10 +31,10 @@ export default function Page() {
           <ul className='text-l dark:text-neutral-300 indented-list ml-4'>
             <li>Spearheaded a suite of AI-driven observability initiatives, including:
               <ul className='text-l dark:text-neutral-300 indented-list ml-4'>
-                <li>Developed an intelligent workflow for generating Grafana Dashboard boilerplates in seconds.</li>
-                <li>Implemented an AI chat assistant powered by RAG, improving user onboarding efficiency by 75%.</li>
-                <li>Designed an autogen AI agent, capable of shortening incident resolution times by 80%.</li>
-                <li>Built a log ingestion optimiser, projected to save 30% in licensing cost.</li>
+                <li>An intelligent workflow for generating Grafana Dashboard boilerplates in seconds.</li>
+                <li>An AI chat assistant powered by RAG, improving user onboarding efficiency by 75%.</li>
+                <li>An autogen AI agent, capable of shortening incident resolution times by 80%.</li>
+                <li>A log ingestion optimiser, projected to save 30% in licensing cost.</li>
               </ul>
             </li>
             <li>Designing and implementing new monitoring capabilities like new exporter support and other API integrations.</li>
