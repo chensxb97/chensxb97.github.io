@@ -116,12 +116,12 @@ In production, we will be expected to write API calls as the data will be stored
             /notifications.log
             /payments.log
         /alerts.json
-        /events.json
         /incidents.json
         /metrics.json
+        /events.json
     ```
-### Example datasources
-- Sample logs
+### Examples
+- `gateway.log`
 
     ```
     2025-07-06 10:02:45 WARNING Disk usage at 85%
@@ -132,7 +132,7 @@ In production, we will be expected to write API calls as the data will be stored
     ...
     ```
 
-- Sample alert
+- `alerts.json`
 
     ```
     {
@@ -148,7 +148,7 @@ In production, we will be expected to write API calls as the data will be stored
     ...
     ```
 
-- Sample incident
+- `incidents.json`
 
     ```
     {
@@ -182,7 +182,7 @@ In production, we will be expected to write API calls as the data will be stored
     ...
     ```
 
-- Sample metric
+- `metrics.json`
 
     ```
     {
@@ -211,7 +211,7 @@ In production, we will be expected to write API calls as the data will be stored
     ...
     ```
 
-- Sample event
+- `events.json`
 
     ```
     ...
@@ -235,7 +235,7 @@ Let's now create a `server.py` file to define our tool definitions, using the [P
     - `get_metrics` - Get list of metrics
     - `get_events` - Get list of events
 
-#### Full code example
+#### Implementation
 ```py
 from mcp.server.fastmcp import FastMCP
 import json
@@ -395,11 +395,10 @@ if __name__ == "__main__":
 ### Testing using Github Copilot
 To validate if these tools are working, we can test using a MCP host (Github Copilot, Claude, etc.) integrated with this MCP server.
 
-For my testing, I have followed these [steps](https://github.com/chensxb97/mcpObservability?tab=readme-ov-file#github-copilot-integration) to configure VSCode's `settings.json`* to instruct Github Copilot to interact with the MCP server locally.
+For my testing, I have followed these [steps](https://github.com/chensxb97/mcpObservability?tab=readme-ov-file#github-copilot-integration) to configure VSCode's `settings.json` to instruct Github Copilot to interact with the MCP server locally.
 
-**For newer versions of [VSCode](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_add-an-mcp-server), mcp server definitions are managed in `.vscode/mcp.json` instead of `settings.json`.*
 
-- `settings.json`
+- `settings.json*`
 
     ```json
     ...
@@ -419,12 +418,13 @@ For my testing, I have followed these [steps](https://github.com/chensxb97/mcpOb
 
     ...
     ```
+    **For newer versions of [VSCode](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_add-an-mcp-server), mcp server configurations for Github Copilot are managed in `.vscode/mcp.json` instead of `settings.json`.*
 
 - Prompt Example
 
     We can now test the tools by providing a prompt. For this case, I have asked Copilot: `What's wrong with the gateway application?`
     
-    On identifying relevant tools to answer this prompt, Copilot will in response, ask for permission to run any of these tools. This indicates a successful integration with the MCP server.
+    On identifying relevant tools to answer this prompt, Copilot will suggest appropriate input parameters and ask for permission to run them. This indicates a successful integration with the MCP server.
 
     ![Tool Permission](/assets/mcp-servers-a-proof-of-concept-for-intelligent-observability/tool_permission.png)
 
@@ -472,6 +472,6 @@ As of now, this is just a simple POC. There are still other areas that every tea
 ## Final words
 From this article, we can conclude that the Model Context Protocol (MCP) is a powerful and reliable framework for standardizing interactions between external services and LLMs.
 
-By providing structured and consistent access to data, MCP makes it significantly easier to build intelligent agents and complex AI workflows. This is a huge advantage for observability, as there is potential for greater productivity with new use-cases like automated RCA, proactive incident remediation, and continuous monitoring, made possible.
+By providing structured and consistent access to data, MCP makes it significantly easier to build intelligent agents and complex AI workflows. This is a huge advantage for observability, we can unlock greater productivity with new use-cases like automated RCA, proactive incident remediation, and continuous monitoring.
 
 Stay tuned for more!
