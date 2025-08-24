@@ -121,14 +121,15 @@ export default function Page() {
       <div className="mb-4">
         <h2 className="text-xl font-medium mb-1">Side Projects</h2>
         <ul className='indented-list ml-4 text-l dark:text-neutral-300 mb-2'>
-          <li><a rel="noopener noreferrer" href="https://github.com/chensxb97/mcpObservability" target="_blank" className="link">MCP for AI Observability</a></li>
-          <li><a rel="noopener noreferrer" href="https://github.com/chensxb97/genaiObservability" target="_blank" className="link">Generative AI usecases in Observability</a></li>
-          <li>Exploring <a rel="noopener noreferrer" href="https://github.com/chensxb97/monacopilotEditor" target="_blank" className="link">Monacopilot</a> for intelligent Github Copilot-like autocompletions</li>
-          <li><a rel="noopener noreferrer" href="https://github.com/chensxb97/endpointMonitoringService" target="_blank" className="link">Endpoint Monitoring Service</a> for simplifying Blackbox Exporter monitoring</li>
-          <li><a rel="noopener noreferrer" href="https://github.com/chensxb97/serviceManager" target="_blank" className="link">Service Lifecycle Manager</a>, a UI prototype written in React/Go for managing service lifecycles, boosting deployment speeds by 90%, inspired by Apache Amabari</li>
-          <li><a rel="noopener noreferrer" href="https://github.com/chensxb97/passportPhoto" target="_blank" className="link">Passport photo maker</a>, a Python tool using opencv and rembg libraries for quick generation of ICA-compliant passport photos</li>
-          <li>A step by step <a rel="noopener noreferrer" href="https://github.com/chensxb97/react-next-migration" target="_blank" className="link">migration guide </a>from React to NextJS to capitalise on React Server Components</li>
-          <li><a rel="noopener noreferrer" href="https://github.com/chensxb97/react-app-template" target="_blank" className="link">React App Template</a> that supports Basic CRUD and Vertical sidebar</li>
+          <li><a rel="noopener noreferrer" href="https://github.com/pab1it0/prometheus-mcp-server/releases/tag/v1.2.0" target="_blank" className="link">Prometheus MCP Server</a> - Contributed support for custom MCP server configuration and FastMCP 2.0.</li>
+          <li><a rel="noopener noreferrer" href="https://github.com/chensxb97/mcpObservability" target="_blank" className="link">MCP for AI Observability.</a></li>
+          <li><a rel="noopener noreferrer" href="https://github.com/chensxb97/genaiObservability" target="_blank" className="link">Generative AI usecases in Observability.</a></li>
+          <li>Exploring <a rel="noopener noreferrer" href="https://github.com/chensxb97/monacopilotEditor" target="_blank" className="link">Monacopilot</a> for intelligent Github Copilot-like autocompletions.</li>
+          <li><a rel="noopener noreferrer" href="https://github.com/chensxb97/endpointMonitoringService" target="_blank" className="link">Endpoint Monitoring Service</a> for simplifying Blackbox Exporter monitoring.</li>
+          <li><a rel="noopener noreferrer" href="https://github.com/chensxb97/serviceManager" target="_blank" className="link">Service Lifecycle Manager</a>, a UI prototype written in React/Go for managing service lifecycles, boosting deployment speeds by 90%, inspired by Apache Amabari.</li>
+          <li><a rel="noopener noreferrer" href="https://github.com/chensxb97/passportPhoto" target="_blank" className="link">Passport photo maker</a>, a Python tool using opencv and rembg libraries for quick generation of ICA-compliant passport photos.</li>
+          <li>A step by step <a rel="noopener noreferrer" href="https://github.com/chensxb97/react-next-migration" target="_blank" className="link">migration guide </a>from React to NextJS to capitalise on React Server Components.</li>
+          <li><a rel="noopener noreferrer" href="https://github.com/chensxb97/react-app-template" target="_blank" className="link">React App Template</a> that supports Basic CRUD and Vertical sidebar.</li>
         </ul >
 
         <p className="text-l dark:text-neutral-300">
