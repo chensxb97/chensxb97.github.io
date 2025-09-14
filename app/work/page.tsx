@@ -31,15 +31,17 @@ export default function Page() {
           <ul className='text-l dark:text-neutral-300 indented-list ml-4'>
             <li>Spearheaded a suite of AI-driven observability initiatives, including:
               <ul className='text-l dark:text-neutral-300 indented-list ml-4'>
-                <li>An intelligent workflow for generating Grafana Dashboard boilerplates in seconds.</li>
+                <li>A suite of MCP servers for extracting insights from Prometheus metrics, Clickhouse Logs and Bosun Alerts.</li>
+                <li>An intelligent workflow for quick boilerplating of Grafana Dashboards.</li>
                 <li>An AI chat assistant powered by RAG, improving user onboarding efficiency by 75%.</li>
                 <li>An autogen AI agent, capable of shortening incident resolution times by 80%.</li>
                 <li>A log ingestion optimiser, projected to save 30% in licensing cost.</li>
               </ul>
             </li>
-            <li>Designing and implementing new monitoring capabilities like new exporter support and other API integrations.</li>
-            <li>Optimising alerting workflows and developing new critical integrations like Active-Active Automation. </li>
-            <li>Supported the development of a configuration tool using Git APIs for managing exporter configurations across thousands of servers.</li>
+            <li>Built an endpoint monitoring service that simplifies Blackbox Exporter monitoring for thousands of endpoints.</li>
+            <li>Developed an onboarding service for integrating Active-Active Automation (AAA) in metric-based alerts.</li>
+            <li>Implemented IBM Netcool API integration in alerting pipelines.</li>
+            <li>Supported the development of a configuration tool that leverages on Git APIs to manage exporter configurations across thousands of servers.</li>
             <li>Built a Prometheus configuration manager using TypeScript and Go to streamline shared configuration management across VMs and Kubernetes clusters, reducing administrative overhead by 90%.</li>
           </ul>
         </div>
