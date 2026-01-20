@@ -31,10 +31,11 @@ export default function Page() {
           <ul className='text-l dark:text-neutral-300 indented-list ml-4'>
             <li>Spearheaded a suite of AI-driven observability initiatives, including:
               <ul className='text-l dark:text-neutral-300 indented-list ml-4'>
-                <li>A suite of MCP servers for extracting insights from Prometheus metrics, Clickhouse Logs and Bosun Alerts.</li>
-                <li>An intelligent workflow for quick boilerplating of Grafana Dashboards.</li>
+                <li>A suite of MCP servers for extracting insights from Prometheus metrics, Clickhouse logs and Bosun alerts.</li>
+                <li>A smart query converter service that helps to translate complex Splunk queries into highly accurate and efficient Clickhouse query syntax, cutting migration times from hours to minutes. </li>
+                <li>An intelligent workflow for quick boilerplating of Grafana dashboards.</li>
                 <li>An AI chat assistant powered by RAG, improving user onboarding efficiency by 75%.</li>
-                <li>An autogen AI agent, capable of shortening incident resolution times by 80%.</li>
+                <li>A root-cause-analysis (RCA) agent, capable of shortening incident resolution times by 80%.</li>
                 <li>A log ingestion optimiser, projected to save 30% in licensing cost.</li>
               </ul>
             </li>
