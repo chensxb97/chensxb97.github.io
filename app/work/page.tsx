@@ -110,7 +110,7 @@ export default function Page() {
       <div className="mb-4">
         <h2 className="text-l font-medium dark:text-neutral-200">Technologies</h2>
         <li className='text-l dark:text-neutral-300 indented-list ml-4'>
-          React, Next.js, Node.js, Redis, MySQL, MongoDB, GraphQL, Kafka, Prometheus, Node Exporter, Ansible, Grafana, autogen, MCP
+          React, Next.js, Node.js, Redis, MySQL, MongoDB, GraphQL, Kafka, Prometheus, Clickhouse, Splunk, Node Exporter, Ansible, Grafana, autogen, MCP, Temporal
         </li>
       </div>
       <div className="mb-4">
