@@ -122,7 +122,7 @@ export default function Page() {
       </div>
       <hr className="my-6 border-neutral-100 dark:border-neutral-800" />
       <div className="mb-4">
-        <h2 className="text-xl font-medium mb-1">Side Projects</h2>
+        <h2 className="text-xl font-medium mb-1">Personal Projects</h2>
         <ul className='indented-list ml-4 text-l dark:text-neutral-300 mb-2'>
           <li><a rel="noopener noreferrer" href="https://github.com/pab1it0/prometheus-mcp-server/releases/tag/v1.2.0" target="_blank" className="link">Prometheus MCP Server</a> - Contributed support for custom MCP server configuration and FastMCP 2.0.</li>
           <li><a rel="noopener noreferrer" href="https://github.com/chensxb97/bill-temporal" target="_blank" className="link">Bill Workflow Management Backend</a> using Encore.dev and Temporal Workflows.</li>
