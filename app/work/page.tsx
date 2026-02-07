@@ -125,7 +125,7 @@ export default function Page() {
         <h2 className="text-xl font-medium mb-1">Side Projects</h2>
         <ul className='indented-list ml-4 text-l dark:text-neutral-300 mb-2'>
           <li><a rel="noopener noreferrer" href="https://github.com/pab1it0/prometheus-mcp-server/releases/tag/v1.2.0" target="_blank" className="link">Prometheus MCP Server</a> - Contributed support for custom MCP server configuration and FastMCP 2.0.</li>
-          <li><a rel="noopener noreferrer" href="https://github.com/chensxb97/bill-temporal" target="_blank" className="link">Bill Record Management using encore.dev and Temporal Workflows.</a></li>
+          <li><a rel="noopener noreferrer" href="https://github.com/chensxb97/bill-temporal" target="_blank" className="link">A Bill Workflow Management Backend using Encore.dev and Temporal Workflows.</a></li>
           <li><a rel="noopener noreferrer" href="https://github.com/chensxb97/mcpObservability" target="_blank" className="link">MCP Servers for AI Observability.</a></li>
           <li>Exploring <a rel="noopener noreferrer" href="https://github.com/chensxb97/monacopilotEditor" target="_blank" className="link">Monacopilot</a> for intelligent Github Copilot-like autocompletions.</li>
           <li><a rel="noopener noreferrer" href="https://github.com/chensxb97/endpointMonitoringService" target="_blank" className="link">Endpoint Monitoring Service</a> for simplifying Blackbox Exporter monitoring.</li>
