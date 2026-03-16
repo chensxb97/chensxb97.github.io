@@ -203,7 +203,7 @@ login_request_count{status=<200|300|400|...>}
 Today, the fastmcp library has grown significantly, with support for native [OpenTelemetry integration](https://gofastmcp.com/servers/telemetry#programmatic-configuration).
 
 ### Caching
-We consider caching if we predict scenarios when downstream services might be overwhelmed with either expensive queries or high read traffic.
+We consider caching if we predict scenarios when downstream services might be overwhelmed with expensive queries or high read traffic.
 
 Proxy middleware has three main handlers that are performed before forwarding the request to the underlying MCP server for processing.
 
