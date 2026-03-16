@@ -4,9 +4,7 @@ publishedAt: '2026-03-16'
 summary: 'Reflecting on my journey of deploying MCP servers.'
 ---
 
-Over the past month, my team took the opportunity to deploy MCP servers into production to power AI-driven observability workflows.
-
-While MCP servers are often treated as simple services, we quickly realized that running them in production requires many of the same architectural considerations as traditional APIs: authentication, rate limiting, observability, and guardrails.
+Over the past month, my team and I took the opportunity to deploy MCP servers into production to power AI-driven observability workflows.
 
 In this article, I will be sharing the rationale for building them, the design decisions we made, and the lessons learnt along the way.
 
@@ -14,18 +12,18 @@ To recap from my previous [article](/blog/mcp-servers-a-proof-of-concept-for-int
 
    *Model Context Protocol (MCP) servers are services that define tool functions that can be used to talk to external datasources/services. AI clients can establish a connection with them like a USB adapter, and invoke these tools when the prompt requires it.*
    
-   *Putting it in simpler terms, they act as an API gateway for AI applications to access tool functions hosted in a separate service. Without MCP, these tools will likely be defined locally within the application layer, which is not only inefficient but can potentially cause inconsistency in outputs across all clients.*
+   *On a high-level, it act as an API service for AI applications to access tool functions. Without MCP, these tools will have to be defined locally within the AI client's application layer.*
 
 # Rationale
-Observability datasources like [Prometheus](https://prometheus.io/) and [Clickhouse](https://clickhouse.com/) are heavily used by both operations and application teams to monitor and triage issues in our infrastructure.
+Observability datasources like [Prometheus](https://prometheus.io/) and [Clickhouse](https://clickhouse.com/) are heavily used by both operation and application teams to monitor and triage issues in our infrastructure.
 
-Prometheus is the backbone for our metrics store while Clickhouse is an OLAP database that we have incorporated as a central log store.
+Prometheus is the backbone metrics store while Clickhouse is an OLAP database that we have incorporated as our central logs store.
 
 Operations personnel are expected to learn these technologies as part of their daily duties so that they can query relevant metrics and logs fast to detect warning signs and pinpoint problems ahead of time.
 
 For application developers, they are initially focused on meeting their core feature requirements. Afterwards, observability is a secondary requirement prior to production roll-out.
 
-Within the organization, there were plenty of inefficiencies:
+Within this ecosystem, there were plenty of inefficiencies observed:
 
 - Steep learning curve for first-time users on domain specific languages - Prometheus Query Language (PromQL), Clickhouse Query Language (CQL), etc.
 
@@ -33,7 +31,7 @@ Within the organization, there were plenty of inefficiencies:
 
 - Incident investigations can sometimes last several hours.
 
-- Application onboarding to our observability infrastructure is a rushed process.
+- Application onboarding to our observability infrastructure is often a rushed process.
 
 Due to these pain points, there is a strong motivation for our team to
 1. Simplify the complexities of these languages for easier learning.
@@ -42,32 +40,37 @@ Due to these pain points, there is a strong motivation for our team to
 
 3. Speed up onboarding of application teams to our observability platform.
 
-We also noticed many teams are requesting to access our datasources programmatically via API, to automate the time-consuming processes. We felt that it is simply not efficient as it leads to many teams developing service wrappers on top of our datasources. We risk the following long-term issues:
+One interesting observation was that with a grown interest in Agentic AI development within our organization, many teams are requesting to access our datasources programmatically via API, to automate the time-consuming processes. We found this trend impractical for several reasons:
 
-1. Potentially expensive queries developed with bad practices. We have no control over the queries sent to our downstream which if many are defined inefficiently, can impact the tail read latencies.
+1. Duplicated efforts. 
 
-2. Inconsistency in outputs. We want to ensure that users get the data they want consistently. As these are domain-specific and have a steep learning curve, human errors and misinterpretation are common. We cannot confirm if the programmatic wrappers are returning outputs in formats that are desirable to clients.
+    Many teams will end up re-inventing the wheel by developing the same if not, similar API wrappers on top of our datasources.
 
-3. No metrics to track AI queries. Without a centralised gateway, we will not be able to identify query patterns made by AI applications. These are missed opportunities that could be used to tune our downstream datasources to support these patterns.
+2. Potentially expensive queries developed with bad practices. 
+    
+    We have no control over the queries sent to our downstream which if many are defined inefficiently, can impact the tail read latencies.
+
+3. Inconsistency in outputs. 
+    
+    We want to ensure that users get the data they want consistently. As these are domain-specific and have a steep learning curve, human errors and misinterpretation are common. We cannot confirm if the programmatic wrappers are returning outputs in formats that are desirable to clients.
+
+4. No metrics to track AI queries. 
+
+    Without a centralised gateway, we will not be able to identify query patterns made by AI applications. These are missed opportunities that could be used to tune our downstream datasources to support these patterns.
 
 To address these challenges, we designed a shared MCP gateway that sits between AI clients and our observability MCP servers. This gateway acts as a control layer that enforces authentication, rate limiting, monitoring before requests reach downstream data sources.
 
 # Design Decisions
 
 ## Requirements
-The idea was to build a dedicated MCP server for observability tool functions that can be consumed by any user or AI client. It needs to accomplish the following requirements.
+The idea was to build a dedicated MCP server for observability tool functions that can be consumed by any user or AI client. We arrived at the following requirements.
 
 ### Functional
-- Cover a wide set of tool functions that interact with our observability ecosystem (Prometheus, Clickhouse, and other databases and services). 
-
-    Examples include:
-        
-        - Fetching metric metadata.
-        - Calling PromQL queries.
-        - Fetching Clickhouse table schemas.
-        - Running Clickhouse queries.
-
-- Intuitive to use
+- Cover a wide set of tool functions that interact with our observability ecosystem (Prometheus, Clickhouse, and other databases and services). Examples include:
+    - Fetching metric metadata.
+    - Calling PromQL queries.
+    - Fetching Clickhouse table schemas.
+    - Running Clickhouse queries.
 
 ### Non-functional
 - It must be easy to maintain.
@@ -75,8 +78,9 @@ The idea was to build a dedicated MCP server for observability tool functions th
 - It must be secured with authentication.
 - We must be able to track and control incoming requests.
 - We must avoid causing resource contention with downstream services.
+- The tools must be intuitive to use.
 
-As you can see, it's almost like building a secure 'API gateway' but for AI clients, with high priority on the non-functional requirements. 
+From the above, it's similar to building a secure API gateway but for AI clients, with high priority on the non-functional requirements. 
 
 From our research, we realised there are infinite ways to build a gateway. 
 
@@ -89,7 +93,7 @@ Thankfully, the open-source community is extremely passionate when it comes to M
 - [Python3.12](https://www.python.org/downloads/release/python-3120/) 
 - [FastMCP](https://gofastmcp.com/)
 
-Python is a easy-to-learn language and seems to be largely adopted by the open-source community. 
+Python is easy to pick up and seems to be largely adopted by the open-source community. 
 We arrived at this library because it's feature-rich, developer-friendly and supports proxying MCP servers.
 
 ## MCP servers
@@ -127,7 +131,6 @@ The client is expected to pass this auth token to the request headers when calli
 ### Proxy Configuration
 A JSON file that configures the proxy server to talk to underlying MCP servers. This schema allows us to easily remove or integrate new toolsets along the way.
 
-Eg.
 ```json
 "mcpServers": {
     "prometheus": {
@@ -166,7 +169,7 @@ class AuthMiddleware(Middleware):
         headers = get_http_headers()
 
         if not validate_token(headers.get('token')):
-            raise McpError(ErrorData(code=-32000, message="Token expired or invalid"))
+            raise McpError(ErrorData(code=-32000, message="Token is either expired or invalid"))
         return result
 ```
 
@@ -251,7 +254,8 @@ Likewise, the fastmcp library supports [Storage Backends](https://gofastmcp.com/
 #### Multi-tenancy
 For most MCP servers, they are designed to interact with a single downstream host out of the box.
 
-For example, 
+Examples:
+
 - [mySQL MCP](https://github.com/benborla/mcp-server-mysql?tab=readme-ov-file#multi-db-mode) is configured to talk to a single database host.
 - [Prometheus MCP](https://github.com/pab1it0/prometheus-mcp-server) is configured to communicate with a single Prometheus/Thanos endpoint.
 - [Clickhouse MCP](https://github.com/ClickHouse/mcp-clickhouse) connects with a single Clickhouse cluster.
@@ -282,8 +286,7 @@ The decision to do one or the other comes with benefits and tradeoffs:
         
         - If an AI client has to access data from two or more endpoints, it will have to decide between (no. of tools)*(no. of endpoints). From the client perspective, the more tools it has, the more difficult it is for the client to decide which tool to invoke.
 
-        Eg.
-            Let's say an MCP server talking to a downstream service, has a set of 4 tools.
+        For example, let's say an MCP server has a set of 4 tools.
 
             ```json
                 mcp_server: {
@@ -293,7 +296,8 @@ The decision to do one or the other comes with benefits and tradeoffs:
                     tool4
                 }
             ```
-            If there is more than 1 downstream service, the tool schema might look something like this from the AI client perspective.
+            If there are 2 downstream services, we will need 2 number of MCP servers. The tool schema might look something like this from the AI client's perspective.
+
             ```json 
             mcp_server_1: { 
                 1_tool1, # Prefix of 1 represents the tool for service 1
@@ -309,12 +313,11 @@ The decision to do one or the other comes with benefits and tradeoffs:
                 2_tool4
             }
             ```
-            Because the MCP servers are treated as distinct endpoints, the AI client is expected to interpret a total of 8 tools, which is not practical. Imagine having
-            10 or 20 of these services.
+            Because the MCP servers are treated as distinct endpoints, the AI client is expected to interpret a total of 8 tools, which is not practical. Imagine having 10 or 20 of these services, the client needs to decide between 40 - 80 tools!
 
 2. Multi-tenant MCP server that talks to all downstream hosts
     - Pros
-        - Single MCP server manages the routing of requests to downstream nodes. This meant a more concise toolset selection on the AI client perspective.
+        - Single MCP server manages the routing of requests to downstream nodes. This meant a more concise toolset selection from the AI client's perspective.
             Eg.
             ```json
             mcp_server: {
@@ -347,10 +350,13 @@ We were also able to accept some latency on the MCP execution flow, so long as t
 We also added the following safeguards to harden the tool functions. This is to avoid creating situations where AI clients exhaust the downstream nodes which might impact the tail read latency for users who are directly querying them.
 
 - Enforcing client-timeouts.
-- Enforcing LIMITs in SELECT queries with a maximum threshold, like 100.
-- Looking up and blacklisting specific expensive or long-running queries.
 
-- Examples of bad queries
+- Enforcing LIMITs in SELECT queries with a maximum threshold, like 100.
+
+- Looking up and blacklisting specific expensive or long-running queries.
+    
+    Examples of bad queries:
+    
     - Counting every time-series in Prometheus
         ```
         count({__name__=~".+"})
@@ -395,15 +401,16 @@ The below definitions hope to demystify the different responsibilities between c
 
 - The client establishes connection with the server, to query the list of function definitions and send requests to the underlying MCP server to invoke the tool function if the Large Language Model (LLM) intends to execute it during its thinking process.
 
-- The decision to call a tool depends on a combination of factors - The LLM model, system prompt, tool descriptions and the user prompt. If the tool is not described intuitively, the LLM model will find it difficult to correlate between the user prompt and the tool function.
-- MCP servers and LLMs coexist together.
+The decision to call a tool depends on a combination of factors:
+    - LLM model selection
 
-To visualise figuratively,
-- The LLM is the operating system.
+    - System prompt
+    
+    - Tool description
+    
+    - User prompt
 
-- MCP Client is a usb connector.
-
-- MCP Server is a usb-compatible peripheral that holds the data definitions to access external data sources.
+If the tool is not described intuitively, the LLM model will find it difficult to correlate between the user prompt and the tool function.
 
 ## 2. Bad practices in tool functions
 - Too large outputs. 
@@ -412,17 +419,22 @@ To visualise figuratively,
     
     Stick to small, manageable JSON outputs. If needed, introduce a new tool or additional input arguments to avoid fetching unnecessary data.
 
-    For example,
+    Example:
 
     ```
     get_all_definitions() -> [{item_id, ...metadata fields}]  X Bad, all records fetched.
     ```
 
-    Instead of defining a single get_all_definitions tool to fetch N records to read the definition of a specific item_id, we can either introduce a new tool (get_item_list) to get the available items first, before fetching the item's definition and introduce an item_id filter on the get_definition function, to avoid fetching N-1 unnecessary records.
+    Instead of defining a single get_all_definitions tool to fetch N records to read the definition of a specific item_id, we can make this more efficient by 
+    
+    1. Introducing a new tool (get_item_list) to get the available items first.
+
+    2. Implement an item_id filter on the get_definition function, to avoid fetching N-1 unnecessary records.
         
     ```
     get_item_list() -> [item_id] # List of available item ids 
-    get_definition(item_id) -> {item_id, ...metadata fields} # Additional item_id parameter
+    get_definition(item_id) # Additional item_id parameter 
+        -> {item_id, ...metadata fields} 
     ```
 
 - Overlapping/unnecessary tool functions. 
@@ -437,15 +449,16 @@ To visualise figuratively,
     
     Both of these could arguably be used to find an item's metadata. We can merge them into a single function if the output data is not very large.
     
-    - Good Example
+    Good Example
     ```
     get_item_details(id) -> {item_fields} # Returns the item metadata in an object
     ```
 
 - Ensure that tool functions work with each other. 
+
     The outputs of Tool A should naturally serve as the inputs for Tool B. Otherwise, it is not intuitive for the LLM and you may end up experiencing the previous issue of having unnecessary overlapping tools.
 
-    - Bad Example
+    Bad Example
     ```
     list_files() -> [file_name] # Returns list of file names
     delete_file(file_id) -> Boolean # Deletes a file by file_id.
@@ -453,12 +466,12 @@ To visualise figuratively,
 
     This is bad because the LLM will learn about the file names, but will not have knowledge of the file id required to perform the delete function.
 
-    - Corrected Example
+    Corrected Example
     ```
     list_files() -> [{file_id, file_name}] # Returns list of file metadata objects that includes the file id.
     delete_file(file_id) -> Boolean # Deletes a file by file_id.
     ```
-    The LLM will be capture the file id from the object list in order to invoke the delete function.
+    The LLM will now be able to capture the file id from the object list in order to invoke the delete function.
 
 ## Caveats when running MCP gateways
 While deploying MCP gateways in production, we encountered a few transport and connection-related caveats that are worth highlighting.
@@ -470,15 +483,17 @@ While deploying MCP gateways in production, we encountered a few transport and c
 
     Running the gateway in [stateless mode](https://gofastmcp.com/deployment/http#without-stateless-mode) prevents sticky sessions between clients and servers. This allows the service to scale horizontally behind a load balancer without routing requests to specific instances.
 
-- Do not allow GET requests on the /mcp endpoint
+- Managing SSE connections on the `/mcp` endpoint
 
-    If the /mcp endpoint accepts GET, some MCP clients may interpret it as an SSE endpoint and attempt to establish a persistent streaming connection.
+    If the `/mcp` endpoint accepts GET, some MCP clients may interpret it as an SSE endpoint and attempt to establish a persistent streaming connection.
+
     This can lead to long-lived connections that consume server resources. If many clients open these connections simultaneously without closing them properly, the service may eventually run out of available connection slots and stop accepting new requests.
     
-    To avoid this issue, according to the [official MCP Transports docs](https://modelcontextprotocol.io/specification/2025-11-25/basic/transports#listening-for-messages-from-the-server), the /mcp endpoint should either:
-        - Return Content-Type: text/event-stream for valid SSE streams, or
+    To avoid this issue, we can either 
+    
+        - Implement logic to [gracefully close the SSE](https://gofastmcp.com/deployment/http#sse-polling-for-long-running-operations) connections on timeout using the `close_sse_stream` function.
         
-        - Return HTTP 405 Method Not Allowed to explicitly indicate that SSE is not supported.
+        - Reject GET requests for the `/mcp` endpoint by returning [HTTP 405 Method Not Allowed](https://modelcontextprotocol.io/specification/2025-11-25/basic/transports#listening-for-messages-from-the-server) to explicitly indicate that SSE is not supported.
 
 # Conclusion
 This article sums up the rationale, different design decisions and the different lessons that I have learnt during this journey. I hope this serves as a good blueprint for anyone who is interested in architecting MCP servers for production environments.
