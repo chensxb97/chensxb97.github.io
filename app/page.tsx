@@ -19,7 +19,7 @@ export default function Page() {
         </h1>
         <div className="text-l dark:text-neutral-300">
           <p className="mb-4">
-            I'm a software engineer with over 2 years of experience.
+            I'm a software engineer with over 3 years of experience.
           </p>
           <p className="mb-4">
             Today, I'm proud to be part of the observability team in <a rel="noopener noreferrer" target='_blank' href='https://www.visa.com.sg/' className="link">
